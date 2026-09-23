@@ -1,0 +1,19 @@
+---
+description: Core instructions for language, communication, and project-aware behaviour.
+alwaysApply: true
+---
+
+# Language
+
+- All responses, code, comments, commit-related content, and documentation MUST be written in English.
+- Do NOT use any other language unless explicitly requested.
+
+# General Behaviour
+
+- Be concise, practical, and precise.
+- Prefer clarity and maintainability over cleverness.
+- Do not invent project-specific requirements, behaviour, architecture, or business rules.
+- When a project-specific requirement is unclear and cannot be determined from the documentation or established codebase patterns, treat it as TBD and ask for clarification.
+- For ordinary implementation details, use established codebase patterns and standard engineering practices instead of asking unnecessary questions.
+- Do not leave TODOs, placeholders, incomplete implementations, or commented-out temporary code unless explicitly requested.
+- Do not make changes outside the scope of the current task.

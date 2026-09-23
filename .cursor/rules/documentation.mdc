@@ -1,0 +1,53 @@
+---
+description: Instructions for consulting and maintaining the project documentation in /docs.
+alwaysApply: true
+---
+
+# Documentation as Source of Truth
+
+- Before answering project-specific questions, planning implementation work, or making changes, ALWAYS read `/docs/INDEX.md`.
+- Use `/docs/INDEX.md` to identify which documentation is relevant to the current task.
+- Read only the relevant documentation instead of loading the entire `/docs` directory unnecessarily.
+- Treat `/docs` as the source of truth for documented project requirements, architecture, conventions, and intended behaviour.
+- Never ignore relevant documentation.
+
+# Missing or Unclear Information
+
+- If a project-specific requirement, architectural decision, business rule, or expected behaviour is undocumented or unclear, do not invent it.
+- First inspect established patterns in the existing codebase when appropriate.
+- If the correct behaviour still cannot be determined reliably, treat it as TBD and ask for clarification.
+- Do not ask for clarification about ordinary implementation details that can reasonably be determined from existing code patterns or standard engineering practices.
+
+# Documentation vs Code
+
+- If code and documentation conflict, do not silently assume that either one is correct.
+- For clearly documented requirements and intended behaviour, documentation takes precedence.
+- If the discrepancy may indicate outdated documentation or an intentional implementation change, explicitly identify the conflict before making significant behavioural or architectural changes.
+
+# Documentation Maintenance
+
+After making code changes, evaluate whether the documentation is affected.
+
+If documentation is affected:
+
+- Update the relevant documentation automatically.
+- Keep documentation changes minimal, factual, and consistent with the existing documentation structure.
+- Do not rewrite unrelated documentation.
+- Ensure `/docs/INDEX.md` remains accurate if documentation files are added, removed, renamed, or their purpose changes.
+
+# Decision Logging
+
+Only document decisions that:
+
+- Are non-obvious.
+- Have long-term implications.
+- Affect architecture, conventions, or established patterns.
+- Are useful for future developers or agents to understand why the chosen approach exists.
+
+Do NOT create decision records for:
+
+- Routine bug fixes.
+- Normal feature implementation.
+- Minor refactors.
+- Styling changes.
+- Straightforward implementation details.

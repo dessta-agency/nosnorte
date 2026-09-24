@@ -1,0 +1,75 @@
+{
+  "common": {
+    "company_name": "Nós-Norte",
+    "loading": "Cargando…",
+    "error": "Se ha producido un error",
+    "not_found_title": "404",
+    "not_found_description": "Página no encontrada.",
+    "not_found_back_home": "Volver al inicio",
+    "main_navigation": "Navegación principal",
+    "open_menu": "Abrir menú",
+    "close_menu": "Cerrar menú",
+    "home_aria_label": "Nós-Norte — Inicio"
+  },
+  "navigation": {
+    "home": "Inicio",
+    "ambientes": "Ambientes",
+    "produtos": "Productos",
+    "showroom": "Showroom",
+    "historia": "Historia",
+    "contactos": "Contactos"
+  },
+  "footer": {
+    "information": "Información",
+    "contacts": "Contactos",
+    "copyright": "© {year} Nós-Norte Materiais de Construção, Lda.Todos los derechos reservados.",
+    "language": "Idioma",
+    "quality_policy": "Política de Calidad",
+    "privacy_policy": "Política de Privacidad",
+    "code_of_conduct": "Código de Conducta",
+    "dispute_resolution": "Resolución Alternativa de Litigios",
+    "complaints_book": "Libro de Reclamaciones Online",
+    "email": "Email",
+    "phone": "Teléfono",
+    "whatsapp": "Whatsapp",
+    "address": "Dirección",
+    "phone_note": "(llamada a red fija nacional)",
+    "whatsapp_note": "(solo mensajes de texto)",
+    "maps_label": "Ver en Google Maps"
+  },
+  "metadata": {
+    "site_title": "Nós-Norte - Materiales de Construcción",
+    "site_title_template": "%s | Nós-Norte",
+    "site_description": "Nós-Norte — Materiales de Construcción",
+    "ambientes": "Ambientes",
+    "produtos": "Productos",
+    "showroom": "Showroom",
+    "historia": "Historia",
+    "contactos": "Contactos",
+    "quality_policy": "Política de Calidad",
+    "privacy_policy": "Política de Privacidad",
+    "code_of_conduct": "Código de Conducta"
+  },
+  "hero": {
+    "slides": {
+      "1": {
+        "eyebrow": "SOLUCIONES PARA CASA",
+        "title": "Materiales que transforman espacios",
+        "description": "Soluciones completas para construcción, renovación y decoración",
+        "cta": "Explorar productos"
+      },
+      "2": {
+        "eyebrow": "AMBIENTES DE EXCELENCIA",
+        "title": "Inspírese con nuestros materiales",
+        "description": "Calidad y diseño que marcan la diferencia en cada proyecto",
+        "cta": "Ver ambientes"
+      },
+      "3": {
+        "eyebrow": "VISÍTENOS",
+        "title": "Conozca nuestro showroom",
+        "description": "Toda nuestra gama de productos y servicios a su disposición",
+        "cta": "Programar visita"
+      }
+    }
+  }
+}

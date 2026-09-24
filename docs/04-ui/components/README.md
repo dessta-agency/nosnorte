@@ -1,41 +1,18 @@
-## Trigger Condition
-Only proceed if:
+# Components
 
-- The component has a clear contract or non-obvious behavior
+Index of documented UI components.
 
-- The component requires explanation to be used correctly
+## Layout
 
-If this condition is NOT met:
+- [Container](Container.md) — shared horizontal layout grid (proportional width)
+- [PageContainer](PageContainer.md) — page content wrapper aligned to the same grid
+- [Navbar](Navbar.md) — global top navigation
+- [Footer](Footer.md) — global site footer
 
-- Do NOT create or update any documentation
+## UI
 
-## Your Task
-Document the component.
+- [Carousel](Carousel.md) — reusable Embla carousel (autoplay, dots, counter)
 
-## Content Requirements
+## Features
 
-Describe:
-
-- The responsibility of the component
-
-- When it should be used
-
-- When it should NOT be used
-
-- UX and accessibility implications
-
-## Constraints (Strict)
-- Do NOT document trivial wrappers or pass-through components
-
-- Do NOT include implementation details or code-level explanations
-
-- Do NOT document obvious behavior that can be inferred from usage
-
-- Do NOT duplicate information already clear from the component API
-
-## Output Requirements
-- Write inside docs/04-ui/components
-
-- Keep documentation concise, clear, and focused on usage
-
-- Focus on intent and correct usage, not implementation
+- [HeroCarousel](HeroCarousel.md) — full-bleed homepage hero carousel

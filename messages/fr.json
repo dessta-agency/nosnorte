@@ -1,0 +1,75 @@
+{
+  "common": {
+    "company_name": "Nós-Norte",
+    "loading": "Chargement…",
+    "error": "Une erreur s'est produite",
+    "not_found_title": "404",
+    "not_found_description": "Page introuvable.",
+    "not_found_back_home": "Retour à l'accueil",
+    "main_navigation": "Navigation principale",
+    "open_menu": "Ouvrir le menu",
+    "close_menu": "Fermer le menu",
+    "home_aria_label": "Nós-Norte — Accueil"
+  },
+  "navigation": {
+    "home": "Accueil",
+    "ambientes": "Espaces",
+    "produtos": "Produits",
+    "showroom": "Showroom",
+    "historia": "Histoire",
+    "contactos": "Contacts"
+  },
+  "footer": {
+    "information": "Information",
+    "contacts": "Contacts",
+    "copyright": "© {year} Nós-Norte Materiais de Construção, Lda.Tous droits réservés.",
+    "language": "Langue",
+    "quality_policy": "Politique de Qualité",
+    "privacy_policy": "Politique de Confidentialité",
+    "code_of_conduct": "Code de Conduite",
+    "dispute_resolution": "Résolution Alternative des Litiges",
+    "complaints_book": "Livre de Réclamations en Ligne",
+    "email": "Email",
+    "phone": "Téléphone",
+    "whatsapp": "Whatsapp",
+    "address": "Adresse",
+    "phone_note": "(appel vers le réseau fixe national)",
+    "whatsapp_note": "(messages texte uniquement)",
+    "maps_label": "Voir sur Google Maps"
+  },
+  "metadata": {
+    "site_title": "Nós-Norte - Matériaux de Construction",
+    "site_title_template": "%s | Nós-Norte",
+    "site_description": "Nós-Norte — Matériaux de Construction",
+    "ambientes": "Espaces",
+    "produtos": "Produits",
+    "showroom": "Showroom",
+    "historia": "Histoire",
+    "contactos": "Contacts",
+    "quality_policy": "Politique de Qualité",
+    "privacy_policy": "Politique de Confidentialité",
+    "code_of_conduct": "Code de Conduite"
+  },
+  "hero": {
+    "slides": {
+      "1": {
+        "eyebrow": "SOLUTIONS MAISON",
+        "title": "Matériaux qui transforment les espaces",
+        "description": "Solutions complètes pour la construction, la rénovation et la décoration",
+        "cta": "Explorer produits"
+      },
+      "2": {
+        "eyebrow": "ESPACES D'EXCELLENCE",
+        "title": "Inspirez-vous de nos matériaux",
+        "description": "Qualité et design qui font la différence dans chaque projet",
+        "cta": "Voir espaces"
+      },
+      "3": {
+        "eyebrow": "VISITEZ-NOUS",
+        "title": "Découvrez notre showroom",
+        "description": "Toute notre gamme de produits et services à votre disposition",
+        "cta": "Planifier visite"
+      }
+    }
+  }
+}

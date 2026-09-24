@@ -20,7 +20,8 @@
 
 ## Part B — Project-Specific Rules
 
-- Keep routing, layouts, and route-level files in `app/`. Do not move `app/` under another directory.
+- Keep routing, layouts, and route-level files in `app/`. Locale-aware pages live under `app/[locale]/`. Do not move `app/` under another directory.
+- Follow [I18N Rules](I18N_RULES.md) for all user-visible copy and locale-aware navigation.
 
 - Place reusable React components in `components/` using the existing subfolders: `ui/`, `layout/`, `forms/`, and `features/`.
 

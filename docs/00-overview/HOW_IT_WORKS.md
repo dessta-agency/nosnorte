@@ -4,7 +4,11 @@ High-level functional description of the project (no technical details).
 
 ## Main Flows
 
-TBD
+### Homepage hero
+
+1. Visitor opens the home page.
+2. A full-width image carousel shows rotating slides with a short headline, supporting text, and a call-to-action.
+3. The visitor can change slides via the bottom indicators or wait for automatic rotation.
 
 ## Key States
 

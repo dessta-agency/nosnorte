@@ -14,44 +14,54 @@ The architecture follows a folder-based organization where responsibilities are 
 - **UI Library**: React 19.2.8
 - **Language**: TypeScript 5 (strict mode)
 - **Styling**: Tailwind CSS 4
+- **i18n**: next-intl (locale-prefixed routes)
+- **Carousel**: Embla Carousel (`embla-carousel-react`, `embla-carousel-autoplay`)
 - **Linting**: ESLint with `eslint-config-next`
 
 ## Folder Structure
 
 ```
-starter-kit/
+nosnorte/
 ├── app/                    # Next.js App Router
-│   ├── layout.tsx          # Root layout
-│   ├── page.tsx            # Home page
-│   └── globals.css         # Global styles
-├── components/             # Reusable components
-│   ├── ui/                 # UI primitives (buttons, inputs, cards)
-│   ├── layout/             # Layout components (header, footer)
-│   ├── forms/              # Form components
-│   └── features/           # Feature-specific components
-├── context/                # React Context providers
-├── services/               # API calls and external integrations
-├── lib/                    # Library setup and configuration
-├── hooks/                  # Custom React hooks
-├── types/                  # Shared TypeScript definitions
-├── utils/                  # Helper functions
-├── config/                 # Application configuration
-├── constants/              # Fixed values and enums
-├── public/                 # Static assets
+│   ├── layout.tsx          # Minimal root layout
+│   ├── [locale]/           # Locale-prefixed routes (pt, en, es, fr)
+│   │   ├── layout.tsx      # Locale layout (Navbar, Footer, providers)
+│   │   ├── page.tsx        # Home
+│   │   ├── ambientes/      # Ambientes
+│   │   ├── produtos/       # Produtos
+│   │   ├── showroom/       # Showroom
+│   │   ├── historia/       # História
+│   │   ├── contactos/      # Contactos
+│   │   ├── politica-de-qualidade/
+│   │   ├── politica-de-privacidade/
+│   │   └── codigo-de-conduta/
+│   └── globals.css         # Design tokens and global styles
+├── components/
+│   ├── ui/                 # Carousel and other low-level UI
+│   ├── layout/             # Navbar, Footer, Container, PageContainer
+│   └── features/           # HeroCarousel and domain features
+├── constants/              # Fixed values (navigation, company contacts)
+├── i18n/                   # next-intl routing, request config, navigation
+├── messages/               # Translation JSON files (pt, en, es, fr)
+├── proxy.ts                # Locale negotiation (next-intl)
+├── public/
+│   ├── logos/              # Brand logos
+│   ├── icons/              # UI icons
+│   └── images/             # Content images (e.g. home hero slides)
 └── docs/                   # Documentation
 ```
 
 ## Responsibility Separation
 
 ### `app/`
-Contains Next.js routing, layouts, and page-level components. Follows the App Router file conventions.
+Contains Next.js routing, layouts, and page-level components. Follows the App Router file conventions. Most pages wrap content in `PageContainer`. The home page uses a full-bleed `HeroCarousel` instead.
 
 ### `components/`
 Reusable React components organized by category:
-- **ui**: Low-level, reusable interface elements
-- **layout**: Structural components used across pages
+- **ui**: Low-level, reusable interface elements (`Carousel`)
+- **layout**: Structural components used across pages (`Navbar`, `Container`, `PageContainer`)
 - **forms**: Form-related components and input wrappers
-- **features**: Domain-specific, feature-focused components
+- **features**: Domain-specific, feature-focused components (`HeroCarousel`)
 
 ### `context/`
 React Context providers for global state (authentication, theme, user preferences). Each context encapsulates state and related logic.
@@ -75,10 +85,19 @@ Pure functions for data transformation, formatting, validation, and other helper
 Application configuration that may vary by environment (feature flags, runtime settings, environment-specific values).
 
 ### `constants/`
-Fixed, immutable values (enums, UI constants, default values) that do not change between environments.
+Fixed, immutable values (enums, UI constants, default values) that do not change between environments. Navigation links and company contact details live here (`navigation.ts`, `contacts.ts`). Navigation stores `translationKey` values resolved through message files; contact labels/notes are also translation keys.
 
 ### `public/`
-Static assets served directly (images, fonts, icons).
+Static assets served directly (images, fonts, icons). Brand logos under `public/logos/`; UI icons under `public/icons/`; homepage hero images under `public/images/home/`.
+
+## Layout Grid
+
+- `Container` — shared horizontal width and side spacing (proportional to the viewport)
+- `PageContainer` — page content wrapper using `Container`, with consistent top spacing
+- `Navbar` inner content uses the same `Container` so navigation and pages stay aligned
+- `Footer` uses the same `Container` and company contacts from `constants/contacts.ts`
+
+Full-bleed visuals stay outside `Container` / `PageContainer` (homepage `HeroCarousel`).
 
 ## Import Strategy
 
@@ -104,7 +123,7 @@ Current approach:
 
 Tailwind CSS utility classes are used for styling. Design tokens (colors, typography) are defined in `app/globals.css` using `:root` CSS variables and the Tailwind v4 `@theme inline` directive.
 
-**Current values are placeholders** — each project should customize colors and fonts to match its visual identity.
+**Brand colors, Manrope (`font-sans`), and DM Serif Display (`font-display`) are configured.** Status colors (`success`, `warning`) remain placeholder values until defined.
 
 ### Available tokens
 
@@ -116,17 +135,18 @@ Tailwind CSS utility classes are used for styling. Design tokens (colors, typogr
 | `muted` | `text-muted` |
 | `border` | `border-border` |
 | `success` / `error` / `warning` | `text-success`, `text-error`, `text-warning` |
-| `font-sans` / `font-mono` | `font-sans`, `font-mono` |
+| `footer-bg` / `footer-border` / `footer-text` / `footer-text-secondary` / `footer-text-muted` / `footer-icon-bg` | `bg-footer-bg`, `text-footer-text-muted`, `bg-footer-icon-bg` |
+| `font-sans` | `font-sans` |
+| `font-display` | `font-display` |
 
 Dark mode is not enabled by default. Add `@media (prefers-color-scheme: dark)` variants in `globals.css` per project if needed.
 
 ## Metadata and SEO
 
-Default metadata is defined in `app/layout.tsx` with placeholder values. Each project must update:
+Default metadata is defined in `app/layout.tsx`.
 
-- `title` and `description`
-- `metadataBase` (required for correct Open Graph URLs)
-- `openGraph` and `twitter` blocks when sharing matters
+- **Title**: `Nós-Norte - Materiais de Construção` (page template: `%s | Nós-Norte`)
+- **Still TBD**: `description`, `metadataBase`, `openGraph`, and `twitter`
 
 Page-level metadata can override defaults using the `metadata` export or `generateMetadata` in individual route files.
 

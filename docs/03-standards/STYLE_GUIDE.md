@@ -17,13 +17,18 @@ UI/UX guidelines for visual and behavioral consistency across the interface.
   - `success` / `error` / `warning` — user feedback only, not decoration
   - `background` / `foreground` — base page colors
   - `border` — borders and dividers
+  - `footer-bg` / `footer-border` / `footer-text` / `footer-text-secondary` / `footer-text-muted` / `footer-icon-bg` — footer surface, copy, and icon circles
 
 - Customize token values in `app/globals.css` to match each project's visual identity.
 
-- Use `font-sans` for body text and `font-mono` for code; customize font families in `globals.css` per project.
+- Use `font-sans` for body text (Manrope); use `font-display` for display titles (DM Serif Display). Customize font families in `globals.css` per project.
 
 ## Layout and Hierarchy
 
+- Use `PageContainer` as the root wrapper for page content that should share the same width and spacing as the navbar.
+- Exception: full-bleed sections (e.g. homepage `HeroCarousel`) stay outside `PageContainer` / `Container`.
+- Use `Container` when aligning other sections to that same horizontal grid.
+- Use `font-display` for large display titles (hero headlines); use `font-sans` for body and UI chrome.
 - Use one primary heading (`h1`) per page or main view.
 
 - Follow heading levels in order; do not skip levels for visual styling alone.

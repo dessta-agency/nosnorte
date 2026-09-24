@@ -1,55 +1,58 @@
-## Decision Qualification (Mandatory)
+# Decisions Log
 
-Before proceeding, validate:
+Technical decisions with lasting impact on architecture or conventions.
 
-A valid decision MUST:
+---
 
-- Be non-obvious
+## 2026-09-24 — next-intl with locale-prefixed routes
 
-- Have medium or long-term impact
+### Context
 
-- Affect architecture, patterns, or global behavior
+The site must support Portuguese, English, Spanish, and French, with language switching from the footer.
 
-If ANY of these conditions are NOT met:
+### Decision
 
-- Do NOT document the decision
+Use `next-intl` with App Router `[locale]` segments, `localePrefix: 'always'`, Portuguese as the default locale, and Portuguese route slugs kept across languages. Translation copy lives in `messages/{locale}.json`.
 
-## Explicit Exclusions
+### Consequences
 
-Do NOT document:
+- URLs always include a locale prefix (`/pt/...`, `/en/...`, …).
+- In-app navigation must use `@/i18n/navigation` to preserve locale.
+- New user-visible copy requires updates in all four message files.
+- Locale negotiation runs through `proxy.ts` (Next.js 16).
 
-- Bug fixes
+---
 
-- Feature implementations
+## 2026-09-24 — Proportional layout width
 
-- Small or local refactors
+### Context
 
-- Temporary workarounds
+Fixed max-widths and Tailwind’s breakpoint `container` produced uneven side spacing: too much margin on large screens, almost none on smaller ones.
 
-- Minor improvements with no structural impact
+### Decision
 
-## Your Task
-Document the decision.
+Use a proportional viewport width for the shared layout `Container` (currently 96% of the viewport), with no max-width cap, so side spacing stays consistent across screen sizes. Navbar and page content both use this `Container`.
 
-## Content Requirements
-Include:
+### Consequences
 
-- Context
+- Navbar and pages stay horizontally aligned.
+- Side margins scale with the viewport.
+- Changing the proportion updates the whole site grid in one place (`Container`).
 
-- Decision
+---
 
-- Consequences
+## 2026-09-24 — Embla Carousel for homepage hero
 
-## Constraints (Strict)
-- Keep the entry short, clear, and objective
+### Context
 
-- Do NOT include implementation details
+The homepage needs a full-bleed image carousel with autoplay, loop, dots, and a slide counter. No carousel dependency was present yet.
 
-- Do NOT speculate or add assumptions
+### Decision
 
-- Do NOT document decisions that are still under discussion
+Use Embla Carousel (`embla-carousel-react` + `embla-carousel-autoplay`) via a reusable `Carousel` UI component and a homepage-specific `HeroCarousel` feature. The home page does not use `PageContainer` so the hero stays edge-to-edge. Hero height is `calc(100dvh - 5.5rem)` to fit below the unscrolled navbar without vertical overflow.
 
-## Output Requirements
-- Append the entry to DECISIONS_LOG.md
+### Consequences
 
-- Keep entries consistent in structure and style
+- Carousel behaviour is shared; homepage content and copy stay in `HeroCarousel` and `hero` messages.
+- Full-bleed heroes must stay outside `PageContainer` / `Container`.
+- Slide count for dots/counter is derived from React children for reliable mount sync.

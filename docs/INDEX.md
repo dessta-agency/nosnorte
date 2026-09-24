@@ -16,12 +16,19 @@ Main documentation map and entry point for humans and AI.
 ## Architecture
 
 - [Frontend Architecture](02-architecture/FRONTEND_ARCHITECTURE.md) — structure and organization
+- [I18N Architecture](02-architecture/I18N_ARCHITECTURE.md) — internationalization structure
 
 ## Standards & Rules
 
 - [Frontend Rules](03-standards/FRONTEND_RULES.md) — mandatory development rules
+- [I18N Rules](03-standards/I18N_RULES.md) — translation and i18n standards
 - [Style Guide](03-standards/STYLE_GUIDE.md) — UI/UX guidelines
 - [Documentation Rules](03-standards/DOCUMENTATION_RULES.md) — documentation maintenance rules
+
+## Internationalization
+
+- [I18N Architecture](02-architecture/I18N_ARCHITECTURE.md) — internationalization structure
+- [I18N Rules](03-standards/I18N_RULES.md) — translation and i18n standards
 
 ## UI
 

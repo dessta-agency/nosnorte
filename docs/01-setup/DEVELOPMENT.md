@@ -39,7 +39,7 @@ The application will be available at `http://localhost:3000`.
 ## Project Structure
 
 - `app/` — Next.js App Router (pages, layouts, routes)
-- `components/` — Reusable React components
+- `components/` — Reusable React components (`layout/`, `ui/`, `features/` — e.g. Navbar, Carousel, HeroCarousel)
 - `context/` — React Context providers
 - `services/` — API calls and external integrations
 - `lib/` — Library setup and utilities
@@ -47,8 +47,8 @@ The application will be available at `http://localhost:3000`.
 - `types/` — TypeScript type definitions
 - `utils/` — Helper functions
 - `config/` — Application configuration
-- `constants/` — Fixed values and enums
-- `public/` — Static assets
+- `constants/` — Fixed values and enums (e.g. navigation links, company contacts)
+- `public/` — Static assets (`logos/`, `icons/`, `images/`)
 - `docs/` — Project documentation
 
 ## Key Files
@@ -63,10 +63,10 @@ The application will be available at `http://localhost:3000`.
 
 When starting a new project from this starter, customize the following:
 
-- [ ] **Design tokens** — Update colors and fonts in `app/globals.css`
-- [ ] **Metadata** — Update `title`, `description`, and uncomment `metadataBase`, `openGraph`, and `twitter` in `app/layout.tsx`
+- [x] **Design tokens** — Colors, Manrope (`font-sans`), and DM Serif Display (`font-display`) configured in `app/globals.css`
+- [ ] **Metadata** — Title set; still need `description`, `metadataBase`, `openGraph`, and `twitter` in `app/layout.tsx`
 - [ ] **Favicon** — Add project icon to `app/` (see below)
-- [ ] **Project context** — Fill in `docs/00-overview/PROJECT_CONTEXT.md`
+- [x] **Project context** — Project name recorded in `docs/00-overview/PROJECT_CONTEXT.md`; remaining fields TBD
 
 ### Favicon
 
@@ -93,7 +93,7 @@ import Image from "next/image";
 />
 ```
 
-- Store static images in `public/` and reference them by path (e.g. `/example.jpg`)
+- Store static images in `public/` and reference them by path (e.g. `/logos/LogoColor.svg`, `/icons/menu.png`)
 - Always provide meaningful `alt` text
 - Always set `width` and `height` (or use `fill` with a sized parent container)
 - Do not use `<img>` for content images unless there is a documented exception

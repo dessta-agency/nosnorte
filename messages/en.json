@@ -1,0 +1,75 @@
+{
+  "common": {
+    "company_name": "Nós-Norte",
+    "loading": "Loading…",
+    "error": "An error occurred",
+    "not_found_title": "404",
+    "not_found_description": "Page not found.",
+    "not_found_back_home": "Back to home",
+    "main_navigation": "Main navigation",
+    "open_menu": "Open menu",
+    "close_menu": "Close menu",
+    "home_aria_label": "Nós-Norte — Home"
+  },
+  "navigation": {
+    "home": "Home",
+    "ambientes": "Spaces",
+    "produtos": "Products",
+    "showroom": "Showroom",
+    "historia": "History",
+    "contactos": "Contacts"
+  },
+  "footer": {
+    "information": "Information",
+    "contacts": "Contacts",
+    "copyright": "© {year} Nós-Norte Materiais de Construção, Lda. All rights reserved.",
+    "language": "Language",
+    "quality_policy": "Quality Policy",
+    "privacy_policy": "Privacy Policy",
+    "code_of_conduct": "Code of Conduct",
+    "dispute_resolution": "Alternative Dispute Resolution",
+    "complaints_book": "Online Complaints Book",
+    "email": "Email",
+    "phone": "Phone",
+    "whatsapp": "Whatsapp",
+    "address": "Address",
+    "phone_note": "(call to national landline)",
+    "whatsapp_note": "(text messages only)",
+    "maps_label": "View on Google Maps"
+  },
+  "metadata": {
+    "site_title": "Nós-Norte - Building Materials",
+    "site_title_template": "%s | Nós-Norte",
+    "site_description": "Nós-Norte — Building Materials",
+    "ambientes": "Spaces",
+    "produtos": "Products",
+    "showroom": "Showroom",
+    "historia": "History",
+    "contactos": "Contacts",
+    "quality_policy": "Quality Policy",
+    "privacy_policy": "Privacy Policy",
+    "code_of_conduct": "Code of Conduct"
+  },
+  "hero": {
+    "slides": {
+      "1": {
+        "eyebrow": "HOME SOLUTIONS",
+        "title": "Materials that transform spaces",
+        "description": "Complete solutions for construction, renovation and decoration",
+        "cta": "Explore products"
+      },
+      "2": {
+        "eyebrow": "EXCELLENCE SPACES",
+        "title": "Get inspired by our materials",
+        "description": "Quality and design that make a difference in every project",
+        "cta": "View spaces"
+      },
+      "3": {
+        "eyebrow": "VISIT US",
+        "title": "Discover our showroom",
+        "description": "Our full range of products and services at your disposal",
+        "cta": "Schedule visit"
+      }
+    }
+  }
+}

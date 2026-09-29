@@ -2,7 +2,7 @@
 
 ## Responsibility
 
-Site-wide footer with brand logo, information links, company contacts, copyright, and locale switcher.
+Site-wide footer with brand logo, information links, company contacts, social links, copyright, and locale switcher.
 
 ## When to use
 
@@ -14,10 +14,11 @@ Do not duplicate inside individual pages. Do not use for page-specific secondary
 
 ## Structure
 
-- Left: white logo (centred in the column)
-- Centre: information links (internal pages, external Livro de Reclamações, plain text when no URL yet)
-- Right: contacts with icons and contact details (email, phone, WhatsApp, address, Google Maps)
-- Bottom: centred divider; copyright left-aligned with language links (PT EN ES FR) on the right, preceded by a short vertical divider
+- Logo: white logo (centred in the column)
+- Information: internal pages, external Livro de Reclamações, plain text when no URL yet
+- Contacts: icons and contact details (email, phone, WhatsApp, address, Google Maps)
+- Follow us: Instagram and Facebook icon links
+- Bottom: full-width divider aligned to `Container`; copyright left-aligned with language links (PT EN ES FR) on the right, preceded by a short vertical divider
 
 ## Behaviour
 
@@ -31,7 +32,9 @@ Do not duplicate inside individual pages. Do not use for page-specific secondary
 
 ## Notes
 
+- Footer uses `Container` so side spacing matches the navbar and `PageContainer`.
 - Footer colours use dedicated design tokens: `footer-bg`, `footer-border`, `footer-text`, `footer-text-secondary`, `footer-text-muted`, `footer-icon-bg`.
 - Company contact data lives in `constants/contacts.ts` (`COMPANY_CONTACT`). Reuse that object anywhere in the app; do not hardcode contact details in components.
 - Footer display structure for contacts uses `FOOTER_CONTACT_ITEMS` from the same file (labels/notes are translation keys).
+- Social links use `FOOTER_SOCIAL_LINKS` from the same file (Instagram, Facebook).
 

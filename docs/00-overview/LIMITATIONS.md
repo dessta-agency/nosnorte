@@ -1,28 +1,16 @@
-## Your Task
-Document known limitations and consciously accepted trade-offs in the project.
+# Limitations
 
-## Content Requirements
+Known limitations and consciously accepted trade-offs.
 
-Include ONLY:
+## Product catalog data
 
-- Limitations that affect the product behavior
+- Product list data currently comes from DummyJSON (external mock API), not from a Nós-Norte catalog backend.
+- Card fields such as reference, availability, “more options”, price-on-request, SKU, unit, and color options are enriched locally for UI purposes; they are not authoritative business data.
 
-- Limitations that impact development or maintainability
+## Add to order
 
-- Explicit trade-offs that were intentionally accepted
+- “Add to order” only shows temporary UI feedback on the button. There is no cart, order persistence, or backend submission yet.
 
-## Constraints (Strict)
-- Do NOT list bugs
+## Status badge color for “on order”
 
-- Do NOT include future work, ideas, or improvements
-
-- Do NOT propose solutions or fixes
-
-- Do NOT speculate or assume missing limitations
-
-- Do NOT include temporary issues
-
-## Output Requirements
-- Keep entries short, clear, and factual
-
-- Focus on current reality, not potential changes
+- The “on order” badge uses a fixed amber color (`#AD7225`) rather than a shared design token.

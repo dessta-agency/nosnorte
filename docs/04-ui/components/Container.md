@@ -14,4 +14,6 @@ Do not use for full-bleed backgrounds, edge-to-edge media, or elements that must
 
 ## Notes
 
-Side spacing stays proportional to the viewport. Avoid a fixed max-width cap — it would break that proportion on large screens.
+- Side spacing stays proportional to the viewport (currently `w-[90%]` plus horizontal padding). Avoid a fixed max-width cap — it would break that proportion on large screens.
+- Navbar, Footer, and `PageContainer` must all use this component so chrome and page content stay aligned.
+- Full-bleed heroes do **not** use `Container` for their text; they use the shared hero inset (`FULL_BLEED_HERO_INSET`).

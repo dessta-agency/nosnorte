@@ -12,8 +12,11 @@ UI/UX guidelines for visual and behavioral consistency across the interface.
 
 - Apply tokens by role:
   - `primary` — main actions, links, and key highlights
+  - `primary-hover` — darker primary for hover fills on brand CTAs
   - `secondary` — secondary actions and subtle backgrounds
   - `muted` — secondary text and placeholders
+  - `gray-light` — light gray surfaces (e.g. `Button` light/secondary variants)
+  - `surface` — optional near-white panel token (`hsl(0 0% 99%)`); prefer `background` for pure white panels
   - `success` / `error` / `warning` — user feedback only, not decoration
   - `background` / `foreground` — base page colors
   - `border` — borders and dividers
@@ -25,9 +28,13 @@ UI/UX guidelines for visual and behavioral consistency across the interface.
 
 ## Layout and Hierarchy
 
-- Use `PageContainer` as the root wrapper for page content that should share the same width and spacing as the navbar.
-- Exception: full-bleed sections (e.g. homepage `HeroCarousel`) stay outside `PageContainer` / `Container`.
-- Use `Container` when aligning other sections to that same horizontal grid.
+- **Shared content grid:** Navbar, Footer, and `PageContainer` all use `Container`. They must stay horizontally aligned — do not introduce different side widths or paddings for chrome vs page content.
+- **PageContainer is required** on every page except the homepage. The homepage is the only route that may omit it (full-bleed `HeroCarousel` only).
+- Full-bleed heroes (e.g. `HeroCarousel`, `PageHero`) stay outside `PageContainer` / `Container` so media can go edge-to-edge.
+- **Full-bleed hero text inset:** Homepage carousel and page heroes of the same kind must share the same horizontal content spacing (`FULL_BLEED_HERO_INSET` in `constants/layout.ts`). Do not invent a separate inset per hero.
+- **Surface cards:** Bordered surface panels (product cards, contact sections, etc.) must reuse `SURFACE_CARD` from `constants/layout.ts` for radius, border, and fill. Compose with local padding and interaction styles; do not redefine the card chrome per feature.
+- On pages with a full-bleed hero plus body content: render the hero outside `PageContainer`, then wrap the remaining sections in `PageContainer`.
+- Use `Container` whenever other chrome or sections must align to the shared grid.
 - Use `font-display` for large display titles (hero headlines); use `font-sans` for body and UI chrome.
 - Use one primary heading (`h1`) per page or main view.
 

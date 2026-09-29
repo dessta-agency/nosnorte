@@ -75,7 +75,7 @@ Messages are grouped by concern:
 |-----------|---------|
 | `common` | Shared UI strings (loading, errors, a11y labels) |
 | `navigation` | Navbar labels |
-| `footer` | Footer headings, info links, contact labels, copyright |
+| `footer` | Footer headings, info links, contact labels, social links, copyright |
 | `metadata` | Document titles and descriptions |
 | `hero` | Homepage hero carousel slide copy (`slides`) |
 

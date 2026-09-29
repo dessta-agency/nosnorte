@@ -5,6 +5,7 @@ import { LanguageSwitcher } from "@/components/layout/Footer/LanguageSwitcher";
 import {
   FOOTER_CONTACT_ITEMS,
   FOOTER_INFO_LINKS,
+  FOOTER_SOCIAL_LINKS,
 } from "@/constants/contacts";
 import { Link } from "@/i18n/navigation";
 import { getCurrentYear } from "@/utils/date";
@@ -17,21 +18,21 @@ export async function Footer() {
 
   return (
     <footer className="mt-auto bg-footer-bg">
-      <Container className="py-12">
-        <div className="grid grid-cols-1 gap-10 md:grid-cols-3 md:gap-8">
+      <Container className="py-8">
+        <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4 lg:gap-6">
           <div className="flex items-center justify-center">
             <Image
               src="/logos/LogoWhite.svg"
               alt="Nós-Norte"
               width={220}
               height={72}
-              className="h-16 w-auto sm:h-20"
+              className="h-14 w-auto sm:h-16"
             />
           </div>
 
           <div className="flex justify-center">
             <div className="flex flex-col items-start text-left">
-              <h2 className="mb-4 text-sm font-semibold tracking-wide text-footer-text-secondary uppercase">
+              <h2 className="mb-3 text-sm font-semibold tracking-wide text-footer-text-secondary uppercase">
                 {t("information")}
               </h2>
               <ul className="flex flex-col gap-2">
@@ -75,23 +76,23 @@ export async function Footer() {
 
           <div className="flex justify-center">
             <div className="flex flex-col items-start text-left">
-              <h2 className="mb-4 text-sm font-semibold tracking-wide text-footer-text-secondary uppercase">
+              <h2 className="mb-3 text-sm font-semibold tracking-wide text-footer-text-secondary uppercase">
                 {t("contacts")}
               </h2>
-              <ul className="flex flex-col gap-5">
+              <ul className="flex flex-col gap-4">
                 {FOOTER_CONTACT_ITEMS.map(({ labelKey, icon, details }) => (
-                  <li key={labelKey} className="flex items-center gap-3">
-                    <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-footer-icon-bg">
+                  <li key={labelKey} className="flex items-start gap-2.5">
+                    <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-footer-icon-bg">
                       <Image
                         src={icon}
                         alt=""
-                        width={18}
-                        height={18}
-                        className="h-[18px] w-[18px]"
+                        width={16}
+                        height={16}
+                        className="h-4 w-4"
                       />
                     </span>
                     <div className="flex flex-col gap-0.5">
-                      <span className="text-sm font-medium text-footer-text-secondary">
+                      <span className="text-xs font-medium text-footer-text-secondary">
                         {t(labelKey)}
                       </span>
                       {details.map((detail) => {
@@ -103,7 +104,7 @@ export async function Footer() {
                         const muted = "muted" in detail && detail.muted;
                         const underline = "underline" in detail && detail.underline;
                         const className = [
-                          muted ? "text-xs text-footer-text-muted" : "text-sm text-footer-text",
+                          muted ? "text-xs text-footer-text-muted" : "text-xs text-footer-text",
                           underline ? "underline" : "",
                         ]
                           .filter(Boolean)
@@ -136,14 +137,43 @@ export async function Footer() {
               </ul>
             </div>
           </div>
+
+          <div className="flex justify-center">
+            <div className="flex flex-col items-start text-left">
+              <h2 className="mb-3 text-sm font-semibold tracking-wide text-footer-text-secondary uppercase">
+                {t("follow_us")}
+              </h2>
+              <ul className="flex items-center gap-3">
+                {FOOTER_SOCIAL_LINKS.map(({ labelKey, href, icon }) => (
+                  <li key={labelKey}>
+                    <a
+                      href={href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label={t(labelKey)}
+                      className="flex h-9 w-9 items-center justify-center rounded-full bg-footer-icon-bg transition-opacity hover:opacity-80"
+                    >
+                      <Image
+                        src={icon}
+                        alt=""
+                        width={18}
+                        height={18}
+                        className="h-4.5 w-4.5"
+                      />
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
         </div>
 
-        <div className="mt-12 flex flex-col items-center gap-8">
+        <div className="mt-8 flex flex-col gap-6">
           <div
-            className="w-[95%] border-t border-footer-border"
+            className="w-full border-t border-footer-border"
             aria-hidden="true"
           />
-          <div className="flex w-[88%] flex-col gap-4 py-2 sm:flex-row sm:items-center sm:justify-between">
+          <div className="flex w-full flex-col gap-4 py-1 sm:flex-row sm:items-center sm:justify-between">
             <p className="text-left text-sm text-footer-text">
               {t("copyright", { year: getCurrentYear() })}
             </p>

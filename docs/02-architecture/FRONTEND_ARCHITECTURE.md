@@ -58,10 +58,10 @@ Contains Next.js routing, layouts, and page-level components. Follows the App Ro
 
 ### `components/`
 Reusable React components organized by category:
-- **ui**: Low-level, reusable interface elements (`Carousel`)
+- **ui**: Low-level, reusable interface elements (`Button`, `IconButton`, `TextLink`, `Carousel`, `Modal`, `PageHero`)
 - **layout**: Structural components used across pages (`Navbar`, `Container`, `PageContainer`)
 - **forms**: Form-related components and input wrappers
-- **features**: Domain-specific, feature-focused components (`HeroCarousel`)
+- **features**: Domain-specific, feature-focused components (`HeroCarousel`, `ProductsCatalog`, `ProductCard`, `ProductOptionsModal`)
 
 ### `context/`
 React Context providers for global state (authentication, theme, user preferences). Each context encapsulates state and related logic.
@@ -123,7 +123,7 @@ Current approach:
 
 Tailwind CSS utility classes are used for styling. Design tokens (colors, typography) are defined in `app/globals.css` using `:root` CSS variables and the Tailwind v4 `@theme inline` directive.
 
-**Brand colors, Manrope (`font-sans`), and DM Serif Display (`font-display`) are configured.** Status colors (`success`, `warning`) remain placeholder values until defined.
+**Brand colors, Manrope (`font-sans`), and DM Serif Display (`font-display`) are configured.** Status colors (`success`, `warning`, `error`) are defined in `globals.css`.
 
 ### Available tokens
 
@@ -131,8 +131,11 @@ Tailwind CSS utility classes are used for styling. Design tokens (colors, typogr
 |-------|------------------------|
 | `background` / `foreground` | `bg-background`, `text-foreground` |
 | `primary` | `bg-primary`, `text-primary` |
+| `primary-hover` | `bg-primary-hover` |
 | `secondary` | `bg-secondary`, `text-secondary` |
 | `muted` | `text-muted` |
+| `gray-light` | `bg-gray-light` |
+| `surface` | `bg-surface` |
 | `border` | `border-border` |
 | `success` / `error` / `warning` | `text-success`, `text-error`, `text-warning` |
 | `footer-bg` / `footer-border` / `footer-text` / `footer-text-secondary` / `footer-text-muted` / `footer-icon-bg` | `bg-footer-bg`, `text-footer-text-muted`, `bg-footer-icon-bg` |

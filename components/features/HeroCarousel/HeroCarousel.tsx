@@ -1,6 +1,8 @@
 import { useTranslations } from "next-intl";
 import Image from "next/image";
+import { Button } from "@/components/ui/Button/Button";
 import { Carousel } from "@/components/ui/Carousel/Carousel";
+import { FULL_BLEED_HERO_INSET } from "@/constants/layout";
 import type { HeroSlide } from "@/types/carousel";
 
 const SLIDES_DATA: Omit<
@@ -55,7 +57,7 @@ export function HeroCarousel() {
 
             {/* Content Container */}
             <div className="absolute inset-0 flex items-end">
-              <div className="w-full px-8 pb-32 md:px-12 md:pb-40 lg:px-16 lg:pb-48">
+              <div className={`${FULL_BLEED_HERO_INSET} pb-32 md:pb-40 lg:pb-48`}>
                 <div className="max-w-2xl">
                   {/* Eyebrow */}
                   <div className="mb-4 md:mb-6">
@@ -74,24 +76,9 @@ export function HeroCarousel() {
                     {slide.description}
                   </p>
 
-                  {/* CTA Button - Modern and premium */}
-                  <button className="group relative inline-flex items-center gap-2 overflow-hidden rounded-none border border-white bg-transparent px-6 py-3 font-sans text-sm font-medium tracking-wide text-white transition-all duration-300 hover:bg-white hover:text-black md:px-7 md:py-3.5">
-                    <span className="relative z-10">{slide.cta}</span>
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      strokeWidth={2}
-                      stroke="currentColor"
-                      className="relative z-10 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3"
-                      />
-                    </svg>
-                  </button>
+                  <Button variant="primary" showArrow>
+                    {slide.cta}
+                  </Button>
                 </div>
               </div>
             </div>

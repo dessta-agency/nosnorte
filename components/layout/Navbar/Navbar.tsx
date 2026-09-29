@@ -7,7 +7,9 @@ import { Container } from "@/components/layout/Container/Container";
 import { NAV_LINKS } from "@/constants/navigation";
 import { Link, usePathname } from "@/i18n/navigation";
 
-const SCROLL_THRESHOLD = 50;
+const SCROLL_THRESHOLD = 160;
+const NAV_MOTION =
+  "duration-700 ease-[cubic-bezier(0.22,1,0.36,1)]";
 
 export function Navbar() {
   const t = useTranslations("navigation");
@@ -98,23 +100,24 @@ export function Navbar() {
   };
 
   return (
-    <>
-      {isScrolled ? <div className="h-16" aria-hidden="true" /> : null}
-      <header
+    <header
+      className={[
+        "sticky top-0 z-50 w-full bg-background border-b",
+        "transition-[padding,box-shadow,border-color]",
+        NAV_MOTION,
+        isScrolled
+          ? "border-border/40 pt-0 shadow-sm"
+          : "border-transparent pt-2 shadow-none",
+      ].join(" ")}
+    >
+      <Container
         className={[
-          "mt-2 w-full bg-background transition-[box-shadow,border-color] duration-300",
-          isScrolled
-            ? "fixed top-0 right-0 left-0 z-50 mt-0 border-b border-border/40 shadow-sm"
-            : "relative border-b border-transparent",
+          "flex items-center justify-between",
+          "transition-[height]",
+          NAV_MOTION,
+          isScrolled ? "h-18" : "h-20",
         ].join(" ")}
       >
-        <Container
-          className={[
-            "flex items-center justify-between",
-            "transition-[height] duration-300 ease-out",
-            isScrolled ? "h-16" : "h-20",
-          ].join(" ")}
-        >
           <nav
             className="flex w-full items-center justify-between"
             aria-label={tCommon("main_navigation")}
@@ -126,8 +129,9 @@ export function Navbar() {
                 width={200}
                 height={56}
                 className={[
-                  "w-auto transition-all duration-300 ease-out",
-                  isScrolled ? "h-10" : "h-14",
+                  "w-auto transition-[height,width,transform]",
+                  NAV_MOTION,
+                  isScrolled ? "h-12" : "h-14",
                 ].join(" ")}
                 priority
               />
@@ -135,7 +139,10 @@ export function Navbar() {
 
             <ul ref={navRef} className="relative hidden items-center gap-4 md:flex lg:gap-5">
               <div
-                className="absolute rounded-md bg-primary transition-all duration-300 ease-out"
+                className={[
+                  "absolute rounded-md bg-primary transition-all",
+                  NAV_MOTION,
+                ].join(" ")}
                 style={{
                   left: `${indicatorStyle.left}px`,
                   top: `${indicatorStyle.top}px`,
@@ -201,7 +208,6 @@ export function Navbar() {
             </ul>
           </Container>
         </div>
-      </header>
-    </>
+    </header>
   );
 }

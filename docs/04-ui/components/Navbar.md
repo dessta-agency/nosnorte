@@ -12,10 +12,15 @@ Use once in the locale layout as the global top navigation.
 
 Do not use for in-page section menus, sidebars, or secondary navigation.
 
+## Layout
+
+Inner content uses `Container` so logo and links align with the footer and with page content wrapped in `PageContainer`.
+
 ## Behaviour
 
-- Becomes fixed to the top after the page is scrolled past a short threshold; border and shadow appear only then.
-- Logo is larger at the top of the page and shrinks when sticky.
+- Stays sticky at the top; after scrolling past a moderate threshold, height and logo shrink, and border/shadow appear.
+- Logo is larger at the top of the page and shrinks when compact.
+- Compact transition uses a longer, decelerating ease (~700ms).
 - On desktop, the active link background slides between items.
 - On small screens, links collapse behind a hamburger control.
 

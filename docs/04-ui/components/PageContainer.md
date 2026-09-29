@@ -6,12 +6,14 @@ Wraps each page’s main content with the shared layout grid and consistent top 
 
 ## When to use
 
-Use as the root wrapper for page content that should align to the shared grid (`children` go inside it).
+Use as the root wrapper for page content on **every page except the homepage**, so content aligns with the navbar and footer via the shared `Container` grid.
 
 ## When not to use
 
-Do not use for full-bleed sections that must escape the shared grid (e.g. the homepage `HeroCarousel`). Keep those outside `PageContainer`.
+- Do not use on the homepage when the only content is the full-bleed `HeroCarousel`.
+- Do not wrap full-bleed heroes (`HeroCarousel`, `PageHero`) inside `PageContainer` — keep those outside and put body sections inside `PageContainer`.
 
 ## Notes
 
-Temporarily uses a `1px solid black` border for layout construction; remove when layout work is done.
+- Provides consistent top and bottom spacing for standard page content.
+- Side spacing comes from `Container`; changing `Container` updates navbar, footer, and all `PageContainer` pages together.

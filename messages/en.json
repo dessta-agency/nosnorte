@@ -22,6 +22,7 @@
   "footer": {
     "information": "Information",
     "contacts": "Contacts",
+    "follow_us": "Follow us",
     "copyright": "© {year} Nós-Norte Materiais de Construção, Lda. All rights reserved.",
     "language": "Language",
     "quality_policy": "Quality Policy",
@@ -35,7 +36,9 @@
     "address": "Address",
     "phone_note": "(call to national landline)",
     "whatsapp_note": "(text messages only)",
-    "maps_label": "View on Google Maps"
+    "maps_label": "View on Google Maps",
+    "instagram": "Instagram",
+    "facebook": "Facebook"
   },
   "metadata": {
     "site_title": "Nós-Norte - Building Materials",
@@ -49,6 +52,175 @@
     "quality_policy": "Quality Policy",
     "privacy_policy": "Privacy Policy",
     "code_of_conduct": "Code of Conduct"
+  },
+  "products": {
+    "search_placeholder": "Search products",
+    "sort_by": "Sort by",
+    "sort_options": {
+      "relevance": "Sort by: Relevance",
+      "price_asc": "Sort by: Price (lowest)",
+      "price_desc": "Sort by: Price (highest)",
+      "newest": "Sort by: Recently added"
+    },
+    "results_count": "{count, plural, one {# result} other {# results}}",
+    "loading": "Loading products…",
+    "error": "Error loading products",
+    "no_results": "No products found",
+    "previous_page": "Previous",
+    "next_page": "Next",
+    "page": "Page",
+    "view_options": "View options",
+    "add_to_order": "Add to order",
+    "added_to_order": "Added",
+    "options_modal_title": "Product Options",
+    "options_modal_description": "Description",
+    "close": "Close",
+    "reference": "Ref",
+    "more_options": "More Options",
+    "on_order": "On order",
+    "in_stock": "In stock",
+    "price_on_request": "On request",
+    "request_quote": "Request your personalized quote",
+    "quantity": "Quantity ({unit})",
+    "color": "Color",
+    "color_count": "Color ({count})",
+    "color_options": {
+      "gray": "Grey",
+      "white": "White"
+    },
+    "product_information": "Product information",
+    "sku": "SKU",
+    "brand": "Brand",
+    "unit": "Unit",
+    "unit_bag": "bag",
+    "dimension_options": "Dimension ({count})",
+    "options_count": "{count, plural, one {# option} other {# options}}",
+    "rating": "Rating",
+    "filters": {
+      "title": "Filters",
+      "clear_all": "Clear filters",
+      "categories": "Categories",
+      "price_range": "Price Range",
+      "brands": "Brands",
+      "min_price": "Minimum price",
+      "max_price": "Maximum price",
+      "apply": "Apply",
+      "close": "Close filters",
+      "category_options": {
+        "ceramics": "Ceramics",
+        "paints": "Paints",
+        "woods": "Wood",
+        "sanitary": "Sanitary ware",
+        "flooring": "Flooring",
+        "insulation": "Insulation",
+        "hardware": "Hardware"
+      },
+      "brand_options": {
+        "keraben": "Keraben",
+        "cin": "CIN",
+        "roca": "Roca",
+        "cortarte": "Cortarte",
+        "sika": "Sika"
+      },
+      "warranty": "Warranty",
+      "warranty_options": {
+        "years_3": "3 years",
+        "years_30": "30 years"
+      },
+      "finish": "Finish",
+      "finish_options": {
+        "matte": "Matte",
+        "gloss": "Gloss",
+        "satin": "Satin",
+        "textured": "Textured"
+      },
+      "certifications": "Certifications",
+      "certification_options": {
+        "ce": "CE",
+        "iso9001": "ISO 9001",
+        "fsc": "FSC",
+        "pefc": "PEFC"
+      },
+      "thickness": "Thickness",
+      "thickness_options": {
+        "6mm": "6 mm",
+        "8mm": "8 mm",
+        "10mm": "10 mm",
+        "12mm": "12 mm",
+        "20mm": "20 mm"
+      },
+      "diameter": "Diameter",
+      "diameter_options": {
+        "10mm": "10 mm",
+        "15mm": "15 mm",
+        "20mm": "20 mm",
+        "32mm": "32 mm",
+        "50mm": "50 mm"
+      },
+      "color": "Color",
+      "color_options": {
+        "white": "White",
+        "beige": "Beige",
+        "gray": "Gray",
+        "black": "Black",
+        "natural": "Natural"
+      },
+      "width": "Width",
+      "width_options": {
+        "30cm": "30 cm",
+        "45cm": "45 cm",
+        "60cm": "60 cm",
+        "90cm": "90 cm",
+        "120cm": "120 cm"
+      },
+      "length": "Length",
+      "length_options": {
+        "60cm": "60 cm",
+        "90cm": "90 cm",
+        "120cm": "120 cm",
+        "180cm": "180 cm",
+        "240cm": "240 cm"
+      },
+      "material": "Material",
+      "material_options": {
+        "ceramic": "Ceramic",
+        "porcelain": "Porcelain",
+        "wood": "Wood",
+        "stone": "Stone",
+        "metal": "Metal",
+        "glass": "Glass"
+      },
+      "volume": "Volume",
+      "volume_options": {
+        "1l": "1 L",
+        "5l": "5 L",
+        "10l": "10 L",
+        "15l": "15 L",
+        "20l": "20 L"
+      },
+      "packaging": "Packaging",
+      "packaging_options": {
+        "unit": "Unit",
+        "box": "Box",
+        "pallet": "Pallet",
+        "pack": "Pack"
+      },
+      "format": "Format",
+      "format_options": {
+        "square": "Square",
+        "rectangular": "Rectangular",
+        "hexagonal": "Hexagonal",
+        "plank": "Plank"
+      },
+      "size": "Size",
+      "size_options": {
+        "30x30": "30 × 30 cm",
+        "45x45": "45 × 45 cm",
+        "60x60": "60 × 60 cm",
+        "90x90": "90 × 90 cm",
+        "120x60": "120 × 60 cm"
+      }
+    }
   },
   "hero": {
     "slides": {
@@ -69,6 +241,221 @@
         "title": "Discover our showroom",
         "description": "Our full range of products and services at your disposal",
         "cta": "Schedule visit"
+      }
+    }
+  },
+  "contacts": {
+    "hero": {
+      "title": "Get in touch",
+      "subtitle": "We are here to help with your project"
+    },
+    "form": {
+      "title": "Send us a message",
+      "eyebrow": "Talk to us",
+      "description": "Have a question, need a quote, or want to know more about our products? We are available to help.",
+      "name_label": "Name",
+      "email_label": "Email",
+      "message_label": "Message",
+      "submit": "Send message",
+      "submitting": "Sending…",
+      "success": "Message sent successfully!",
+      "error": "Could not send. Please try again.",
+      "required": "Required field",
+      "invalid_email": "Invalid email"
+    },
+    "info": {
+      "title": "Contact information",
+      "eyebrow": "Contacts",
+      "hours_title": "Opening hours",
+      "hours_eyebrow": "Hours",
+      "weekdays": "Monday to Friday",
+      "morning": "Morning: {start} – {end}",
+      "afternoon": "Afternoon: {start} – {end}",
+      "saturday": "Saturdays",
+      "closed_title": "Closed",
+      "closed_items": {
+        "sundays": "Sundays",
+        "national_holidays": "National holidays",
+        "municipal_holiday": "Municipal holiday (24 June)",
+        "religious_afternoon": "Local religious festival (afternoon of 2 February)",
+        "carnival": "Carnival day",
+        "easter": "Easter (open Good Friday – closed Easter Monday)",
+        "summer_vacation": "Summer holiday (closed between 15 and 30 August)"
+      },
+      "phone_note": "call to national landline",
+      "whatsapp_note": "text messages only",
+      "location_title": "Location",
+      "location_eyebrow": "Where we are",
+      "location_description": "Visit us at our headquarters in Tebosa, Braga.\nYou can see our location on the map beside this text or open it in Google Maps.",
+      "map_title": "Nós-Norte location map",
+      "view_map": "View on Google Maps"
+    }
+  },
+  "historia": {
+    "hero": {
+      "title": "Your home deserves it",
+      "subtitle": "Building with you since 1989"
+    },
+    "what_we_do": {
+      "title": "What we do",
+      "description": "We are a company strategically based on the border between the municipalities of Braga and Vila Nova de Famalicão, established in 1989, dedicated to the trade of Construction Materials, namely: Ceramic Coverings and Flooring, Mosaics, Bathrooms, Sanitary Ware, Washbasins, Bathroom Furniture, Taps, Shower Trays, Shower Cabins, Bathtubs and Hydromassage, Partitions, Columns, Sinks and Accessories."
+    },
+    "mission": {
+      "eyebrow": "What moves us",
+      "title": "Our mission",
+      "description": "We are committed to offering quality brands and specialist technical support, accompanying every customer from project to delivery."
+    },
+    "values": {
+      "technical_advice": {
+        "title": "Technical Advice",
+        "description": "A specialised team to help you choose the best solutions for your project."
+      },
+      "diversity": {
+        "title": "Diversity",
+        "description": "A wide range of products and brands to meet different needs and styles."
+      },
+      "delivery": {
+        "title": "Delivery",
+        "description": "Efficient logistics to ensure materials arrive on time."
+      }
+    },
+    "timeline": {
+      "title": "Building with you",
+      "description": "Building with you since 1989. First based along national road 14 in the parish of Arnoso Santa Maria. Later, in 1995, a move to larger facilities in the neighbouring parish of Tebosa. In 2004 the Showroom and Warehouse doubled in area to better meet our customers' needs. With SME Leader certification and status since 2009, the company continually invests in training its people.",
+      "milestones": {
+        "1989": {
+          "year": "1989",
+          "title": "Foundation",
+          "description": "Start of operations in Tebosa, Braga."
+        },
+        "1995": {
+          "year": "1995",
+          "title": "Growth",
+          "description": "Move to new facilities."
+        },
+        "2004": {
+          "year": "2004",
+          "title": "Expansion",
+          "description": "Move to the current site, with a larger showroom."
+        },
+        "2009": {
+          "year": "2009",
+          "title": "Recognition",
+          "description": "SME Leader award and start of internationalisation."
+        }
+      }
+    },
+    "internationalization": {
+      "title": "Internationalisation",
+      "description": "It was 2009 when Nós-Norte achieved one of the strategic goals set by management: internationalisation. With two stores in the city of Huambo in Angola, the company sells high-end construction materials and produces custom furniture."
+    },
+    "gallery": {
+      "projects_title": "Our facilities",
+      "projects_caption": "Facilities",
+      "international_title": "Presence in Angola",
+      "international_caption": "Showroom"
+    }
+  },
+  "showroom": {
+    "hero": {
+      "title": "Discover our showroom",
+      "subtitle": "Real environments to inspire your project"
+    },
+    "gallery": {
+      "image_modal_close": "Close image",
+      "images": {
+        "1": { "alt": "Showroom environment 1" },
+        "2": { "alt": "Showroom environment 2" },
+        "3": { "alt": "Showroom environment 3" },
+        "4": { "alt": "Showroom environment 4" },
+        "5": { "alt": "Showroom environment 5" },
+        "6": { "alt": "Showroom environment 6" },
+        "7": { "alt": "Showroom environment 7" },
+        "8": { "alt": "Showroom environment 8" },
+        "9": { "alt": "Showroom environment 9" },
+        "10": { "alt": "Showroom environment 10" }
+      }
+    }
+  },
+  "quality_policy": {
+    "title": "Quality Policy",
+    "intro": "Nós-Norte’s management policy is built around four main pillars:",
+    "vectors": {
+      "1": "Greater financial strength and management control",
+      "2": "Recognition in the national and international markets",
+      "3": "Control and improvement of internal practices",
+      "4": "Continuous training"
+    },
+    "intentions_intro": "Accordingly, Nós-Norte’s intentions and guidelines are:",
+    "intentions": {
+      "1": "Strengthen economic and financial sustainability through profitability, reinforcing the organisation’s solidity",
+      "2": "Satisfy our customers by being recognised for seriousness and distinction, and by delivering the best service",
+      "3": "Ensure continuous improvement of internal processes, guaranteeing compliance with legal requirements",
+      "4": "Foster knowledge growth within the organisation by continuously upskilling our people"
+    }
+  },
+  "privacy_policy": {
+    "title": "Privacy Policy",
+    "tagline": "Your data is protected.",
+    "last_updated": "Last updated: 25 September 2026",
+    "intro": "The limited liability company Nós-Norte – Materiais de Construção, Ldª. (hereinafter referred to simply as Nós-Norte) undertakes to ensure the protection of all personal data made available to it. To that end, various technical and organisational security measures have been adopted to protect personal data against any form of unlawful processing. All content and information made available belong exclusively to Nós-Norte, and any copying, reproduction, modification or publication of this website’s content is prohibited. Your data will be processed by Nós-Norte – Materiais de Construção, Ldª., NIPC 502 224 215, with registered office at Rua de Feixe, nº. 6, freguesia de Tebosa, 4705-630 Braga. This company is the controller of personal data within the meaning of the General Data Protection Regulation (Regulation (EU) 2016/679 of the European Parliament and of the Council of 27 April 2016).",
+    "contact_intro": "For any question relating to the processing of your personal data, you should contact Nós-Norte by any of the following means:",
+    "contact_email": "Email",
+    "contact_address": "Address",
+    "contact_phone": "Phone",
+    "sections": {
+      "scope": {
+        "title": "What does this Privacy Policy cover?",
+        "body": "This Privacy Policy applies exclusively to the processing of personal data by Nós-Norte, collected at its registered office or any of its commercial establishments, through its website or through forms on landing pages, events, commercial and/or promotional actions."
+      },
+      "personal_data": {
+        "title": "What is personal data?",
+        "body": "Personal data means information of any nature relating to an identified or identifiable natural person, regardless of the medium, including sound and image. A person is considered identifiable if they can be identified, directly or indirectly, in particular by reference to an identification number or to one or more factors specific to their physical, physiological, mental, economic, cultural or social identity."
+      },
+      "controller": {
+        "title": "Who is the data controller?",
+        "body": "The entity responsible for collecting and processing personal data is Nós-Norte, which provides the service and/or supplies the goods and which, in that context, decides which data are collected, the means of processing and the purposes for which they are used."
+      },
+      "data_types": {
+        "title": "What types of personal data are collected?",
+        "body": "In the course of its commercial activity, Nós-Norte collects and processes the personal data necessary to provide services and/or supply goods, including in particular name, address, telephone and/or mobile number, email address, tax identification number (NIF) and citizen card number."
+      },
+      "collection": {
+        "title": "When and how is your data collected?",
+        "body": "Nós-Norte collects your data by telephone, in writing, through its website or through forms on landing pages, with the data subject’s express consent. As a rule, personal data are collected when the Customer subscribes to one of our products or services. Some personal data are mandatory and, if they are missing or incomplete, Nós-Norte will be unable to provide the product or service concerned and will inform the Customer of the mandatory nature of that data. Where processing is based on consent, only the data made available to Nós-Norte will be processed, including where consent is given for newsletters and other promotional actions and for contact regarding marketing campaigns carried out by Nós-Norte, in which case the rules of this Privacy Policy apply. Personal data collected are processed electronically in strict compliance with personal data protection law, stored in dedicated databases created for that purpose, and under no circumstances will the data collected be used for any purpose other than that for which express consent was given by the data subject."
+      },
+      "purposes": {
+        "title": "What are the purposes of processing personal data?",
+        "body": "In general, personal data collected are intended for managing the contractual relationship, providing the contracted services and/or supplying the contracted goods, adapting services to the Customer’s needs and interests, and information actions. Personal data may, however, be made available for other purposes, such as informing about campaigns, promotions, advertising, marketing and news about Nós-Norte products and/or services, holding events, conducting market studies and evaluation surveys, as well as sharing with companies/institutions with which Nós-Norte deals directly under a close contractual relationship and for which personal data are necessarily required. When data are collected, more detailed information will be provided on how the personal data supplied will be used."
+      },
+      "retention": {
+        "title": "How long are personal data retained?",
+        "body": "The period for which data are stored and retained varies according to the purpose for which the information is processed. There are legal requirements that oblige data to be retained for a minimum period. Accordingly, and whenever there is no specific legal requirement, data will be stored and retained only for the minimum period necessary for the purposes that justified their collection or further processing, or for the period authorised by the Portuguese Data Protection Authority (CNPD), after which they will be deleted."
+      },
+      "rights": {
+        "title": "How can you access, rectify, modify, update or object to the processing of personal data?",
+        "body": "To access, correct, add, update, erase or change consent for communications, the data subject should contact Nós-Norte by email at apoiocliente@nosnorte.com or in person at its registered office. Such requests will be handled as promptly as possible."
+      },
+      "marketing": {
+        "title": "How can you object to receiving marketing and advertising contacts?",
+        "body": "Nós-Norte may promote awareness actions among its Customers regarding new products or services by telephone, email, post, SMS, MMS or any other electronic communications service, unless the Customer objected at the time of data collection. At any time, if you do not wish to receive communications, advertising and/or marketing campaigns, you may object to such disclosure. You may contact Nós-Norte by email at apoiocliente@nosnorte.com or in person at its registered office."
+      },
+      "security": {
+        "title": "How are your personal data kept secure?",
+        "body": "Nós-Norte has implemented a range of security measures, including encryption and authentication tools, to help protect and maintain the security and integrity of the personal data provided to it. Although it cannot guarantee complete security in the transmission of data over the internet or website, Nós-Norte makes every effort to implement and maintain physical, electronic and procedural security measures intended to protect the personal data provided to it, in accordance with the GDPR."
+      },
+      "sharing": {
+        "title": "With whom are your personal data shared?",
+        "body": "As a rule, Nós-Norte does not transmit or share personal data with third parties, except where required by legal or regulatory obligations. However, Nós-Norte may subcontract service providers where this is necessary or for commercial or company policy reasons. In such cases, personal data may be shared, and all necessary measures will be taken to ensure that service providers offer appropriate safeguards for the protection, security and confidentiality of the personal data shared."
+      },
+      "complaints": {
+        "title": "Complaints",
+        "body": "Nós-Norte will cooperate and take steps to resolve fairly all complaints communicated to it regarding the processing of personal data. Any data subject who is not satisfied with the resolution of complaints submitted to Nós-Norte may lodge a complaint with the competent supervisory authority – the Portuguese Data Protection Authority (CNPD) – via its website:",
+        "link_label": "https://www.cnpd.pt"
+      },
+      "changes": {
+        "title": "Changes to the Privacy Policy",
+        "body": "Nós-Norte reserves the right at any time to adjust or amend this Privacy Policy, and such changes will be duly published on the website. This Privacy Policy may be amended or revised without prior notice, and the date of the last update will always be disclosed. Subscribers will also be informed in the newsletters sent."
       }
     }
   }

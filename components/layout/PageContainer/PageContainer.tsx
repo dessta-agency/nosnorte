@@ -9,9 +9,7 @@ type PageContainerProps = {
 export function PageContainer({ children, className }: PageContainerProps) {
   return (
     <main className={className}>
-      <Container className="mt-8 min-h-[50vh] border border-black">
-        {children}
-      </Container>
+      <Container className="mt-8 min-h-[50vh] pb-16">{children}</Container>
     </main>
   );
 }

@@ -33,6 +33,8 @@
 
 - Style UI with Tailwind CSS utility classes. Define design tokens (colors, typography) in `app/globals.css` via `@theme`; use semantic Tailwind classes (`bg-primary`, `text-error`, etc.), not hardcoded values.
 
+- Use `PageContainer` on every page except the homepage. Navbar, Footer, and `PageContainer` share `Container` for horizontal alignment. Full-bleed heroes share `FULL_BLEED_HERO_INSET` (`constants/layout.ts`) — see [Style Guide](STYLE_GUIDE.md). Surface cards (product cards, contact panels, etc.) share `SURFACE_CARD` from the same file.
+
 - Use `next/image` for content images; store static assets in `public/` and always provide `alt` text and dimensions.
 
 - Customize metadata in `app/layout.tsx` per project; no favicon is included by default — add `app/favicon.ico` or `app/icon.png` when needed.

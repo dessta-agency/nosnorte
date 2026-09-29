@@ -22,6 +22,7 @@
   "footer": {
     "information": "Informação",
     "contacts": "Contactos",
+    "follow_us": "Siga-nos",
     "copyright": "© {year} Nós-Norte Materiais de Construção, Lda.Todos os direitos reservados.",
     "language": "Idioma",
     "quality_policy": "Política de Qualidade",
@@ -35,7 +36,9 @@
     "address": "Morada",
     "phone_note": "(chamada para rede fixa nacional)",
     "whatsapp_note": "(exclusivo mensagens de texto)",
-    "maps_label": "Ver no Google Maps"
+    "maps_label": "Ver no Google Maps",
+    "instagram": "Instagram",
+    "facebook": "Facebook"
   },
   "metadata": {
     "site_title": "Nós-Norte - Materiais de Construção",
@@ -49,6 +52,175 @@
     "quality_policy": "Política de Qualidade",
     "privacy_policy": "Política de Privacidade",
     "code_of_conduct": "Código de Conduta"
+  },
+  "products": {
+    "search_placeholder": "Pesquisar produtos",
+    "sort_by": "Ordenar por",
+    "sort_options": {
+      "relevance": "Ordenar por: Relevância",
+      "price_asc": "Ordenar por: Preço (mais baixo)",
+      "price_desc": "Ordenar por: Preço (mais alto)",
+      "newest": "Ordenar por: Adicionado recentemente"
+    },
+    "results_count": "{count, plural, one {# resultado} other {# resultados}}",
+    "loading": "A carregar produtos…",
+    "error": "Erro ao carregar produtos",
+    "no_results": "Nenhum produto encontrado",
+    "previous_page": "Anterior",
+    "next_page": "Próximo",
+    "page": "Página",
+    "view_options": "Ver opções",
+    "add_to_order": "Adicionar ao pedido",
+    "added_to_order": "Adicionado",
+    "options_modal_title": "Opções do Produto",
+    "options_modal_description": "Descrição",
+    "close": "Fechar",
+    "reference": "Ref",
+    "more_options": "Mais Opções",
+    "on_order": "Por encomenda",
+    "in_stock": "Em stock",
+    "price_on_request": "Sob Consulta",
+    "request_quote": "Solicite o seu orçamento personalizado",
+    "quantity": "Quantidade ({unit})",
+    "color": "Cor",
+    "color_count": "Cor ({count})",
+    "color_options": {
+      "gray": "Cinza",
+      "white": "Branco"
+    },
+    "product_information": "Informação do produto",
+    "sku": "SKU",
+    "brand": "Marca",
+    "unit": "Unidade",
+    "unit_bag": "saco",
+    "dimension_options": "Dimensão ({count})",
+    "options_count": "{count, plural, one {# opção} other {# opções}}",
+    "rating": "Avaliação",
+    "filters": {
+      "title": "Filtros",
+      "clear_all": "Limpar filtros",
+      "categories": "Categorias",
+      "price_range": "Gama de Preço",
+      "brands": "Marcas",
+      "min_price": "Preço mínimo",
+      "max_price": "Preço máximo",
+      "apply": "Aplicar",
+      "close": "Fechar filtros",
+      "category_options": {
+        "ceramics": "Cerâmicas",
+        "paints": "Tintas",
+        "woods": "Madeiras",
+        "sanitary": "Sanitários",
+        "flooring": "Pavimentos",
+        "insulation": "Isolamentos",
+        "hardware": "Ferragens"
+      },
+      "brand_options": {
+        "keraben": "Keraben",
+        "cin": "CIN",
+        "roca": "Roca",
+        "cortarte": "Cortarte",
+        "sika": "Sika"
+      },
+      "warranty": "Garantia",
+      "warranty_options": {
+        "years_3": "3 anos",
+        "years_30": "30 anos"
+      },
+      "finish": "Acabamento",
+      "finish_options": {
+        "matte": "Mate",
+        "gloss": "Brilhante",
+        "satin": "Acetinado",
+        "textured": "Texturado"
+      },
+      "certifications": "Certificações",
+      "certification_options": {
+        "ce": "CE",
+        "iso9001": "ISO 9001",
+        "fsc": "FSC",
+        "pefc": "PEFC"
+      },
+      "thickness": "Espessura",
+      "thickness_options": {
+        "6mm": "6 mm",
+        "8mm": "8 mm",
+        "10mm": "10 mm",
+        "12mm": "12 mm",
+        "20mm": "20 mm"
+      },
+      "diameter": "Diâmetro",
+      "diameter_options": {
+        "10mm": "10 mm",
+        "15mm": "15 mm",
+        "20mm": "20 mm",
+        "32mm": "32 mm",
+        "50mm": "50 mm"
+      },
+      "color": "Cor",
+      "color_options": {
+        "white": "Branco",
+        "beige": "Bege",
+        "gray": "Cinza",
+        "black": "Preto",
+        "natural": "Natural"
+      },
+      "width": "Largura",
+      "width_options": {
+        "30cm": "30 cm",
+        "45cm": "45 cm",
+        "60cm": "60 cm",
+        "90cm": "90 cm",
+        "120cm": "120 cm"
+      },
+      "length": "Comprimento",
+      "length_options": {
+        "60cm": "60 cm",
+        "90cm": "90 cm",
+        "120cm": "120 cm",
+        "180cm": "180 cm",
+        "240cm": "240 cm"
+      },
+      "material": "Material",
+      "material_options": {
+        "ceramic": "Cerâmica",
+        "porcelain": "Porcelanato",
+        "wood": "Madeira",
+        "stone": "Pedra",
+        "metal": "Metal",
+        "glass": "Vidro"
+      },
+      "volume": "Volume",
+      "volume_options": {
+        "1l": "1 L",
+        "5l": "5 L",
+        "10l": "10 L",
+        "15l": "15 L",
+        "20l": "20 L"
+      },
+      "packaging": "Embalagem",
+      "packaging_options": {
+        "unit": "Unidade",
+        "box": "Caixa",
+        "pallet": "Palete",
+        "pack": "Pack"
+      },
+      "format": "Formato",
+      "format_options": {
+        "square": "Quadrado",
+        "rectangular": "Retangular",
+        "hexagonal": "Hexagonal",
+        "plank": "Régua"
+      },
+      "size": "Tamanho",
+      "size_options": {
+        "30x30": "30 × 30 cm",
+        "45x45": "45 × 45 cm",
+        "60x60": "60 × 60 cm",
+        "90x90": "90 × 90 cm",
+        "120x60": "120 × 60 cm"
+      }
+    }
   },
   "hero": {
     "slides": {
@@ -69,6 +241,221 @@
         "title": "Conheça o nosso showroom",
         "description": "Toda a nossa gama de produtos e serviços ao seu dispor",
         "cta": "Agendar visita"
+      }
+    }
+  },
+  "contacts": {
+    "hero": {
+      "title": "Entre em contacto",
+      "subtitle": "Estamos aqui para o ajudar com o seu projeto"
+    },
+    "form": {
+      "title": "Envie-nos uma mensagem",
+      "eyebrow": "Fale connosco",
+      "description": "Tem alguma questão, precisa de um orçamento ou pretende saber mais sobre os nossos produtos? Estamos disponíveis para ajudar.",
+      "name_label": "Nome",
+      "email_label": "Email",
+      "message_label": "Mensagem",
+      "submit": "Enviar mensagem",
+      "submitting": "A enviar…",
+      "success": "Mensagem enviada com sucesso!",
+      "error": "Erro ao enviar. Tente novamente.",
+      "required": "Campo obrigatório",
+      "invalid_email": "Email inválido"
+    },
+    "info": {
+      "title": "Informações de contacto",
+      "eyebrow": "Contactos",
+      "hours_title": "Horário de funcionamento",
+      "hours_eyebrow": "Horário",
+      "weekdays": "Segunda a Sexta",
+      "morning": "Manhã: {start} – {end}",
+      "afternoon": "Tarde: {start} – {end}",
+      "saturday": "Sábados",
+      "closed_title": "Encerra",
+      "closed_items": {
+        "sundays": "Domingos",
+        "national_holidays": "Feriados Nacionais",
+        "municipal_holiday": "Feriado Municipal (24 Junho)",
+        "religious_afternoon": "Festividade Religiosa Local (Tarde 2 Fevereiro)",
+        "carnival": "Dia de Carnaval",
+        "easter": "Páscoa (Aberto Sexta Santa – Fechado Segunda Santa)",
+        "summer_vacation": "Férias de Verão (encerra entre 15 a 30 de Agosto)"
+      },
+      "phone_note": "chamada para rede fixa nacional",
+      "whatsapp_note": "exclusivo mensagens de texto",
+      "location_title": "Localização",
+      "location_eyebrow": "Onde estamos",
+      "location_description": "Visite-nos na nossa sede em Tebosa, Braga.\nPode ver a nossa localização no mapa ao lado ou abrir no Google Maps.",
+      "map_title": "Mapa da localização Nós-Norte",
+      "view_map": "Ver no Google Maps"
+    }
+  },
+  "historia": {
+    "hero": {
+      "title": "A sua casa merece",
+      "subtitle": "A construir consigo desde 1989"
+    },
+    "what_we_do": {
+      "title": "O que fazemos",
+      "description": "Somos uma sociedade estrategicamente sediada na fronteira entre os concelhos de Braga e Vila Nova de Famalicão, constituída no ano de 1989, a qual se dedica ao comércio de Materiais de Construção, designadamente: Revestimentos e Pavimentos Cerâmicos, Mosaicos, Casas de Banho, Louças Sanitárias, Lavatórios, Móveis de Banho, Torneiras, Bases de Chuveiro, Cabines de Duche, Banheiras e Hidromassagem, Divisórias, Colunas, Lava-louças e Acessórios."
+    },
+    "mission": {
+      "eyebrow": "O que nos move",
+      "title": "A nossa missão",
+      "description": "Comprometemo-nos a disponibilizar marcas de qualidade e apoio técnico especializado, acompanhando cada cliente do projeto à entrega."
+    },
+    "values": {
+      "technical_advice": {
+        "title": "Aconselhamento Técnico",
+        "description": "Equipa especializada para ajudar a escolher as melhores soluções para o seu projeto."
+      },
+      "diversity": {
+        "title": "Diversidade",
+        "description": "Ampla gama de produtos e marcas para responder a diferentes necessidades e estilos."
+      },
+      "delivery": {
+        "title": "Entrega",
+        "description": "Logística eficiente para garantir que os materiais chegam no prazo certo."
+      }
+    },
+    "timeline": {
+      "title": "A construir consigo",
+      "description": "Desde 1989 a construir consigo. Numa primeira fase junto à estrada nacional 14 na freguesia de Arnoso Santa Maria. Mais tarde, em 1995 a mudança para instalações maiores na freguesia vizinha, Tebosa. Em 2004 o Showroom e Armazém duplicaram a área para melhor satisfazer as necessidades dos nossos clientes. Com a certificação e estatuto de PME Líder desde 2009, a empresa aposta constantemente na formação dos seus recursos humanos.",
+      "milestones": {
+        "1989": {
+          "year": "1989",
+          "title": "Fundação",
+          "description": "Início da atividade em Tebosa, Braga."
+        },
+        "1995": {
+          "year": "1995",
+          "title": "Crescimento",
+          "description": "Transferência para novas instalações."
+        },
+        "2004": {
+          "year": "2004",
+          "title": "Expansão",
+          "description": "Mudança para o espaço atual, com showroom alargado."
+        },
+        "2009": {
+          "year": "2009",
+          "title": "Reconhecimento",
+          "description": "Distinção PME Líder e início da internacionalização."
+        }
+      }
+    },
+    "internationalization": {
+      "title": "Internacionalização",
+      "description": "Decorria o ano de 2009 quando a Nós-Norte concretizou uma das metas estratégicas definidas pela administração: a internacionalização. Com duas lojas na cidade do Huambo em Angola, a empresa comercializa materiais de construção de alto nível e produz mobiliário à medida."
+    },
+    "gallery": {
+      "projects_title": "As nossas instalações",
+      "projects_caption": "Instalações",
+      "international_title": "Presença em Angola",
+      "international_caption": "Showroom"
+    }
+  },
+  "showroom": {
+    "hero": {
+      "title": "Conheça o nosso showroom",
+      "subtitle": "Ambientes reais para inspirar o seu projeto"
+    },
+    "gallery": {
+      "image_modal_close": "Fechar imagem",
+      "images": {
+        "1": { "alt": "Ambiente de showroom 1" },
+        "2": { "alt": "Ambiente de showroom 2" },
+        "3": { "alt": "Ambiente de showroom 3" },
+        "4": { "alt": "Ambiente de showroom 4" },
+        "5": { "alt": "Ambiente de showroom 5" },
+        "6": { "alt": "Ambiente de showroom 6" },
+        "7": { "alt": "Ambiente de showroom 7" },
+        "8": { "alt": "Ambiente de showroom 8" },
+        "9": { "alt": "Ambiente de showroom 9" },
+        "10": { "alt": "Ambiente de showroom 10" }
+      }
+    }
+  },
+  "quality_policy": {
+    "title": "Política de Qualidade",
+    "intro": "A política de gestão da Nós-Norte desenvolve-se em torno de quatro vetores principais:",
+    "vectors": {
+      "1": "Maior solidez financeira e controlo de gestão",
+      "2": "Reconhecimento pelo mercado nacional e internacional",
+      "3": "Controlo e melhoria das práticas internas",
+      "4": "Formação contínua"
+    },
+    "intentions_intro": "Deste modo, são intenções e orientações da Nós-Norte:",
+    "intentions": {
+      "1": "Potenciar a sustentabilidade económica e financeira, ao nível da rentabilidade, potenciando a solidez da organização",
+      "2": "Satisfazer os nossos clientes, sendo reconhecidos pela seriedade, diferença, e prestando o melhor serviço",
+      "3": "Assegurar a melhoria contínua dos processos internos, garantindo o cumprimento dos requisitos legais",
+      "4": "Promover o crescimento do conhecimento na organização, promovendo a contínua qualificação dos colaboradores"
+    }
+  },
+  "privacy_policy": {
+    "title": "Política de Privacidade",
+    "tagline": "Os seus dados estão protegidos.",
+    "last_updated": "Última atualização: 25 de setembro de 2026",
+    "intro": "A sociedade por quotas Nós-Norte – Materiais de Construção, Ldª. (doravante designada apenas por Nós-Norte), assume o compromisso de garantir a proteção de todos os dados pessoais que lhe sejam disponibilizados. Neste sentido, foram adoptadas diversas medidas de segurança, de carácter técnico e organizativo, por forma a proteger os dados pessoais que lhe são disponibilizados contra qualquer forma de tratamento ilícito. Todos os conteúdos e informações disponibilizadas pertencem exclusivamente à Nós-Norte, sendo proibida qualquer cópia, reprodução, modificação ou publicação do conteúdo deste site. Os seus dados serão tratados pela Nós-Norte – Materiais de Construção, Ldª., NIPC 502 224 215, com sede na Rua de Feixe, nº. 6, freguesia de Tebosa, 4705-630 Braga. Esta sociedade é a responsável pelo tratamento de dados pessoais na acepção do Regulamento Geral sobre a Proteção de Dados (Regulamento nº. 2016/679 do Parlamento Europeu e do Conselho, de 27 de Abril de 2016).",
+    "contact_intro": "Para qualquer questão relacionada com o tratamento dos seus dados pessoais deverá contactar a Nós-Norte através de qualquer um dos seguintes meios:",
+    "contact_email": "Email",
+    "contact_address": "Morada",
+    "contact_phone": "Telefone",
+    "sections": {
+      "scope": {
+        "title": "O que abrange a Política de Privacidade?",
+        "body": "Esta Política de Privacidade aplica-se exclusivamente ao tratamento de dados pessoais pela Nós-Norte, recolhidos na sua sede ou em qualquer dos seus estabelecimentos comerciais, através do seu website ou através de formulários em “Landing Pages”, eventos, ações comerciais e/ou promocionais."
+      },
+      "personal_data": {
+        "title": "O que são dados pessoais?",
+        "body": "Dados pessoais trata-se de informação de qualquer natureza relativa a uma pessoa singular identificada ou identificável, independentemente do respetivo suporte, incluindo som e imagem. É considerada identificável a pessoa que possa ser identificada directa ou indirectamente, designadamente por referência a um número de identificação ou a um ou mais elementos específicos da sua identidade física, fisiológica, psíquica, económica, cultural ou social."
+      },
+      "controller": {
+        "title": "Quem é o responsável pelo tratamento de dados?",
+        "body": "A entidade responsável pela recolha e tratamento dos dados pessoais é a sociedade Nós-Norte que presta o serviço e/ou fornece o bem, e que, no contexto, decide quais os dados recolhidos, os meios de tratamento dos dados e para que finalidades são utilizados."
+      },
+      "data_types": {
+        "title": "Que tipo de dados pessoais são recolhidos?",
+        "body": "A Nós Norte, no âmbito da sua atividade comercial, procede à recolha e ao tratamento dos dados pessoais necessários à prestação de serviços e/ou fornecimento de artigos, tratando, nesse sentido, designadamente, dados como o nome, a morada, o número de telefone e/ou telemóvel, o endereço de correio eletrónico, NIF e número de cartão de cidadão."
+      },
+      "collection": {
+        "title": "Quando e como são recolhidos os seus dados?",
+        "body": "A Nós-Norte recolhe os seus dados por telefone, por escrito, através do seu website ou através de formulários em “Landing Pages”, mediante o expresso consentimento do titular dos dados. Por regra, os dados pessoais são recolhidos quando o Cliente subscreve um dos nossos produtos ou serviços. Alguns dados pessoais são de fornecimento obrigatório e, em caso de falta ou insuficiência desses dados, a Nós-Norte não poderá disponibilizar o produto ou prestar o serviço em causa pelo que informará o Cliente da natureza obrigatória do fornecimento dos dados. Se o tratamento dos dados se basear no consentimento, apenas serão tratados os dados disponibilizados à sociedade Nós-Norte, designadamente se consentido o envio de newsletters e outras acções promocionais e o contacto para eventuais campanhas de marketing diligenciadas pela Nós-Norte, caso em que se aplicarão as regras desta Política de Privacidade. Os dados pessoais recolhidos são tratados informaticamente e no estrito cumprimento da legislação de proteção de dados pessoais, sendo armazenados em base de dados específicas, criadas para o efeito e, em situação alguma, os dados recolhidos serão utilizados para outra finalidade que não seja aquela para a qual foi dado o expresso consentimento por parte do titular dos dados."
+      },
+      "purposes": {
+        "title": "Quais as finalidades do tratamento dos dados pessoais?",
+        "body": "Em geral, os dados pessoais recolhidos destinam-se à gestão da relação contratual, à prestação dos serviços e/ou fornecimento dos bens contratados, à adequação dos serviços às necessidades e interesses do Cliente e ações de informação. Poderão, no entanto, ser disponibilizados dados pessoais para outras finalidades, tais como para dar a conhecer campanhas, promoções, publicidade, marketing e notícias sobre os produtos e/ou serviços da Nós-Norte, para a realização de eventos, para a realização de estudos de mercado, inquéritos de avaliação, bem como para a cedência a empresas/instituições com as quais a Nós-Norte lide diretamente, numa estreita relação contratual, e cujos seus dados pessoais sejam obrigatoriamente necessários. Aquando da recolha dos dados serão prestadas informações mais detalhadas sobre a utilização a dar aos dados pessoais fornecidos."
+      },
+      "retention": {
+        "title": "Por quanto tempo são conservados os dados pessoais?",
+        "body": "O período de tempo durante o qual os dados são armazenados e conservados varia de acordo com a finalidade para a qual a informação é tratada. Efetivamente, existem requisitos legais que obrigam a conservar os dados por um período de tempo mínimo. Assim, e sempre que não exista uma exigência legal especifica, os dados serão armazenados e conservados apenas pelo período mínimo necessário para as finalidades que motivaram a sua recolha ou o seu posterior tratamento ou, pelo período de tempo autorizado pela Comissão Nacional de Proteção de Dados, findo o qual os mesmos serão eliminados."
+      },
+      "rights": {
+        "title": "Como aceder, retificar, modificar, atualizar ou se opor ao tratamento dos dados pessoais?",
+        "body": "Para aceder, corrigir, adicionar, atualizar, apagar ou alterar o consentimento das comunicações, o titular deverá contactar a Nós-Norte através do e-mail: apoiocliente@nosnorte.com ou pessoalmente na sua sede. Tais pedidos serão tratados com a maior brevidade possível."
+      },
+      "marketing": {
+        "title": "Como opor-se à receção de contactos para fins de marketing e publicidade?",
+        "body": "A Nós-Norte pode promover ações de divulgação junto dos seus Clientes, de novos produtos ou serviços, através de telefone, e-mail, CTT, SMS, MMS ou qualquer outro serviço de comunicações eletrónicas, salvo se o Cliente se tiver oposto aquando da recolha dos dados. A qualquer momento, caso não pretenda rececionar comunicações, campanhas publicitárias e/ou de marketing pode haver oposição da divulgação das mesmas. Pode contactar a Nós-Norte através do e-mail: apoiocliente@nosnorte.com ou pessoalmente na sua sede."
+      },
+      "security": {
+        "title": "Como manter os seus dados pessoais seguros?",
+        "body": "A Nós-Norte implementou uma multiplicidade de medidas de segurança, incluindo encriptação e ferramentas de autenticação, para ajudar a proteger e manter a segurança e integridade dos dados pessoais que lhe são fornecidos. Não obstante não poder garantir total segurança na transmissão de dados através da internet ou website, a Nós-Norte concentra todos os esforços para implementar e manter medidas de segurança física, eletrónica e procedimental destinadas a proteger os dados pessoais que lhe são facultados, nos termos do RGPD."
+      },
+      "sharing": {
+        "title": "Com quem são partilhados os seus dados pessoais?",
+        "body": "Por regra, a Nós-Norte não transmite ou partilha com terceiros, informação relativa a dados pessoais, salvo se a isso for obrigada por requisitos legais ou regulamentares. Contudo, pode a empresa Nós-Norte subcontratar prestadores de serviços para situações em que existe essa necessidade ou por questões de gestão comercial ou política da empresa. Nestes casos, poderá ocorrer partilha de informação relativa a dados pessoais, sendo tomadas todas as medidas necessárias para garantir que os prestadores de serviços oferecem todas garantias de salvaguarda, segurança e confidencialidade dos dados pessoais partilhados."
+      },
+      "complaints": {
+        "title": "Reclamações",
+        "body": "A Nós-Norte colaborará e diligenciará para resolver de forma justa todas as reclamações que lhe sejam comunicadas relativas ao tratamento de dados pessoais. Qualquer titular dos dados que não se mostre satisfeito com a resolução de reclamações apresentadas à Nós-Norte poderá apresentar reclamação à autoridade de controlo competente – Comissão Nacional de Proteção de dados – através da sua página web:",
+        "link_label": "https://www.cnpd.pt"
+      },
+      "changes": {
+        "title": "Alterações da Política de Privacidade",
+        "body": "A Nós-Norte reserva-se o direito de, a qualquer altura, proceder a reajustamentos ou alterações à presente Política de Privacidade, sendo essas alterações devidamente publicitadas no website. A presente Política de Privacidade poderá ser objeto de alterações ou revisões, sem aviso prévio, sendo sempre divulgada a data da última atualização. Os subscritores serão também informados nas newsletters enviadas."
       }
     }
   }

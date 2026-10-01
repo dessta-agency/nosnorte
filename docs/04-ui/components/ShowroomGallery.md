@@ -2,7 +2,7 @@
 
 ## Responsibility
 
-Masonry image gallery for the showroom page: asymmetric CSS grid of ambient photos with hover zoom and a modal preview.
+Masonry image gallery for the showroom page: asymmetric CSS grid of ambient photos with a modal preview.
 
 ## When to use
 
@@ -22,4 +22,5 @@ Do not use for uniform product grids — prefer a regular CSS grid or `ImageGall
 
 - Client Component (`"use client"`).
 - Clicking a tile opens the shared `Modal` with a large contained image.
+- Tile corner radius and gap share `GALLERY_MEDIA_RADIUS` / `GALLERY_MEDIA_GAP` with `EnvironmentsGallery`.
 - Images live under `public/images/showroom/`.

@@ -53,6 +53,148 @@
     "privacy_policy": "Privacy Policy",
     "code_of_conduct": "Code of Conduct"
   },
+  "ambientes": {
+    "hero": {
+      "title": "Spaces",
+      "subtitle": "Find inspiration to create your space."
+    },
+    "categories": {
+      "eyebrow": "Spaces",
+      "title": "Ways to imagine your project",
+      "description": "Explore our spaces and find inspiration to create yours.",
+      "cta": "View all spaces"
+    },
+    "intro_cards": {
+      "casa-de-banho": {
+        "title": "Bathroom",
+        "subtitle": "Materials and details for wellness spaces with precision"
+      },
+      "interiores": {
+        "title": "Interiors",
+        "subtitle": "Flooring and finishes for living rooms, bedrooms and social areas"
+      },
+      "exteriores": {
+        "title": "Exteriors",
+        "subtitle": "Durable solutions for terraces, gardens and outdoor areas"
+      }
+    },
+    "gallery": {
+      "eyebrow": "Inspiration",
+      "title": "Space gallery",
+      "explore": "Explore",
+      "empty": "No spaces found in this category.",
+      "filters": {
+        "all": "All",
+        "casa-de-banho": "Bathroom",
+        "interiores": "Interiors",
+        "exteriores": "Exteriors"
+      }
+    },
+    "detail": {
+      "back": "Back to spaces",
+      "materials_title": "Materials used",
+      "gallery_title": "More images",
+      "view_product": "View product"
+    },
+    "product_types": {
+      "pavimento": "Flooring",
+      "revestimento": "Wall covering",
+      "lavatorio": "Washbasin",
+      "torneira": "Tap",
+      "iluminacao": "Lighting",
+      "mobiliario": "Furniture"
+    },
+    "items": {
+      "suite-mineral": {
+        "name": "Mineral Suite",
+        "excerpt": "Stone tones and clean lines for a serene bathroom.",
+        "description": "A bathroom suite defined by the quiet of natural stone. Continuous surfaces, discreet hardware and soft light create a space designed to last and inspire.",
+        "image_alt": "Bathroom suite with mineral finishes",
+        "materials": {
+          "pavimento": "Stone Grey ceramic 60×60",
+          "revestimento": "Soft White microcement",
+          "lavatorio": "Linea wall-hung washbasin",
+          "torneira": "Chrome single-lever mixer"
+        }
+      },
+      "banho-zen": {
+        "name": "Zen Bath",
+        "excerpt": "Balance between texture, light and water.",
+        "description": "An intimate bathroom where wood and stone meet. The focus is on tactile experience and the simplicity of essential elements.",
+        "image_alt": "Bathroom with a zen atmosphere",
+        "materials": {
+          "revestimento": "Matte Sand tile 10×30",
+          "lavatorio": "Oval Soft countertop basin",
+          "torneira": "Brushed Nickel waterfall tap"
+        }
+      },
+      "sala-luminosa": {
+        "name": "Light Living Room",
+        "excerpt": "Continuous flooring in dialogue with natural light.",
+        "description": "A generous room open to light, with large-format flooring and neutral finishes that lengthen the view and welcome everyday living.",
+        "image_alt": "Bright living room",
+        "materials": {
+          "pavimento": "Large Format Ivory porcelain",
+          "revestimento": "Warm Mineral plaster",
+          "iluminacao": "Linear recessed LED track"
+        }
+      },
+      "cozinha-aberta": {
+        "name": "Open Kitchen",
+        "excerpt": "Function without losing architectural character.",
+        "description": "A kitchen integrated into the living area, with durable surfaces and a clean visual composition. Materials chosen for daily use without compromising aesthetics.",
+        "image_alt": "Contemporary open kitchen",
+        "materials": {
+          "pavimento": "Concrete Soft ceramic 80×80",
+          "revestimento": "Countertop and splashback in light quartzite",
+          "mobiliario": "Oak Smoke matte lacquered fronts"
+        }
+      },
+      "terraco-mediterraneo": {
+        "name": "Mediterranean Terrace",
+        "excerpt": "Warm textures for outdoor living.",
+        "description": "A terrace designed for long afternoons: non-slip flooring, earthy tones and a soft transition between indoors and outdoors.",
+        "image_alt": "Terrace with a Mediterranean mood",
+        "materials": {
+          "pavimento": "Terracotta Grip outdoor flooring",
+          "revestimento": "Natural Split stone cladding"
+        }
+      },
+      "jardim-contemporaneo": {
+        "name": "Contemporary Garden",
+        "excerpt": "Architectural lines in the outdoor space.",
+        "description": "Defined paths, simple volumes and technical materials that withstand the climate while keeping a contemporary reading of the garden.",
+        "image_alt": "Contemporary garden with pathways",
+        "materials": {
+          "pavimento": "Graphite outdoor slab 60×120",
+          "iluminacao": "Soft Beam path bollards"
+        }
+      },
+      "suite-marmore": {
+        "name": "Marble Suite",
+        "excerpt": "Mineral sophistication with sculptural presence.",
+        "description": "Marble and its veins lead the composition. A suite with presence, where every sanitary and metal piece integrates with precision.",
+        "image_alt": "Marble bathroom suite",
+        "materials": {
+          "pavimento": "Carrara Honed marble",
+          "revestimento": "Calacatta Vein Match marble",
+          "lavatorio": "Integrated countertop washbasin",
+          "torneira": "Black Matte wall-mounted mixer"
+        }
+      },
+      "living-neutro": {
+        "name": "Neutral Living",
+        "excerpt": "A calm base for a timeless interior.",
+        "description": "Neutral tones, soft textures and continuous flooring create an elegant base for furniture and art. A living space designed to age well.",
+        "image_alt": "Living room with a neutral palette",
+        "materials": {
+          "pavimento": "Natural Soft engineered oak",
+          "mobiliario": "Linen Greige modular sofa",
+          "iluminacao": "Arch Brass floor lamp"
+        }
+      }
+    }
+  },
   "products": {
     "search_placeholder": "Search products",
     "sort_by": "Sort by",
@@ -63,7 +205,6 @@
       "newest": "Sort by: Recently added"
     },
     "results_count": "{count, plural, one {# result} other {# results}}",
-    "loading": "Loading products…",
     "error": "Error loading products",
     "no_results": "No products found",
     "previous_page": "Previous",
@@ -286,7 +427,7 @@
       "whatsapp_note": "text messages only",
       "location_title": "Location",
       "location_eyebrow": "Where we are",
-      "location_description": "Visit us at our headquarters in Tebosa, Braga.\nYou can see our location on the map beside this text or open it in Google Maps.",
+      "location_description": "Visit us at our headquarters in Tebosa, Braga.",
       "map_title": "Nós-Norte location map",
       "view_map": "View on Google Maps"
     }

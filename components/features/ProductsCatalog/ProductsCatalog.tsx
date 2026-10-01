@@ -91,14 +91,12 @@ export function ProductsCatalog() {
   const [filters, setFilters] = useState<ProductFiltersState>(
     createInitialFilters()
   );
-  const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
     let cancelled = false;
 
     async function loadProducts() {
-      setIsLoading(true);
       setError(null);
 
       try {
@@ -135,8 +133,6 @@ export function ProductsCatalog() {
           setError(t("error"));
           setProducts([]);
         }
-      } finally {
-        if (!cancelled) setIsLoading(false);
       }
     }
 
@@ -177,7 +173,6 @@ export function ProductsCatalog() {
     <ProductsGrid
       products={products}
       filters={filters}
-      isLoading={isLoading}
       error={error}
       sidebar={
         <ProductFilters

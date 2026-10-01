@@ -24,5 +24,8 @@ Index of documented UI components.
 
 - [HeroCarousel](HeroCarousel.md) — full-bleed homepage hero carousel
 - [ShowroomGallery](ShowroomGallery.md) — masonry ambient gallery with image modal
+- [EnvironmentsIntro](EnvironmentsIntro.md) — Ambientes intro with slanted category cards (full-bleed right)
+- [EnvironmentsGallery](EnvironmentsGallery.md) — Ambientes filtered editorial gallery grid
 - [ProductCard](ProductCard.md) — products grid card (availability, CTAs, options modal)
 - [ProductOptionsModal](ProductOptionsModal.md) — product options dialog
+- Other Environments feature components (`EnvironmentDetailView`) — environment detail

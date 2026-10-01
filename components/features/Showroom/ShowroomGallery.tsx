@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { useState } from "react";
 import { Modal } from "@/components/ui/Modal/Modal";
+import { GALLERY_MEDIA_GAP, GALLERY_MEDIA_RADIUS } from "@/constants/layout";
 
 export type ShowroomImage = {
   src: string;
@@ -34,7 +35,7 @@ export function ShowroomGallery({
         </h2>
       ) : null}
 
-      <ul className="grid auto-rows-48 grid-cols-1 gap-4 sm:grid-cols-2 md:gap-5 lg:grid-cols-3">
+      <ul className={`grid auto-rows-48 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 ${GALLERY_MEDIA_GAP}`}>
         {images.map((image, index) => {
           const span = image.span ?? 1;
 
@@ -48,13 +49,13 @@ export function ShowroomGallery({
                 type="button"
                 onClick={() => setSelectedIndex(index)}
                 aria-label={image.title ?? image.alt}
-                className="group relative h-full w-full cursor-pointer overflow-hidden rounded-2xl bg-gray-light focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
+                className={`relative h-full w-full cursor-pointer overflow-hidden ${GALLERY_MEDIA_RADIUS} bg-gray-light focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary`}
               >
                 <Image
                   src={image.src}
                   alt={image.alt}
                   fill
-                  className="object-cover transition-transform duration-500 group-hover:scale-105"
+                  className="object-cover"
                   sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                 />
               </button>

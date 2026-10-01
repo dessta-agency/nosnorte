@@ -12,7 +12,6 @@ const PAGE_SIZE = 30;
 type ProductsGridProps = {
   products: Product[];
   filters: ProductFiltersState;
-  isLoading: boolean;
   error: string | null;
   sidebar?: ReactNode;
 };
@@ -70,7 +69,6 @@ function sortProducts(products: Product[], sort: SortOption) {
 export function ProductsGrid({
   products,
   filters,
-  isLoading,
   error,
   sidebar,
 }: ProductsGridProps) {
@@ -112,14 +110,6 @@ export function ProductsGrid({
   }, []);
 
   const resultsContent = (() => {
-    if (isLoading) {
-      return (
-        <div className="flex min-h-64 items-center justify-center rounded-xl border border-border bg-surface p-8">
-          <p className="font-sans text-sm text-muted">{t("loading")}</p>
-        </div>
-      );
-    }
-
     if (error) {
       return (
         <div className="flex min-h-64 items-center justify-center rounded-xl border border-border bg-surface p-8">
@@ -129,6 +119,10 @@ export function ProductsGrid({
     }
 
     if (pageProducts.length === 0) {
+      if (products.length === 0) {
+        return null;
+      }
+
       return (
         <div className="flex min-h-64 items-center justify-center rounded-xl border border-border bg-surface p-8">
           <p className="font-sans text-sm text-muted">{t("no_results")}</p>
@@ -158,7 +152,7 @@ export function ProductsGrid({
 
   return (
     <div className="flex min-w-0 flex-1 flex-col gap-6">
-      {!isLoading && !error ? (
+      {!error ? (
         <div className="flex flex-col gap-6 lg:flex-row lg:items-start lg:gap-8">
           <div
             className="hidden w-full max-w-70 shrink-0 lg:block"

@@ -53,6 +53,148 @@
     "privacy_policy": "Política de Privacidade",
     "code_of_conduct": "Código de Conduta"
   },
+  "ambientes": {
+    "hero": {
+      "title": "Ambientes",
+      "subtitle": "Inspire-se para criar o seu espaço."
+    },
+    "categories": {
+      "eyebrow": "Espaços",
+      "title": "Formas de imaginar o seu projeto",
+      "description": "Explore os nossos ambientes e encontre inspiração para criar o seu espaço.",
+      "cta": "Ver todos os ambientes"
+    },
+    "intro_cards": {
+      "casa-de-banho": {
+        "title": "Casa de Banho",
+        "subtitle": "Materiais e detalhes para espaços de bem-estar e precisão"
+      },
+      "interiores": {
+        "title": "Interiores",
+        "subtitle": "Pavimentos e revestimentos para salas, quartos e zonas de estar"
+      },
+      "exteriores": {
+        "title": "Exteriores",
+        "subtitle": "Soluções resistentes para terraços, jardins e áreas exteriores"
+      }
+    },
+    "gallery": {
+      "eyebrow": "Inspiração",
+      "title": "Galeria de ambientes",
+      "explore": "Explorar",
+      "empty": "Nenhum ambiente encontrado nesta categoria.",
+      "filters": {
+        "all": "Todos",
+        "casa-de-banho": "Casa de Banho",
+        "interiores": "Interiores",
+        "exteriores": "Exteriores"
+      }
+    },
+    "detail": {
+      "back": "Voltar aos ambientes",
+      "materials_title": "Materiais utilizados",
+      "gallery_title": "Mais imagens",
+      "view_product": "Ver produto"
+    },
+    "product_types": {
+      "pavimento": "Pavimento",
+      "revestimento": "Revestimento",
+      "lavatorio": "Lavatório",
+      "torneira": "Torneira",
+      "iluminacao": "Iluminação",
+      "mobiliario": "Mobiliário"
+    },
+    "items": {
+      "suite-mineral": {
+        "name": "Suite Mineral",
+        "excerpt": "Tons de pedra e linhas limpas para um banho sereno.",
+        "description": "Uma suite de banho marcada pela quietude da pedra natural. Superfícies contínuas, hardware discreto e uma luz suave definem um espaço pensado para durar e inspirar.",
+        "image_alt": "Suite de banho com acabamentos minerais",
+        "materials": {
+          "pavimento": "Cerâmica Stone Grey 60×60",
+          "revestimento": "Microcimento Soft White",
+          "lavatorio": "Lavatório suspenso Linea",
+          "torneira": "Misturadora mono-comando Chrome"
+        }
+      },
+      "banho-zen": {
+        "name": "Banho Zen",
+        "excerpt": "Equilíbrio entre textura, luz e água.",
+        "description": "Um banho íntimo onde a madeira e a pedra se encontram. O foco está na experiência tátil e na simplicidade dos elementos essenciais.",
+        "image_alt": "Casa de banho com atmosfera zen",
+        "materials": {
+          "revestimento": "Azulejo Matte Sand 10×30",
+          "lavatorio": "Cuba de sobrepor Oval Soft",
+          "torneira": "Torneira cascata Brushed Nickel"
+        }
+      },
+      "sala-luminosa": {
+        "name": "Sala Luminosa",
+        "excerpt": "Pavimento contínuo e luz natural em diálogo.",
+        "description": "Uma sala ampla, aberta à luz, com pavimento de grande formato e revestimentos neutros que alongam o olhar e acolhem o quotidiano.",
+        "image_alt": "Sala de estar luminosa",
+        "materials": {
+          "pavimento": "Porcelânico Large Format Ivory",
+          "revestimento": "Estuque Mineral Warm",
+          "iluminacao": "Calha LED embutida Linear"
+        }
+      },
+      "cozinha-aberta": {
+        "name": "Cozinha Aberta",
+        "excerpt": "Funcionalidade sem perder o carácter arquitetónico.",
+        "description": "Uma cozinha integrada no living, com superfícies resistentes e uma composição visual limpa. Materiais escolhidos para o uso diário sem comprometer a estética.",
+        "image_alt": "Cozinha aberta contemporânea",
+        "materials": {
+          "pavimento": "Cerâmica Concrete Soft 80×80",
+          "revestimento": "Bancada e frente em quartzito claro",
+          "mobiliario": "Frontais lacados mate Oak Smoke"
+        }
+      },
+      "terraco-mediterraneo": {
+        "name": "Terraço Mediterrâneo",
+        "excerpt": "Texturas quentes para viver o exterior.",
+        "description": "Um terraço pensado para longas tardes: pavimento antiderrapante, tons terrosos e uma transição suave entre interior e exterior.",
+        "image_alt": "Terraço com ambiente mediterrâneo",
+        "materials": {
+          "pavimento": "Pavimento outdoor Terracotta Grip",
+          "revestimento": "Revestimento pedra Natural Split"
+        }
+      },
+      "jardim-contemporaneo": {
+        "name": "Jardim Contemporâneo",
+        "excerpt": "Linhas arquitetónicas no espaço exterior.",
+        "description": "Percursos definidos, volumes simples e materiais técnicos que resistem ao clima, mantendo uma leitura contemporânea do jardim.",
+        "image_alt": "Jardim contemporâneo com percursos",
+        "materials": {
+          "pavimento": "Laje outdoor Graphite 60×120",
+          "iluminacao": "Balizadores de percurso Soft Beam"
+        }
+      },
+      "suite-marmore": {
+        "name": "Suite Mármore",
+        "excerpt": "Sofisticação mineral com presença escultural.",
+        "description": "O mármore e as suas veios conduzem a composição. Uma suite com presença, onde cada peça sanitária e metálica se integra com precisão.",
+        "image_alt": "Suite de banho em mármore",
+        "materials": {
+          "pavimento": "Mármore Carrara Honed",
+          "revestimento": "Mármore Calacatta Vein Match",
+          "lavatorio": "Lavatório em banca integrada",
+          "torneira": "Misturadora de parede Black Matte"
+        }
+      },
+      "living-neutro": {
+        "name": "Living Neutro",
+        "excerpt": "Base calmada para um interior atemporal.",
+        "description": "Tons neutros, texturas suaves e um pavimento contínuo criam uma base elegante para mobiliário e arte. Um living pensado para acompanhar o tempo.",
+        "image_alt": "Living com paleta neutra",
+        "materials": {
+          "pavimento": "Carvalho engrossado Natural Soft",
+          "mobiliario": "Sofá modular Linen Greige",
+          "iluminacao": "Candeeiro de pé Arch Brass"
+        }
+      }
+    }
+  },
   "products": {
     "search_placeholder": "Pesquisar produtos",
     "sort_by": "Ordenar por",
@@ -63,7 +205,6 @@
       "newest": "Ordenar por: Adicionado recentemente"
     },
     "results_count": "{count, plural, one {# resultado} other {# resultados}}",
-    "loading": "A carregar produtos…",
     "error": "Erro ao carregar produtos",
     "no_results": "Nenhum produto encontrado",
     "previous_page": "Anterior",
@@ -286,7 +427,7 @@
       "whatsapp_note": "exclusivo mensagens de texto",
       "location_title": "Localização",
       "location_eyebrow": "Onde estamos",
-      "location_description": "Visite-nos na nossa sede em Tebosa, Braga.\nPode ver a nossa localização no mapa ao lado ou abrir no Google Maps.",
+      "location_description": "Visite-nos na nossa sede em Tebosa, Braga.",
       "map_title": "Mapa da localização Nós-Norte",
       "view_map": "Ver no Google Maps"
     }

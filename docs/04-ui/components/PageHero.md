@@ -6,7 +6,7 @@ Shared full-bleed page hero for content pages: background image, gradient overla
 
 ## When to use
 
-Use at the top of content pages (History, Contacts, Showroom, and similar) that need an edge-to-edge hero above body sections wrapped in `PageContainer`.
+Use at the top of content pages (History, Contacts, Showroom, Ambientes, and similar) that need an edge-to-edge hero above body sections wrapped in `PageContainer`.
 
 ## When not to use
 
@@ -17,7 +17,7 @@ Use at the top of content pages (History, Contacts, Showroom, and similar) that 
 ## Layout
 
 - Stays full-bleed; text uses `FULL_BLEED_HERO_INSET` from `constants/layout.ts` (same as the homepage carousel).
-- On the page: render `PageHero` first, then wrap remaining sections in `PageContainer`.
+- On the page: render `PageHero` first, then wrap remaining sections in `PageContainer` (or `Container` when a following section must stay full-bleed, as with Ambientes + `EnvironmentsIntro`).
 
 ## Props
 

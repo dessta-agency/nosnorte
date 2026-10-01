@@ -19,6 +19,14 @@ High-level functional description of the project (no technical details).
 5. Products with extra options use “View options”, which opens a dialog with image, details, quantity, optional color choices, product information, and the same add action.
 6. The visitor can filter, search, sort, and paginate the catalog (previous/next use arrow icons).
 
+### Ambientes inspiration
+
+1. Visitor opens the Ambientes page.
+2. A full-bleed hero introduces the section, followed by an intro with a short description and a link to the gallery.
+3. A gallery lists inspirational environments with image, name, category, and short text in an asymmetric editorial layout.
+4. The visitor can filter the gallery by category (All, Bathroom, Interiors, Exteriors); the active filter is highlighted.
+5. Opening an environment shows a detail page with a large image, description, materials/products used (with links), and additional images.
+
 ## Key States
 
 TBD

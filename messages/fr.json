@@ -53,6 +53,148 @@
     "privacy_policy": "Politique de Confidentialité",
     "code_of_conduct": "Code de Conduite"
   },
+  "ambientes": {
+    "hero": {
+      "title": "Espaces",
+      "subtitle": "Trouvez l'inspiration pour créer votre espace."
+    },
+    "categories": {
+      "eyebrow": "Espaces",
+      "title": "Façons d'imaginer votre projet",
+      "description": "Explorez nos espaces et trouvez l'inspiration pour créer le vôtre.",
+      "cta": "Voir tous les espaces"
+    },
+    "intro_cards": {
+      "casa-de-banho": {
+        "title": "Salle de bain",
+        "subtitle": "Matériaux et détails pour des espaces de bien-être et de précision"
+      },
+      "interiores": {
+        "title": "Intérieurs",
+        "subtitle": "Revêtements de sol et de mur pour salons, chambres et espaces de vie"
+      },
+      "exteriores": {
+        "title": "Extérieurs",
+        "subtitle": "Solutions résistantes pour terrasses, jardins et espaces extérieurs"
+      }
+    },
+    "gallery": {
+      "eyebrow": "Inspiration",
+      "title": "Galerie d'espaces",
+      "explore": "Explorer",
+      "empty": "Aucun espace trouvé dans cette catégorie.",
+      "filters": {
+        "all": "Tous",
+        "casa-de-banho": "Salle de bain",
+        "interiores": "Intérieurs",
+        "exteriores": "Extérieurs"
+      }
+    },
+    "detail": {
+      "back": "Retour aux espaces",
+      "materials_title": "Matériaux utilisés",
+      "gallery_title": "Plus d'images",
+      "view_product": "Voir le produit"
+    },
+    "product_types": {
+      "pavimento": "Sol",
+      "revestimento": "Revêtement",
+      "lavatorio": "Lavabo",
+      "torneira": "Robinet",
+      "iluminacao": "Éclairage",
+      "mobiliario": "Mobilier"
+    },
+    "items": {
+      "suite-mineral": {
+        "name": "Suite Minérale",
+        "excerpt": "Tons de pierre et lignes nettes pour une salle de bain sereine.",
+        "description": "Une suite de bain marquée par le calme de la pierre naturelle. Surfaces continues, quincaillerie discrète et lumière douce définissent un espace pensé pour durer et inspirer.",
+        "image_alt": "Suite de bain aux finitions minérales",
+        "materials": {
+          "pavimento": "Céramique Stone Grey 60×60",
+          "revestimento": "Microciment Soft White",
+          "lavatorio": "Lavabo suspendu Linea",
+          "torneira": "Mitigeur monocommande Chrome"
+        }
+      },
+      "banho-zen": {
+        "name": "Bain Zen",
+        "excerpt": "Équilibre entre texture, lumière et eau.",
+        "description": "Une salle de bain intime où le bois et la pierre se rencontrent. L'accent est mis sur l'expérience tactile et la simplicité des éléments essentiels.",
+        "image_alt": "Salle de bain à l'atmosphère zen",
+        "materials": {
+          "revestimento": "Carreau Matte Sand 10×30",
+          "lavatorio": "Vasque à poser Oval Soft",
+          "torneira": "Robinet cascade Brushed Nickel"
+        }
+      },
+      "sala-luminosa": {
+        "name": "Salon Lumineux",
+        "excerpt": "Sol continu et lumière naturelle en dialogue.",
+        "description": "Une pièce généreuse, ouverte à la lumière, avec un sol grand format et des finitions neutres qui allongent le regard et accueillent le quotidien.",
+        "image_alt": "Salon lumineux",
+        "materials": {
+          "pavimento": "Grès cérame Large Format Ivory",
+          "revestimento": "Enduit Mineral Warm",
+          "iluminacao": "Rail LED encastré Linear"
+        }
+      },
+      "cozinha-aberta": {
+        "name": "Cuisine Ouverte",
+        "excerpt": "La fonction sans perdre le caractère architectural.",
+        "description": "Une cuisine intégrée au living, avec des surfaces résistantes et une composition visuelle nette. Des matériaux choisis pour l'usage quotidien sans compromettre l'esthétique.",
+        "image_alt": "Cuisine ouverte contemporaine",
+        "materials": {
+          "pavimento": "Céramique Concrete Soft 80×80",
+          "revestimento": "Plan de travail et crédence en quartzite clair",
+          "mobiliario": "Façades laquées mates Oak Smoke"
+        }
+      },
+      "terraco-mediterraneo": {
+        "name": "Terrasse Méditerranéenne",
+        "excerpt": "Textures chaudes pour vivre l'extérieur.",
+        "description": "Une terrasse pensée pour de longues après-midi : sol antidérapant, tons terreux et une transition douce entre intérieur et extérieur.",
+        "image_alt": "Terrasse à l'ambiance méditerranéenne",
+        "materials": {
+          "pavimento": "Sol outdoor Terracotta Grip",
+          "revestimento": "Revêtement pierre Natural Split"
+        }
+      },
+      "jardim-contemporaneo": {
+        "name": "Jardin Contemporain",
+        "excerpt": "Lignes architecturales dans l'espace extérieur.",
+        "description": "Parcours définis, volumes simples et matériaux techniques qui résistent au climat, tout en conservant une lecture contemporaine du jardin.",
+        "image_alt": "Jardin contemporain avec parcours",
+        "materials": {
+          "pavimento": "Dalle outdoor Graphite 60×120",
+          "iluminacao": "Bornes de parcours Soft Beam"
+        }
+      },
+      "suite-marmore": {
+        "name": "Suite Marbre",
+        "excerpt": "Sophistication minérale à la présence sculpturale.",
+        "description": "Le marbre et ses veines conduisent la composition. Une suite avec présence, où chaque pièce sanitaire et métallique s'intègre avec précision.",
+        "image_alt": "Suite de bain en marbre",
+        "materials": {
+          "pavimento": "Marbre Carrara Honed",
+          "revestimento": "Marbre Calacatta Vein Match",
+          "lavatorio": "Lavabo intégré au plan",
+          "torneira": "Mitigeur mural Black Matte"
+        }
+      },
+      "living-neutro": {
+        "name": "Living Neutre",
+        "excerpt": "Une base calme pour un intérieur intemporel.",
+        "description": "Tons neutres, textures douces et un sol continu créent une base élégante pour le mobilier et l'art. Un living pensé pour accompagner le temps.",
+        "image_alt": "Living à la palette neutre",
+        "materials": {
+          "pavimento": "Chêne contrecollé Natural Soft",
+          "mobiliario": "Canapé modulable Linen Greige",
+          "iluminacao": "Lampadaire Arch Brass"
+        }
+      }
+    }
+  },
   "products": {
     "search_placeholder": "Rechercher des produits",
     "sort_by": "Trier par",
@@ -63,7 +205,6 @@
       "newest": "Trier par : Ajouté récemment"
     },
     "results_count": "{count, plural, one {# résultat} other {# résultats}}",
-    "loading": "Chargement des produits…",
     "error": "Erreur lors du chargement des produits",
     "no_results": "Aucun produit trouvé",
     "previous_page": "Précédent",
@@ -286,7 +427,7 @@
       "whatsapp_note": "messages texte uniquement",
       "location_title": "Localisation",
       "location_eyebrow": "Où nous trouver",
-      "location_description": "Venez nous rendre visite à notre siège à Tebosa, Braga.\nVous pouvez voir notre emplacement sur la carte à côté ou l'ouvrir dans Google Maps.",
+      "location_description": "Venez nous rendre visite à notre siège à Tebosa, Braga.",
       "map_title": "Carte de localisation Nós-Norte",
       "view_map": "Voir sur Google Maps"
     }

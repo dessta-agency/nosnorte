@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { ImageGallery } from "@/components/features/History/ImageGallery";
 import { MissionCard } from "@/components/features/History/MissionCard";

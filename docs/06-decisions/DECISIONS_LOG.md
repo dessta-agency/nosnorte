@@ -94,3 +94,41 @@ Introduce one shared `PageHero` UI component for content-page heroes. Keep `Hero
 - New content pages with a static full-bleed hero reuse `PageHero` instead of adding page-specific hero components.
 - Homepage continues to use `HeroCarousel` only.
 - Feature folders no longer own duplicate page-hero markup.
+
+---
+
+## 2026-10-01 — Ambientes intro cards bleed to the right edge
+
+### Context
+
+The Ambientes intro needs slanted category cards beside the section copy, with the row ending flush against the viewport’s right edge. Constraining that row inside `PageContainer` / `Container` prevented a true right-edge bleed.
+
+### Decision
+
+- Keep `EnvironmentsIntro` outside `PageContainer` / `Container` (below `PageHero`), similar to other full-bleed sections.
+- Support multiple intro cards from data (`AMBIENTE_INTRO_CARDS`).
+- The **last** card has no right-side diagonal cut and grows to the viewport right edge. With three category cards, that is the third card.
+
+### Consequences
+
+- Ambientes body sections (gallery) stay in `Container`; only the intro bleeds.
+- Adding or removing intro cards keeps the same last-card bleed rule.
+- See [EnvironmentsIntro](../04-ui/components/EnvironmentsIntro.md).
+
+---
+
+## 2026-10-01 — Ambientes gallery editorial grid
+
+### Context
+
+A uniform 3-column card grid did not match the intended Ambientes gallery composition (tall left tile, wide top-middle tile, stacked right column).
+
+### Decision
+
+Use a repeating 4-column CSS Grid block of six tiles on large screens: position 0 spans two rows, position 1 spans two columns, positions 2–5 fill the remaining cells. Filters use a continuous gray baseline with a primary underline on the active item.
+
+### Consequences
+
+- Gallery layout is index-based (`index % 6`), independent of the older `span` field on ambiente mock data for this view.
+- Card chrome stays simple (`rounded-xl`); content overlay is unchanged.
+- See [EnvironmentsGallery](../04-ui/components/EnvironmentsGallery.md).

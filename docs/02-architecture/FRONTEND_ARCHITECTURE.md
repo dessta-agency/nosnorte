@@ -27,7 +27,7 @@ nosnorte/
 │   ├── [locale]/           # Locale-prefixed routes (pt, en, es, fr)
 │   │   ├── layout.tsx      # Locale layout (Navbar, Footer, providers)
 │   │   ├── page.tsx        # Home
-│   │   ├── ambientes/      # Ambientes
+│   │   ├── ambientes/      # Ambientes (+ [slug] detail)
 │   │   ├── produtos/       # Produtos
 │   │   ├── showroom/       # Showroom
 │   │   ├── historia/       # História
@@ -61,7 +61,7 @@ Reusable React components organized by category:
 - **ui**: Low-level, reusable interface elements (`Button`, `IconButton`, `TextLink`, `Carousel`, `Modal`, `PageHero`)
 - **layout**: Structural components used across pages (`Navbar`, `Container`, `PageContainer`)
 - **forms**: Form-related components and input wrappers
-- **features**: Domain-specific, feature-focused components (`HeroCarousel`, `ProductsCatalog`, `ProductCard`, `ProductOptionsModal`)
+- **features**: Domain-specific, feature-focused components (`HeroCarousel`, `ProductsCatalog`, `ProductCard`, `ProductOptionsModal`, Ambientes gallery/detail)
 
 ### `context/`
 React Context providers for global state (authentication, theme, user preferences). Each context encapsulates state and related logic.

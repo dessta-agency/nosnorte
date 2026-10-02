@@ -14,11 +14,11 @@ Do not duplicate inside individual pages. Do not use for page-specific secondary
 
 ## Structure
 
-- Logo: white logo (centred in the column)
-- Information: internal pages, external Livro de Reclamações, plain text when no URL yet
-- Contacts: icons and contact details (email, phone, WhatsApp, address, Google Maps)
-- Follow us: Instagram and Facebook icon links
-- Bottom: full-width divider aligned to `Container`; copyright left-aligned with language links (PT EN ES FR) on the right, preceded by a short vertical divider
+- Below `lg`: two columns — left (logo + information), right (contacts + follow us)
+- From `lg`: four columns — logo, information, contacts, follow us
+- Contacts: single column below `lg`; two-column grid from `lg` to keep the desktop footer shorter
+- Follow us: Instagram and Facebook icon links; centred below `lg`, left-aligned within its column from `lg`
+- Bottom: full-width divider aligned to `Container`; below `lg`, copyright and languages stacked and centred; from `lg`, copyright left and languages right with a short vertical divider
 
 ## Behaviour
 

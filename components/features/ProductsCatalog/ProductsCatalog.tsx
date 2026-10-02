@@ -92,11 +92,13 @@ export function ProductsCatalog() {
     createInitialFilters()
   );
   const [error, setError] = useState<string | null>(null);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     let cancelled = false;
 
     async function loadProducts() {
+      setIsLoading(true);
       setError(null);
 
       try {
@@ -132,6 +134,10 @@ export function ProductsCatalog() {
         if (!cancelled) {
           setError(t("error"));
           setProducts([]);
+        }
+      } finally {
+        if (!cancelled) {
+          setIsLoading(false);
         }
       }
     }
@@ -174,6 +180,7 @@ export function ProductsCatalog() {
       products={products}
       filters={filters}
       error={error}
+      isLoading={isLoading}
       sidebar={
         <ProductFilters
           value={filters}
@@ -182,6 +189,7 @@ export function ProductsCatalog() {
           brandOptions={brandOptions}
           priceMinBound={priceBounds.min}
           priceMaxBound={priceBounds.max}
+          isLoading={isLoading}
         />
       }
     />

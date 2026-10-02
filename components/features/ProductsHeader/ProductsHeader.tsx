@@ -14,6 +14,7 @@ type ProductsHeaderProps = {
   onSortChange: (value: SortOption) => void;
   sortAriaLabel: string;
   sortOptions: { value: SortOption; label: string }[];
+  isLoading?: boolean;
 };
 
 export function ProductsHeader({
@@ -25,14 +26,24 @@ export function ProductsHeader({
   onSortChange,
   sortAriaLabel,
   sortOptions,
+  isLoading = false,
 }: ProductsHeaderProps) {
   return (
     <div className="flex flex-col gap-4 border-b border-border pb-4 lg:flex-row lg:items-center lg:justify-between lg:gap-6">
       <p className="font-sans text-sm font-semibold text-foreground">
-        {resultsLabel}
+        {isLoading ? (
+          <span className="inline-block h-5 w-28" aria-hidden />
+        ) : (
+          resultsLabel
+        )}
       </p>
 
-      <div className="flex w-full flex-col gap-3 sm:flex-row sm:items-center lg:w-auto lg:max-w-none lg:justify-end">
+      <div
+        className={`flex w-full flex-col gap-3 sm:flex-row sm:items-center lg:w-auto lg:max-w-none lg:justify-end ${
+          isLoading ? "invisible pointer-events-none" : ""
+        }`}
+        aria-hidden={isLoading || undefined}
+      >
         <SortDropdown
           value={sortValue}
           onChange={onSortChange}

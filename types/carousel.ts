@@ -3,6 +3,7 @@ import type { ReactNode } from "react";
 export type HeroSlide = {
   id: string;
   image: string;
+  href: string;
   eyebrow: string;
   title: string;
   description: string;

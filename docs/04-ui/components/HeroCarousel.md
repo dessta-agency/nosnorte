@@ -22,4 +22,5 @@ Do not wrap in `PageContainer` or `Container` — the hero must stay full-bleed.
 ## Internationalization
 
 - Copy comes from the `hero.slides` message namespace (`eyebrow`, `title`, `description`, `cta`).
+- CTA destinations live in `SLIDES_DATA` (`href`): slide 1 → `/produtos`, slide 2 → `/ambientes`, slide 3 → `/showroom`.
 - Titles and related display text use `font-display` (DM Serif Display).

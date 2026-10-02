@@ -5,10 +5,7 @@ import { Carousel } from "@/components/ui/Carousel/Carousel";
 import { FULL_BLEED_HERO_INSET } from "@/constants/layout";
 import type { HeroSlide } from "@/types/carousel";
 
-const SLIDES_DATA: Omit<
-  HeroSlide,
-  "eyebrow" | "title" | "description" | "cta"
->[] = [
+const SLIDES_DATA = [
   {
     id: "1",
     image: "/images/home/image1.jpg",
@@ -21,7 +18,7 @@ const SLIDES_DATA: Omit<
     id: "3",
     image: "/images/home/image3.jpg",
   },
-];
+] as const;
 
 export function HeroCarousel() {
   const t = useTranslations("hero.slides");

@@ -100,9 +100,9 @@ function CloseIcon({ className = "" }: { className?: string }) {
   );
 }
 
-function mapOptions(
-  ids: readonly string[],
-  getLabel: (id: string) => string
+function mapOptions<T extends string>(
+  ids: readonly T[],
+  getLabel: (id: T) => string
 ): FilterOption[] {
   return ids.map((id) => ({ id, label: getLabel(id) }));
 }

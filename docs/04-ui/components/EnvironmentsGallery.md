@@ -16,7 +16,7 @@ Use on the Ambientes listing page inside `Container`, below `EnvironmentsIntro`.
 ## Layout
 
 - Header: section eyebrow + title on the left; category filters on the right (stacked on small screens).
-- Filters sit on a continuous gray bottom rule (`border-border/60`). The active filter uses a primary (red) underline on top of that rule.
+- Filters sit on a continuous gray bottom rule (`border-border/60`). The active filter uses a primary (red) underline on top of that rule. On small screens filters wrap with tighter horizontal spacing (`gap-x-4`); from `md` they use the wider desktop gap.
 - Grid (large screens): 4 columns, repeating every 6 items:
   1. Tall left tile (`row-span-2`)
   2. Wide top-middle tile (`col-span-2`)

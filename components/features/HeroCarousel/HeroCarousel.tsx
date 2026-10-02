@@ -9,14 +9,17 @@ const SLIDES_DATA = [
   {
     id: "1",
     image: "/images/home/image1.jpg",
+    href: "/produtos",
   },
   {
     id: "2",
     image: "/images/home/image2.jpg",
+    href: "/ambientes",
   },
   {
     id: "3",
     image: "/images/home/image3.jpg",
+    href: "/showroom",
   },
 ] as const;
 
@@ -73,7 +76,7 @@ export function HeroCarousel() {
                     {slide.description}
                   </p>
 
-                  <Button variant="primary" showArrow>
+                  <Button variant="primary" showArrow href={slide.href}>
                     {slide.cta}
                   </Button>
                 </div>

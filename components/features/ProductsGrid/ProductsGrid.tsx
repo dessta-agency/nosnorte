@@ -3,16 +3,19 @@
 import { useCallback, useMemo, useState, type ReactNode } from "react";
 import { useTranslations } from "next-intl";
 import { ProductCard } from "@/components/features/ProductCard/ProductCard";
+import { ProductCardSkeleton } from "@/components/features/ProductCard/ProductCardSkeleton";
 import { ProductsHeader } from "@/components/features/ProductsHeader/ProductsHeader";
 import { Pagination } from "@/components/ui/Pagination/Pagination";
 import type { Product, ProductFiltersState, SortOption } from "@/types/product";
 
 const PAGE_SIZE = 30;
+const SKELETON_COUNT = 10;
 
 type ProductsGridProps = {
   products: Product[];
   filters: ProductFiltersState;
   error: string | null;
+  isLoading?: boolean;
   sidebar?: ReactNode;
 };
 
@@ -70,9 +73,11 @@ export function ProductsGrid({
   products,
   filters,
   error,
+  isLoading = false,
   sidebar,
 }: ProductsGridProps) {
   const t = useTranslations("products");
+  const tCommon = useTranslations("common");
   const [search, setSearch] = useState("");
   const [sort, setSort] = useState<SortOption>("relevance");
   const [page, setPage] = useState(1);
@@ -118,11 +123,23 @@ export function ProductsGrid({
       );
     }
 
-    if (pageProducts.length === 0) {
-      if (products.length === 0) {
-        return null;
-      }
+    if (isLoading) {
+      return (
+        <div
+          role="status"
+          aria-live="polite"
+          aria-busy="true"
+          className="grid grid-cols-2 gap-3 sm:grid-cols-3 md:grid-cols-4 xl:grid-cols-5"
+        >
+          <span className="sr-only">{tCommon("loading")}</span>
+          {Array.from({ length: SKELETON_COUNT }, (_, index) => (
+            <ProductCardSkeleton key={index} />
+          ))}
+        </div>
+      );
+    }
 
+    if (pageProducts.length === 0) {
       return (
         <div className="flex min-h-64 items-center justify-center rounded-xl border border-border bg-surface p-8">
           <p className="font-sans text-sm text-muted">{t("no_results")}</p>
@@ -170,6 +187,7 @@ export function ProductsGrid({
               onSortChange={handleSortChange}
               sortAriaLabel={t("sort_by")}
               sortOptions={sortOptions}
+              isLoading={isLoading}
             />
           </div>
         </div>

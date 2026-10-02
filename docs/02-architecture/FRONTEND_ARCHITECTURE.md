@@ -58,10 +58,10 @@ Contains Next.js routing, layouts, and page-level components. Follows the App Ro
 
 ### `components/`
 Reusable React components organized by category:
-- **ui**: Low-level, reusable interface elements (`Button`, `IconButton`, `TextLink`, `Carousel`, `Modal`, `PageHero`)
+- **ui**: Low-level, reusable interface elements (`Button`, `IconButton`, `TextLink`, `Carousel`, `Modal`, `PageHero`, `Skeleton`)
 - **layout**: Structural components used across pages (`Navbar`, `Container`, `PageContainer`)
 - **forms**: Form-related components and input wrappers
-- **features**: Domain-specific, feature-focused components (`HeroCarousel`, `ProductsCatalog`, `ProductCard`, `ProductOptionsModal`, Ambientes gallery/detail)
+- **features**: Domain-specific, feature-focused components (`HeroCarousel`, `ProductsCatalog`, `ProductCard`, `ProductCardSkeleton`, `ProductOptionsModal`, Ambientes gallery/detail)
 
 ### `context/`
 React Context providers for global state (authentication, theme, user preferences). Each context encapsulates state and related logic.

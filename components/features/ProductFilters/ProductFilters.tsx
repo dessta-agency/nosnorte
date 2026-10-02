@@ -2,6 +2,7 @@
 
 import { useCallback, useEffect, useId, useState } from "react";
 import { useTranslations } from "next-intl";
+import { ProductFiltersSkeleton } from "@/components/features/ProductFilters/ProductFiltersSkeleton";
 import { CheckboxFilter } from "@/components/ui/CheckboxFilter/CheckboxFilter";
 import { FilterSection } from "@/components/ui/FilterSection/FilterSection";
 import { PriceRangeFilter } from "@/components/ui/PriceRangeFilter/PriceRangeFilter";
@@ -53,6 +54,7 @@ type ProductFiltersProps = {
   brandOptions?: FilterOption[];
   priceMinBound?: number;
   priceMaxBound?: number;
+  isLoading?: boolean;
 };
 
 type CheckboxFilterKey = Exclude<
@@ -314,6 +316,7 @@ export function ProductFilters({
   brandOptions,
   priceMinBound = 0,
   priceMaxBound = 500,
+  isLoading = false,
 }: ProductFiltersProps) {
   const t = useTranslations("products.filters");
   const panelId = useId();
@@ -381,19 +384,23 @@ export function ProductFilters({
     };
   }, [isMobileOpen]);
 
-  const panelHandlers = {
-    state: value,
-    onFilterChange: (key: CheckboxFilterKey, ids: string[]) =>
-      onChange({ ...value, [key]: ids }),
-    onPriceChange: (priceMin: number, priceMax: number) =>
-      onChange({ ...value, priceMin, priceMax }),
-    onClear: clearFilters,
-    hasActiveFilters,
-    categoryOptions: resolvedCategoryOptions,
-    brandOptions: resolvedBrandOptions,
-    priceMinBound,
-    priceMaxBound,
-  };
+  const panelContent = isLoading ? (
+    <ProductFiltersSkeleton />
+  ) : (
+    <FiltersPanelContent
+      state={value}
+      onFilterChange={(key, ids) => onChange({ ...value, [key]: ids })}
+      onPriceChange={(priceMin, priceMax) =>
+        onChange({ ...value, priceMin, priceMax })
+      }
+      onClear={clearFilters}
+      hasActiveFilters={hasActiveFilters}
+      categoryOptions={resolvedCategoryOptions}
+      brandOptions={resolvedBrandOptions}
+      priceMinBound={priceMinBound}
+      priceMaxBound={priceMaxBound}
+    />
+  );
 
   return (
     <>
@@ -401,30 +408,30 @@ export function ProductFilters({
         <button
           type="button"
           onClick={() => setIsMobileOpen(true)}
-          className="inline-flex cursor-pointer items-center gap-2 rounded-lg border border-border bg-background px-4 py-2.5 font-sans text-sm font-semibold text-foreground shadow-sm transition-colors hover:border-muted hover:bg-gray-light focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
+          disabled={isLoading}
+          className="inline-flex cursor-pointer items-center gap-2 rounded-lg border border-border bg-background px-4 py-2.5 font-sans text-sm font-semibold text-foreground shadow-sm transition-colors hover:border-muted hover:bg-gray-light focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary disabled:cursor-not-allowed disabled:opacity-60"
           aria-expanded={isMobileOpen}
           aria-controls={panelId}
         >
           <FilterIcon className="h-4 w-4 text-primary" />
           {t("title")}
-          {activeFilterCount > 0 && (
+          {!isLoading && activeFilterCount > 0 ? (
             <span className="inline-flex h-5 min-w-5 items-center justify-center rounded-full bg-primary px-1.5 font-sans text-xs font-semibold text-white">
               {activeFilterCount}
             </span>
-          )}
+          ) : null}
         </button>
       </div>
 
       <aside
         className="hidden w-full max-w-70 shrink-0 self-start rounded-xl border border-border bg-surface shadow-sm lg:sticky lg:top-8 lg:block lg:max-h-[calc(100vh-6rem)] lg:overflow-y-auto"
         aria-label={t("title")}
+        aria-busy={isLoading || undefined}
       >
-        <div className="p-5">
-          <FiltersPanelContent {...panelHandlers} />
-        </div>
+        <div className="p-5">{panelContent}</div>
       </aside>
 
-      {isMobileOpen && (
+      {isMobileOpen && !isLoading ? (
         <div className="fixed inset-0 z-50 lg:hidden" role="presentation">
           <button
             type="button"
@@ -449,12 +456,10 @@ export function ProductFilters({
                 <CloseIcon className="h-5 w-5" />
               </button>
             </div>
-            <div className="flex-1 overflow-y-auto p-5">
-              <FiltersPanelContent {...panelHandlers} />
-            </div>
+            <div className="flex-1 overflow-y-auto p-5">{panelContent}</div>
           </aside>
         </div>
-      )}
+      ) : null}
     </>
   );
 }

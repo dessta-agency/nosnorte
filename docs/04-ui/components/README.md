@@ -19,6 +19,7 @@ Index of documented UI components.
 - [Carousel](Carousel.md) — reusable Embla carousel (autoplay, dots, counter)
 - [Modal](Modal.md) — accessible dialog overlay (focus trap, Escape, scroll lock)
 - [PageHero](PageHero.md) — shared full-bleed page hero (not homepage carousel)
+- [Skeleton](Skeleton.md) — reusable loading placeholder block
 
 ## Features
 
@@ -27,5 +28,7 @@ Index of documented UI components.
 - [EnvironmentsIntro](EnvironmentsIntro.md) — Ambientes intro with slanted category cards (full-bleed right)
 - [EnvironmentsGallery](EnvironmentsGallery.md) — Ambientes filtered editorial gallery grid
 - [ProductCard](ProductCard.md) — products grid card (availability, CTAs, options modal)
+- [ProductCardSkeleton](ProductCardSkeleton.md) — loading placeholder for `ProductCard`
+- [ProductFiltersSkeleton](ProductFiltersSkeleton.md) — loading placeholder for products filters panel
 - [ProductOptionsModal](ProductOptionsModal.md) — product options dialog
 - Other Environments feature components (`EnvironmentDetailView`) — environment detail

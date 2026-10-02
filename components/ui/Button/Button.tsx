@@ -1,9 +1,9 @@
-import Link from "next/link";
 import type {
   AnchorHTMLAttributes,
   ButtonHTMLAttributes,
   ReactNode,
 } from "react";
+import { Link } from "@/i18n/navigation";
 
 export type ButtonVariant =
   | "primary"

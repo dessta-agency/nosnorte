@@ -48,7 +48,7 @@ export function EnvironmentsGallery({
         </div>
 
         <nav aria-label={title} className="border-b border-border/60">
-          <ul className="flex flex-wrap gap-x-10 gap-y-3">
+          <ul className="flex flex-wrap gap-x-4 gap-y-2 md:gap-x-10 md:gap-y-3">
             {filters.map((filter) => {
               const isActive = filter.id === activeFilter;
 

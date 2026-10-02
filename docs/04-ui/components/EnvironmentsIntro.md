@@ -24,8 +24,10 @@ Use on the Ambientes listing page, directly below `PageHero` and **outside** `Pa
 
 - Multiple intro cards are supported (data-driven via `AMBIENTE_INTRO_CARDS` + `ambientes.intro_cards` messages).
 - Each card shows number, separator line, title, and subtitle over a cover image (no arrow icon).
-- Card text is left-aligned at the bottom. A fixed-height inner block with top alignment keeps numbers (01, 02, …) on the same horizontal line across cards even when titles/subtitles wrap to different lengths.
-- **Last card rule:** the last card in the row has no right-side diagonal cut and grows to the viewport’s right edge. With the current three category cards, that is the third card; if the count changes, the same rule still applies to whichever card is last.
+- Card text is left-aligned at the bottom inside the parallelogram safe zone. Horizontal text inset uses rem values matched to the diagonal cut. A min-height inner block with top alignment keeps numbers (01, 02, …) aligned across cards; typography scales with card width via container queries.
+- **Fixed rem diagonal (not %):** every card uses the same absolute cut in rem (`2.75` / `3.25` / `3.75` / `4.32` across height breakpoints). That keeps the slant angle identical on every card and every width — including intermediate viewports and the wider last card. Overlap uses the matching rem minus a `0.25rem` gap.
+- Cards share space with `flex-1` and can shrink so the row never overflows left over the section title. Non-last cards cap at `24rem` / `26rem` (`xl`).
+- **Last card rule:** no right-side diagonal cut; from `lg` it may grow to the row’s right edge. Its left cut still uses the same rem as the siblings.
 
 ## Props
 

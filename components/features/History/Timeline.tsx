@@ -23,11 +23,11 @@ export function Timeline({ title, description, milestones }: TimelineProps) {
       </header>
 
       {/* Mobile: vertical timeline */}
-      <ol className="relative mx-auto max-w-md space-y-8 border-l border-border pl-8 md:hidden">
+      <ol className="relative mx-auto max-w-md space-y-8 border-l border-border md:hidden">
         {milestones.map((milestone) => (
-          <li key={milestone.year} className="relative">
+          <li key={milestone.year} className="relative pl-8">
             <span
-              className="absolute top-1 -left-[2.4rem] flex h-7 w-7 items-center justify-center rounded-full bg-primary text-[10px] font-semibold text-white"
+              className="absolute top-1 left-0 flex h-7 w-7 -translate-x-1/2 items-center justify-center rounded-full bg-primary text-[10px] font-semibold text-white"
               aria-hidden="true"
             >
               •

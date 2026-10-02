@@ -22,13 +22,13 @@ Inner content uses `Container` so logo and links align with the footer and with 
 - Logo is larger at the top of the page and shrinks when compact.
 - Compact transition uses a longer, decelerating ease (~700ms).
 - On desktop, the active link background slides between items.
-- On small screens, links collapse behind a hamburger control.
+- On small screens, links open in a full-screen panel that slides in from the right, with a backdrop, body scroll lock, and a close control using `/icons/close.png`.
 
 ## Accessibility
 
 - Exposes a labelled landmark for main navigation.
 - Mobile toggle communicates expanded/collapsed state.
-- Escape closes the open mobile menu.
+- Escape, backdrop click, and the close icon dismiss the open mobile menu.
 
 ## Internationalization
 

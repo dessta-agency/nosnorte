@@ -4,6 +4,7 @@ import { EnvironmentsGallery } from "@/components/features/Ambientes/Environment
 import { EnvironmentsIntro } from "@/components/features/Ambientes/EnvironmentsIntro";
 import { Container } from "@/components/layout/Container/Container";
 import { PageHero } from "@/components/ui/PageHero/PageHero";
+import { Reveal } from "@/components/ui/Reveal/Reveal";
 import { AMBIENTE_INTRO_CARDS, AMBIENTES } from "@/constants/ambientes";
 import {
   AMBIENTE_CATEGORY_IDS,
@@ -83,26 +84,30 @@ export default async function AmbientesPage({
       />
 
       <main>
-        <EnvironmentsIntro
-          eyebrow={t("categories.eyebrow")}
-          title={t("categories.title")}
-          description={t("categories.description")}
-          ctaLabel={t("categories.cta")}
-          ctaHref="#galeria"
-          cards={introCards}
-        />
-
-        <Container className="mt-4 min-h-[50vh] pb-16">
-          <EnvironmentsGallery
-            key={initialFilter}
-            eyebrow={t("gallery.eyebrow")}
-            title={t("gallery.title")}
-            emptyLabel={t("gallery.empty")}
-            filters={filters}
-            items={galleryItems}
-            initialFilter={initialFilter}
+        <Reveal>
+          <EnvironmentsIntro
+            eyebrow={t("categories.eyebrow")}
+            title={t("categories.title")}
+            description={t("categories.description")}
+            ctaLabel={t("categories.cta")}
+            ctaHref="#galeria"
+            cards={introCards}
           />
-        </Container>
+        </Reveal>
+
+        <Reveal>
+          <Container className="mt-4 min-h-[50vh] pb-16">
+            <EnvironmentsGallery
+              key={initialFilter}
+              eyebrow={t("gallery.eyebrow")}
+              title={t("gallery.title")}
+              emptyLabel={t("gallery.empty")}
+              filters={filters}
+              items={galleryItems}
+              initialFilter={initialFilter}
+            />
+          </Container>
+        </Reveal>
       </main>
     </>
   );

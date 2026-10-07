@@ -129,8 +129,8 @@ export function ProductsGrid({
           role="status"
           aria-live="polite"
           aria-busy="true"
-          className="grid grid-cols-2 gap-3 sm:grid-cols-3 md:grid-cols-4 xl:grid-cols-5"
-        >
+className="grid grid-cols-1 gap-3 sm:grid-cols-3 md:grid-cols-4 xl:grid-cols-5"
+          >
           <span className="sr-only">{tCommon("loading")}</span>
           {Array.from({ length: SKELETON_COUNT }, (_, index) => (
             <ProductCardSkeleton key={index} />
@@ -149,7 +149,7 @@ export function ProductsGrid({
 
     return (
       <div className="flex flex-col gap-10">
-        <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 md:grid-cols-4 xl:grid-cols-5">
+        <div className="grid grid-cols-1 gap-3 sm:grid-cols-3 md:grid-cols-4 xl:grid-cols-5">
           {pageProducts.map((product) => (
             <ProductCard key={product.id} product={product} />
           ))}

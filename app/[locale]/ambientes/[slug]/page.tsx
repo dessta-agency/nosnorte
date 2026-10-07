@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { EnvironmentDetailView } from "@/components/features/Ambientes/EnvironmentDetailView";
 import { PageContainer } from "@/components/layout/PageContainer/PageContainer";
+import { Reveal } from "@/components/ui/Reveal/Reveal";
 import {
   getAllAmbienteSlugs,
   getAmbienteBySlug,
@@ -82,18 +83,20 @@ export default async function AmbienteDetailPage({
       </section>
 
       <PageContainer>
-        <EnvironmentDetailView
-          name={tItem("name")}
-          categoryLabel={t(`gallery.filters.${ambiente.category}`)}
-          description={tItem("description")}
-          materialsTitle={t("detail.materials_title")}
-          materials={materials}
-          viewProductLabel={t("detail.view_product")}
-          galleryTitle={t("detail.gallery_title")}
-          galleryImages={galleryImages}
-          backLabel={t("detail.back")}
-          backHref="/ambientes"
-        />
+        <Reveal>
+          <EnvironmentDetailView
+            name={tItem("name")}
+            categoryLabel={t(`gallery.filters.${ambiente.category}`)}
+            description={tItem("description")}
+            materialsTitle={t("detail.materials_title")}
+            materials={materials}
+            viewProductLabel={t("detail.view_product")}
+            galleryTitle={t("detail.gallery_title")}
+            galleryImages={galleryImages}
+            backLabel={t("detail.back")}
+            backHref="/ambientes"
+          />
+        </Reveal>
       </PageContainer>
     </>
   );

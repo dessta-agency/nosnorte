@@ -6,6 +6,7 @@ import {
 } from "@/components/features/Showroom/ShowroomGallery";
 import { PageContainer } from "@/components/layout/PageContainer/PageContainer";
 import { PageHero } from "@/components/ui/PageHero/PageHero";
+import { Reveal } from "@/components/ui/Reveal/Reveal";
 import { resolveLocale, type LocalePageProps } from "@/types/i18n";
 
 const SHOWROOM_IMAGES_META = [
@@ -52,12 +53,14 @@ export default async function ShowroomPage({ params }: LocalePageProps) {
       />
 
       <PageContainer>
-        <section className="py-12 md:py-16">
-          <ShowroomGallery
-            images={images}
-            closeLabel={t("gallery.image_modal_close")}
-          />
-        </section>
+        <Reveal>
+          <section className="py-12 md:py-16">
+            <ShowroomGallery
+              images={images}
+              closeLabel={t("gallery.image_modal_close")}
+            />
+          </section>
+        </Reveal>
       </PageContainer>
     </>
   );

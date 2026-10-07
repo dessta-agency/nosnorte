@@ -7,7 +7,7 @@ type ContainerProps = {
 
 export function Container({ children, className }: ContainerProps) {
   return (
-    <div className={["mx-auto w-[90%] px-6 md:px-8", className].filter(Boolean).join(" ")}>
+    <div className={["mx-auto w-full px-2 md:w-[90%] md:px-8", className].filter(Boolean).join(" ")}>
       {children}
     </div>
   );

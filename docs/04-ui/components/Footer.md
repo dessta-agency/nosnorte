@@ -14,10 +14,10 @@ Do not duplicate inside individual pages. Do not use for page-specific secondary
 
 ## Structure
 
-- Below `lg`: two columns — left (logo + information), right (contacts + follow us)
+- Below `lg`: single column stack — logo, information, contacts, follow us (all left-aligned)
 - From `lg`: four columns — logo, information, contacts, follow us
 - Contacts: single column below `lg`; two-column grid from `lg` to keep the desktop footer shorter
-- Follow us: Instagram and Facebook icon links; centred below `lg`, left-aligned within its column from `lg`
+- Follow us: Instagram and Facebook icon links; left-aligned on all breakpoints
 - Bottom: full-width divider aligned to `Container`; below `lg`, copyright and languages stacked and centred; from `lg`, copyright left and languages right with a short vertical divider
 
 ## Behaviour

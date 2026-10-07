@@ -19,158 +19,154 @@ export async function Footer() {
   return (
     <footer className="mt-auto bg-footer-bg">
       <Container className="py-8">
-        <div className="grid grid-cols-2 gap-6 lg:grid-cols-4 lg:gap-6">
-          <div className="flex flex-col gap-8 lg:contents">
-            <div className="flex items-start justify-start lg:items-center lg:justify-center">
-              <Image
-                src="/logos/LogoWhite.svg"
-                alt="Nós-Norte"
-                width={220}
-                height={72}
-                className="h-12 w-auto sm:h-14 lg:h-16"
-              />
-            </div>
+        <div className="grid grid-cols-1 gap-8 lg:grid-cols-4 lg:gap-6">
+          <div className="flex items-start justify-start lg:items-center lg:justify-center">
+            <Image
+              src="/logos/LogoWhite.svg"
+              alt="Nós-Norte"
+              width={220}
+              height={72}
+              className="h-12 w-auto sm:h-14 lg:h-16"
+            />
+          </div>
 
-            <div className="flex justify-start lg:justify-center">
-              <div className="flex w-full flex-col items-start text-left lg:w-auto">
-                <h2 className="mb-3 text-sm font-semibold tracking-wide text-footer-text-secondary uppercase">
-                  {t("information")}
-                </h2>
-                <ul className="flex flex-col gap-2">
-                  {FOOTER_INFO_LINKS.map((item) => {
-                    const label = t(item.translationKey);
+          <div className="flex justify-start lg:justify-center">
+            <div className="flex w-full flex-col items-start text-left lg:w-auto">
+              <h2 className="mb-3 text-sm font-semibold tracking-wide text-footer-text-secondary uppercase">
+                {t("information")}
+              </h2>
+              <ul className="flex flex-col gap-2">
+                {FOOTER_INFO_LINKS.map((item) => {
+                  const label = t(item.translationKey);
 
-                    if (!("href" in item) || !item.href) {
-                      return (
-                        <li key={item.translationKey}>
-                          <span className="text-sm text-footer-text">{label}</span>
-                        </li>
-                      );
-                    }
-
-                    if ("external" in item && item.external) {
-                      return (
-                        <li key={item.translationKey}>
-                          <a
-                            href={item.href}
-                            className={infoLinkClassName}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                          >
-                            {label}
-                          </a>
-                        </li>
-                      );
-                    }
-
+                  if (!("href" in item) || !item.href) {
                     return (
                       <li key={item.translationKey}>
-                        <Link href={item.href} className={infoLinkClassName}>
-                          {label}
-                        </Link>
+                        <span className="text-sm text-footer-text">{label}</span>
                       </li>
                     );
-                  })}
-                </ul>
-              </div>
+                  }
+
+                  if ("external" in item && item.external) {
+                    return (
+                      <li key={item.translationKey}>
+                        <a
+                          href={item.href}
+                          className={infoLinkClassName}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          {label}
+                        </a>
+                      </li>
+                    );
+                  }
+
+                  return (
+                    <li key={item.translationKey}>
+                      <Link href={item.href} className={infoLinkClassName}>
+                        {label}
+                      </Link>
+                    </li>
+                  );
+                })}
+              </ul>
             </div>
           </div>
 
-          <div className="flex flex-col gap-8 lg:contents">
-            <div className="flex justify-start lg:justify-center">
-              <div className="flex w-full flex-col items-start text-left lg:w-auto">
-                <h2 className="mb-3 text-sm font-semibold tracking-wide text-footer-text-secondary uppercase">
-                  {t("contacts")}
-                </h2>
-                <ul className="grid grid-cols-1 gap-4 lg:grid-cols-2 lg:gap-x-5 lg:gap-y-4">
-                  {FOOTER_CONTACT_ITEMS.map(({ labelKey, icon, details }) => (
-                    <li key={labelKey} className="flex min-w-0 items-start gap-2.5">
-                      <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-footer-icon-bg">
-                        <Image
-                          src={icon}
-                          alt=""
-                          width={16}
-                          height={16}
-                          className="h-4 w-4"
-                        />
+          <div className="flex justify-start lg:justify-center">
+            <div className="flex w-full flex-col items-start text-left lg:w-auto">
+              <h2 className="mb-3 text-sm font-semibold tracking-wide text-footer-text-secondary uppercase">
+                {t("contacts")}
+              </h2>
+              <ul className="grid grid-cols-1 gap-4 lg:grid-cols-2 lg:gap-x-5 lg:gap-y-4">
+                {FOOTER_CONTACT_ITEMS.map(({ labelKey, icon, details }) => (
+                  <li key={labelKey} className="flex min-w-0 items-start gap-2.5">
+                    <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-footer-icon-bg">
+                      <Image
+                        src={icon}
+                        alt=""
+                        width={16}
+                        height={16}
+                        className="h-4 w-4"
+                      />
+                    </span>
+                    <div className="flex min-w-0 flex-col gap-0.5">
+                      <span className="text-xs font-medium text-footer-text-secondary">
+                        {t(labelKey)}
                       </span>
-                      <div className="flex min-w-0 flex-col gap-0.5">
-                        <span className="text-xs font-medium text-footer-text-secondary">
-                          {t(labelKey)}
-                        </span>
-                        {details.map((detail) => {
-                          const text =
-                            "translationKey" in detail
-                              ? t(detail.translationKey)
-                              : detail.text;
-                          const href = "href" in detail ? detail.href : undefined;
-                          const muted = "muted" in detail && detail.muted;
-                          const underline = "underline" in detail && detail.underline;
-                          const className = [
-                            muted
-                              ? "text-xs text-footer-text-muted"
-                              : "text-xs text-footer-text",
-                            underline ? "underline" : "",
-                            "break-words",
-                          ]
-                            .filter(Boolean)
-                            .join(" ");
+                      {details.map((detail) => {
+                        const text =
+                          "translationKey" in detail
+                            ? t(detail.translationKey)
+                            : detail.text;
+                        const href = "href" in detail ? detail.href : undefined;
+                        const muted = "muted" in detail && detail.muted;
+                        const underline = "underline" in detail && detail.underline;
+                        const className = [
+                          muted
+                            ? "text-xs text-footer-text-muted"
+                            : "text-xs text-footer-text",
+                          underline ? "underline" : "",
+                          "break-words",
+                        ]
+                          .filter(Boolean)
+                          .join(" ");
 
-                          if (href) {
-                            return (
-                              <a
-                                key={text}
-                                href={href}
-                                className={`${className} transition-colors hover:opacity-80`}
-                                {...(href.startsWith("http")
-                                  ? { target: "_blank", rel: "noopener noreferrer" }
-                                  : {})}
-                              >
-                                {text}
-                              </a>
-                            );
-                          }
-
+                        if (href) {
                           return (
-                            <span key={text} className={className}>
+                            <a
+                              key={text}
+                              href={href}
+                              className={`${className} transition-colors hover:opacity-80`}
+                              {...(href.startsWith("http")
+                                ? { target: "_blank", rel: "noopener noreferrer" }
+                                : {})}
+                            >
                               {text}
-                            </span>
+                            </a>
                           );
-                        })}
-                      </div>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </div>
+                        }
 
-            <div className="flex justify-center lg:justify-center">
-              <div className="flex w-full flex-col items-center text-center lg:w-auto lg:items-start lg:text-left">
-                <h2 className="mb-3 text-sm font-semibold tracking-wide text-footer-text-secondary uppercase">
-                  {t("follow_us")}
-                </h2>
-                <ul className="flex items-center gap-3">
-                  {FOOTER_SOCIAL_LINKS.map(({ labelKey, href, icon }) => (
-                    <li key={labelKey}>
-                      <a
-                        href={href}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        aria-label={t(labelKey)}
-                        className="flex h-9 w-9 items-center justify-center rounded-full bg-footer-icon-bg transition-opacity hover:opacity-80"
-                      >
-                        <Image
-                          src={icon}
-                          alt=""
-                          width={18}
-                          height={18}
-                          className="h-4.5 w-4.5"
-                        />
-                      </a>
-                    </li>
-                  ))}
-                </ul>
-              </div>
+                        return (
+                          <span key={text} className={className}>
+                            {text}
+                          </span>
+                        );
+                      })}
+                    </div>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+
+          <div className="flex justify-start lg:justify-center">
+            <div className="flex w-full flex-col items-start text-left lg:w-auto">
+              <h2 className="mb-3 text-sm font-semibold tracking-wide text-footer-text-secondary uppercase">
+                {t("follow_us")}
+              </h2>
+              <ul className="flex items-center gap-3">
+                {FOOTER_SOCIAL_LINKS.map(({ labelKey, href, icon }) => (
+                  <li key={labelKey}>
+                    <a
+                      href={href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label={t(labelKey)}
+                      className="flex h-9 w-9 items-center justify-center rounded-full bg-footer-icon-bg transition-opacity hover:opacity-80"
+                    >
+                      <Image
+                        src={icon}
+                        alt=""
+                        width={18}
+                        height={18}
+                        className="h-4.5 w-4.5"
+                      />
+                    </a>
+                  </li>
+                ))}
+              </ul>
             </div>
           </div>
         </div>

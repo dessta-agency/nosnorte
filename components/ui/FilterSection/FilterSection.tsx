@@ -7,6 +7,8 @@ type FilterSectionProps = {
   children: ReactNode;
   defaultOpen?: boolean;
   className?: string;
+  /** Number of active options in this section; when > 0, title stays primary with a badge. */
+  activeCount?: number;
 };
 
 export function FilterSection({
@@ -14,30 +16,43 @@ export function FilterSection({
   children,
   defaultOpen = false,
   className = "",
+  activeCount = 0,
 }: FilterSectionProps) {
   const [isOpen, setIsOpen] = useState(defaultOpen);
   const contentId = useId();
+  const hasActiveFilters = activeCount > 0;
 
   return (
     <section className={`border-b border-border last:border-b-0 ${className}`}>
       <h3>
         <button
           type="button"
-          className="flex w-full cursor-pointer items-center justify-between gap-3 py-4 text-left font-sans text-sm font-semibold tracking-wide text-foreground transition-colors hover:text-primary focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
+          className={`flex w-full cursor-pointer items-center justify-between gap-3 py-4 text-left font-sans text-sm font-semibold tracking-wide transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary ${
+            hasActiveFilters
+              ? "text-primary"
+              : "text-foreground hover:text-primary"
+          }`}
           aria-expanded={isOpen}
           aria-controls={contentId}
           onClick={() => setIsOpen((open) => !open)}
         >
-          <span>{title}</span>
+          <span className="inline-flex min-w-0 items-center gap-2">
+            <span className="truncate">{title}</span>
+            {hasActiveFilters ? (
+              <span className="grid h-5 min-w-5 shrink-0 place-items-center rounded-full bg-primary px-1.5 font-sans text-[0.65rem] leading-none font-semibold text-white tabular-nums">
+                {activeCount}
+              </span>
+            ) : null}
+          </span>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
             viewBox="0 0 24 24"
             strokeWidth={2}
             stroke="currentColor"
-            className={`h-4 w-4 shrink-0 text-muted transition-transform duration-300 ${
-              isOpen ? "rotate-180" : "rotate-0"
-            }`}
+            className={`h-4 w-4 shrink-0 transition-transform duration-300 ${
+              hasActiveFilters ? "text-primary" : "text-muted"
+            } ${isOpen ? "rotate-180" : "rotate-0"}`}
             aria-hidden
           >
             <path

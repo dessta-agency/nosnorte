@@ -9,6 +9,7 @@ Index of documented UI components.
 - [DecorativePageBackground](DecorativePageBackground.md) — repeated decorative wallpaper accents
 - [Navbar](Navbar.md) — global top navigation
 - [Footer](Footer.md) — global site footer
+- [BackToTop](BackToTop.md) — fixed smooth scroll-to-top control
 
 ## UI
 
@@ -20,6 +21,7 @@ Index of documented UI components.
 - [Modal](Modal.md) — accessible dialog overlay (focus trap, Escape, scroll lock)
 - [PageHero](PageHero.md) — shared full-bleed page hero (not homepage carousel)
 - [Skeleton](Skeleton.md) — reusable loading placeholder block
+- [FilterSection](FilterSection.md) — collapsible filter group with optional active count badge
 
 ## Features
 
@@ -27,8 +29,10 @@ Index of documented UI components.
 - [ShowroomGallery](ShowroomGallery.md) — masonry ambient gallery with image modal
 - [EnvironmentsIntro](EnvironmentsIntro.md) — Ambientes intro with slanted category cards (full-bleed right)
 - [EnvironmentsGallery](EnvironmentsGallery.md) — Ambientes filtered editorial gallery grid
+- [EnvironmentDetailView](EnvironmentDetailView.md) — Ambientes detail body (back link, materials, gallery)
+- [Reveal](Reveal.md) — scroll/immediate enter animation for sections and gallery tiles
 - [ProductCard](ProductCard.md) — products grid card (availability, CTAs, options modal)
 - [ProductCardSkeleton](ProductCardSkeleton.md) — loading placeholder for `ProductCard`
+- [ProductFilters](ProductFilters.md) — products catalog filter sidebar / mobile drawer
 - [ProductFiltersSkeleton](ProductFiltersSkeleton.md) — loading placeholder for products filters panel
 - [ProductOptionsModal](ProductOptionsModal.md) — product options dialog
-- Other Environments feature components (`EnvironmentDetailView`) — environment detail

@@ -24,3 +24,7 @@ Use at the top of content pages (History, Contacts, Showroom, Ambientes, and sim
 - `title` / `subtitle` — required copy (from page message namespaces).
 - `eyebrow` (optional) — typically `common.company_name`.
 - `backgroundImage` (optional) — defaults to `/images/backgrounds/background.png`; each page passes its own image.
+
+## Behaviour
+
+- Background `Image` uses `priority` and `sizes="100vw"` so the LCP hero loads eagerly (no lazy-load flash on first paint).

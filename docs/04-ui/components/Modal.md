@@ -21,6 +21,7 @@ Do not use for simple tooltips, dropdowns, or inline expand/collapse. Prefer lig
 - `children`: dialog body content.
 - `className`: optional extra classes on the dialog panel (e.g. wider max-width).
 - `hideTitle`: when `true`, keeps the title for accessibility (`sr-only`) and shows only the close control.
+- `variant`: `"default"` (surface panel) or `"media"` (transparent panel for image lightboxes).
 
 ## Behaviour
 

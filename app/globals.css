@@ -95,3 +95,45 @@
   right: 0;
   background-position: right center;
 }
+
+@keyframes products-grid-enter {
+  from {
+    opacity: 0;
+    transform: translateY(0.6rem);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes products-grid-exit {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  to {
+    opacity: 0;
+    transform: translateY(0.35rem);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  @keyframes products-grid-enter {
+    from,
+    to {
+      opacity: 1;
+      transform: none;
+    }
+  }
+
+  @keyframes products-grid-exit {
+    from,
+    to {
+      opacity: 0;
+      transform: none;
+    }
+  }
+}

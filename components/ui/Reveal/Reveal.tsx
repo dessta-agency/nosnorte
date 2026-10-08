@@ -17,8 +17,15 @@ export type RevealProps = {
   variant?: RevealVariant;
   /** Extra delay before the enter transition starts, in milliseconds. */
   delayMs?: number;
-  /** Fraction of the element that must be visible to trigger (0–1). */
+  /** Enter transition duration in milliseconds. Defaults to `1000`. */
+  durationMs?: number;
+  /** Fraction of the element that must be visible to trigger (0–1). Defaults to `0` (any visible pixel). */
   threshold?: number;
+  /**
+   * Reveal on mount without waiting for scroll.
+   * Use for primary page content that is already (or mostly) in view.
+   */
+  immediate?: boolean;
 };
 
 const HIDDEN_BY_VARIANT: Record<RevealVariant, string> = {
@@ -32,7 +39,7 @@ const VISIBLE_BY_VARIANT: Record<RevealVariant, string> = {
 };
 
 /**
- * Reveals children once when they enter the viewport.
+ * Reveals children once when they enter the viewport (or immediately when `immediate`).
  * Honours `prefers-reduced-motion` via Tailwind `motion-reduce` utilities.
  */
 export function Reveal({
@@ -40,39 +47,69 @@ export function Reveal({
   className = "",
   variant = "fade-up",
   delayMs = 0,
-  threshold = 0.15,
+  durationMs = 1000,
+  threshold = 0,
+  immediate = false,
 }: RevealProps) {
   const ref = useRef<HTMLDivElement>(null);
-  const [visible, setVisible] = useState(false);
+  // Start visible when `immediate` so the first paint is not a blank/white block.
+  const [visible, setVisible] = useState(immediate);
 
   useEffect(() => {
+    if (immediate) return;
+
     const node = ref.current;
     if (!node) return;
 
+    let hasRevealed = false;
+
     const observer = new IntersectionObserver(
       ([entry]) => {
-        if (!entry?.isIntersecting) return;
+        if (!entry?.isIntersecting || hasRevealed) return;
+        hasRevealed = true;
         setVisible(true);
         observer.disconnect();
       },
-      { threshold, rootMargin: "0px 0px -5% 0px" },
+      {
+        threshold,
+        // Expand the root so near-fold content reveals without a tiny scroll nudge.
+        rootMargin: "0px 0px 20% 0px",
+      },
     );
 
     observer.observe(node);
-    return () => observer.disconnect();
-  }, [threshold]);
+
+    const frame = requestAnimationFrame(() => {
+      const rect = node.getBoundingClientRect();
+      const viewportHeight =
+        window.innerHeight || document.documentElement.clientHeight;
+      if (rect.top < viewportHeight * 1.2 && rect.bottom > 0) {
+        if (hasRevealed) return;
+        hasRevealed = true;
+        setVisible(true);
+        observer.disconnect();
+      }
+    });
+
+    return () => {
+      cancelAnimationFrame(frame);
+      observer.disconnect();
+    };
+  }, [threshold, immediate]);
 
   const stateClass = visible
     ? VISIBLE_BY_VARIANT[variant]
     : HIDDEN_BY_VARIANT[variant];
 
-  const style: CSSProperties | undefined =
-    delayMs > 0 ? { transitionDelay: `${delayMs}ms` } : undefined;
+  const style: CSSProperties = {
+    transitionDuration: `${durationMs}ms`,
+    ...(delayMs > 0 ? { transitionDelay: `${delayMs}ms` } : {}),
+  };
 
   return (
     <div
       ref={ref}
-      className={`transition-[opacity,transform] duration-1000 ease-out motion-reduce:translate-y-0 motion-reduce:opacity-100 motion-reduce:transition-none ${stateClass} ${className}`}
+      className={`transition-[opacity,transform] ease-out motion-reduce:translate-y-0 motion-reduce:opacity-100 motion-reduce:transition-none ${stateClass} ${className}`}
       style={style}
     >
       {children}

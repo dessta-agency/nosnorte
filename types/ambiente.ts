@@ -1,31 +1,26 @@
-export const AMBIENTE_CATEGORY_IDS = [
-  "casa-de-banho",
-  "interiores",
-  "exteriores",
-] as const;
+export const AMBIENTE_CATEGORY_IDS = ["casa-de-banho"] as const;
 
 export type AmbienteCategoryId = (typeof AMBIENTE_CATEGORY_IDS)[number];
 
 export type AmbienteFilterId = "all" | AmbienteCategoryId;
 
+export const AMBIENTE_INTRO_CARD_KEYS = [
+  "contemporanea",
+  "spa",
+  "suite",
+] as const;
+
+export type AmbienteIntroCardKey = (typeof AMBIENTE_INTRO_CARD_KEYS)[number];
+
 export type AmbienteIntroCard = {
   id: string;
-  categoryId: AmbienteCategoryId;
+  /** Message key under `ambientes.intro_cards` */
+  messageKey: AmbienteIntroCardKey;
   image: string;
 };
 
-export const AMBIENTE_SLUGS = [
-  "suite-mineral",
-  "banho-zen",
-  "sala-luminosa",
-  "cozinha-aberta",
-  "terraco-mediterraneo",
-  "jardim-contemporaneo",
-  "suite-marmore",
-  "living-neutro",
-] as const;
-
-export type AmbienteSlug = (typeof AMBIENTE_SLUGS)[number];
+/** Slug derived from the showroom image file name. */
+export type AmbienteSlug = string;
 
 export type AmbienteProductTypeId =
   | "pavimento"
@@ -37,9 +32,8 @@ export type AmbienteProductTypeId =
 
 export type AmbienteProduct = {
   type: AmbienteProductTypeId;
-  /** Translation key under `ambientes.items.{slug}.materials.{materialKey}` */
+  /** Translation key under `ambientes.items.*.materials.{materialKey}` */
   materialKey: string;
-  href: string;
 };
 
 export type Ambiente = {

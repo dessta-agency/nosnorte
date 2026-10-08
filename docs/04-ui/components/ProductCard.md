@@ -10,7 +10,8 @@ Use inside the products catalog grid to present a single product and its primary
 
 ## Content rules
 
-- Image sits in an inner light area inside a white card (no image border, no hover zoom).
+- Image sits in an inner light area inside a white card (no image border).
+- Uses the shared media hover (`MEDIA_HOVER_CARD` + `MEDIA_HOVER_MEDIA`): slight card scale-up and image darkening on hover/focus.
 - Availability is either **in stock** (green badge) or **on order** (amber badge, `#AD7225`).
 - “More options” is informational only (not clickable).
 - Without options: primary CTA “Add to order” with shop icon.

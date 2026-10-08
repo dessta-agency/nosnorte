@@ -3,6 +3,7 @@ import { NextIntlClientProvider } from "next-intl";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { DM_Serif_Display, Manrope } from "next/font/google";
 import type { ReactNode } from "react";
+import { BackToTop } from "@/components/layout/BackToTop/BackToTop";
 import { Footer } from "@/components/layout/Footer/Footer";
 import { Navbar } from "@/components/layout/Navbar/Navbar";
 import { routing } from "@/i18n/routing";
@@ -65,6 +66,7 @@ export default async function LocaleLayout({ children, params }: Props) {
           <Navbar />
           <div className="flex-1">{children}</div>
           <Footer />
+          <BackToTop />
         </NextIntlClientProvider>
       </body>
     </html>

@@ -1,12 +1,22 @@
 import Image from "next/image";
 import { SectionEyebrow } from "@/components/ui/SectionEyebrow/SectionEyebrow";
-import { TextLink } from "@/components/ui/TextLink/TextLink";
 import { Link } from "@/i18n/navigation";
+
+function BackArrowIcon() {
+  return (
+    <Image
+      src="/icons/back.png"
+      alt=""
+      width={16}
+      height={16}
+      className="shrink-0"
+    />
+  );
+}
 
 export type EnvironmentDetailMaterial = {
   typeLabel: string;
   name: string;
-  href: string;
 };
 
 export type EnvironmentDetailImage = {
@@ -20,7 +30,6 @@ type EnvironmentDetailViewProps = {
   description: string;
   materialsTitle: string;
   materials: EnvironmentDetailMaterial[];
-  viewProductLabel: string;
   galleryTitle: string;
   galleryImages: EnvironmentDetailImage[];
   backLabel: string;
@@ -33,7 +42,6 @@ export function EnvironmentDetailView({
   description,
   materialsTitle,
   materials,
-  viewProductLabel,
   galleryTitle,
   galleryImages,
   backLabel,
@@ -43,8 +51,9 @@ export function EnvironmentDetailView({
     <article className="py-10 md:py-14">
       <Link
         href={backHref}
-        className="font-sans text-sm font-semibold text-primary underline-offset-4 transition-colors duration-200 hover:underline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
+        className="inline-flex items-center gap-2 font-sans text-sm font-semibold text-primary underline-offset-4 transition-colors duration-200 hover:underline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
       >
+        <BackArrowIcon />
         {backLabel}
       </Link>
 
@@ -66,19 +75,14 @@ export function EnvironmentDetailView({
           {materials.map((material) => (
             <li
               key={`${material.typeLabel}-${material.name}`}
-              className="flex flex-col gap-3 py-5 sm:flex-row sm:items-baseline sm:justify-between sm:gap-8"
+              className="py-5"
             >
-              <div className="min-w-0">
-                <p className="font-sans text-xs font-medium tracking-[0.16em] text-muted uppercase">
-                  {material.typeLabel}
-                </p>
-                <p className="mt-1 font-sans text-base text-foreground md:text-lg">
-                  {material.name}
-                </p>
-              </div>
-              <TextLink href={material.href} className="shrink-0">
-                {viewProductLabel}
-              </TextLink>
+              <p className="font-sans text-xs font-medium tracking-[0.16em] text-muted uppercase">
+                {material.typeLabel}
+              </p>
+              <p className="mt-1 font-sans text-base text-foreground md:text-lg">
+                {material.name}
+              </p>
             </li>
           ))}
         </ul>

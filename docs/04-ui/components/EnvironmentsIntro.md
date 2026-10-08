@@ -2,7 +2,7 @@
 
 ## Responsibility
 
-Ambientes page intro: section copy on the left and a row of slanted category cards on the right, ending with a full-width separator line.
+Ambientes page intro: section copy on the left and a row of slanted bathroom-style cards on the right, ending with a full-width separator line.
 
 ## When to use
 
@@ -22,7 +22,7 @@ Use on the Ambientes listing page, directly below `PageHero` and **outside** `Pa
 
 ## Cards
 
-- Multiple intro cards are supported (data-driven via `AMBIENTE_INTRO_CARDS` + `ambientes.intro_cards` messages).
+- Multiple intro cards are supported (data-driven via `getAmbienteIntroCards()` + `ambientes.intro_cards` messages). Cards use bathroom style keys (`contemporanea`, `spa`, `suite`) and the first entries from `AMBIENTE_CATALOG` (same showroom media folder).
 - Each card shows number, separator line, title, and subtitle over a cover image (no arrow icon).
 - Card text is left-aligned at the bottom inside the parallelogram safe zone. Horizontal text inset uses rem values matched to the diagonal cut. A min-height inner block with top alignment keeps numbers (01, 02, …) aligned across cards; typography scales with card width via container queries.
 - **Fixed rem diagonal (not %):** every card uses the same absolute cut in rem (`2.75` / `3.25` / `3.75` / `4.32` across height breakpoints). That keeps the slant angle identical on every card and every width — including intermediate viewports and the wider last card. Overlap uses the matching rem minus a `0.25rem` gap.

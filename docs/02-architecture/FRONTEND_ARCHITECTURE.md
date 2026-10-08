@@ -27,7 +27,7 @@ nosnorte/
 │   ├── [locale]/           # Locale-prefixed routes (pt, en, es, fr)
 │   │   ├── layout.tsx      # Locale layout (Navbar, Footer, providers)
 │   │   ├── page.tsx        # Home
-│   │   ├── ambientes/      # Ambientes (+ [slug] detail)
+│   │   ├── ambientes/      # Ambientes (+ [slug] detail; slug = numeric id)
 │   │   ├── produtos/       # Produtos
 │   │   ├── showroom/       # Showroom
 │   │   ├── historia/       # História
@@ -47,7 +47,7 @@ nosnorte/
 ├── public/
 │   ├── logos/              # Brand logos
 │   ├── icons/              # UI icons
-│   └── images/             # Content images (e.g. home hero slides)
+│   └── images/             # Content images (home, showroom, backgrounds, …)
 └── docs/                   # Documentation
 ```
 
@@ -58,10 +58,10 @@ Contains Next.js routing, layouts, and page-level components. Follows the App Ro
 
 ### `components/`
 Reusable React components organized by category:
-- **ui**: Low-level, reusable interface elements (`Button`, `IconButton`, `TextLink`, `Carousel`, `Modal`, `PageHero`, `Skeleton`)
-- **layout**: Structural components used across pages (`Navbar`, `Container`, `PageContainer`)
+- **ui**: Low-level, reusable interface elements (`Button`, `IconButton`, `TextLink`, `Carousel`, `Modal`, `PageHero`, `Reveal`, `Skeleton`)
+- **layout**: Structural components used across pages (`Navbar`, `Footer`, `BackToTop`, `Container`, `PageContainer`)
 - **forms**: Form-related components and input wrappers
-- **features**: Domain-specific, feature-focused components (`HeroCarousel`, `ProductsCatalog`, `ProductCard`, `ProductCardSkeleton`, `ProductOptionsModal`, Ambientes gallery/detail)
+- **features**: Domain-specific, feature-focused components (`HeroCarousel`, `ProductsCatalog`, `ProductCard`, `ProductCardSkeleton`, `ProductOptionsModal`, `ShowroomGallery`, Ambientes intro/gallery/detail)
 
 ### `context/`
 React Context providers for global state (authentication, theme, user preferences). Each context encapsulates state and related logic.
@@ -88,7 +88,7 @@ Application configuration that may vary by environment (feature flags, runtime s
 Fixed, immutable values (enums, UI constants, default values) that do not change between environments. Navigation links and company contact details live here (`navigation.ts`, `contacts.ts`). Navigation stores `translationKey` values resolved through message files; contact labels/notes are also translation keys.
 
 ### `public/`
-Static assets served directly (images, fonts, icons). Brand logos under `public/logos/`; UI icons under `public/icons/`; homepage hero images under `public/images/home/`.
+Static assets served directly (images, fonts, icons). Brand logos under `public/logos/`; UI icons under `public/icons/`; homepage hero images under `public/images/home/`; shared Showroom/Ambientes media under `public/images/showroom/`.
 
 ## Layout Grid
 

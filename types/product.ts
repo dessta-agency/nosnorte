@@ -1,3 +1,5 @@
+import type { ProductFilterAttributes } from "@/constants/product-filters";
+
 export type ProductColorOption = {
   id: string;
   label: string;
@@ -22,6 +24,8 @@ export type Product = {
   sku?: string;
   unit?: string;
   colorOptions?: ProductColorOption[];
+  /** Simulated filter attrs for DummyJSON until a real catalog API exists. */
+  filterAttributes?: ProductFilterAttributes;
 };
 
 export type ProductsApiResponse = {

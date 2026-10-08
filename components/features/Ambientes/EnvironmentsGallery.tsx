@@ -2,8 +2,15 @@
 
 import Image from "next/image";
 import { useMemo, useState } from "react";
+import { Reveal } from "@/components/ui/Reveal/Reveal";
 import { SectionEyebrow } from "@/components/ui/SectionEyebrow/SectionEyebrow";
-import { GALLERY_MEDIA_GAP, GALLERY_MEDIA_RADIUS } from "@/constants/layout";
+import {
+  GALLERY_MEDIA_GAP,
+  GALLERY_MEDIA_RADIUS,
+  MEDIA_HOVER_CARD,
+  MEDIA_HOVER_MEDIA,
+} from "@/constants/layout";
+
 import { Link } from "@/i18n/navigation";
 import type { AmbienteFilterId, AmbienteListItem } from "@/types/ambiente";
 
@@ -47,30 +54,32 @@ export function EnvironmentsGallery({
           </h2>
         </div>
 
-        <nav aria-label={title} className="border-b border-border/60">
-          <ul className="flex flex-wrap gap-x-4 gap-y-2 md:gap-x-10 md:gap-y-3">
-            {filters.map((filter) => {
-              const isActive = filter.id === activeFilter;
+        {filters.length > 0 ? (
+          <nav aria-label={title} className="border-b border-border/60">
+            <ul className="flex flex-wrap gap-x-4 gap-y-2 md:gap-x-10 md:gap-y-3">
+              {filters.map((filter) => {
+                const isActive = filter.id === activeFilter;
 
-              return (
-                <li key={filter.id}>
-                  <button
-                    type="button"
-                    onClick={() => setActiveFilter(filter.id)}
-                    aria-pressed={isActive}
-                    className={`-mb-px cursor-pointer border-b-2 pb-2 font-sans text-sm tracking-wide transition-colors duration-200 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary ${
-                      isActive
-                        ? "border-primary font-semibold text-primary"
-                        : "border-transparent font-medium text-muted hover:text-foreground"
-                    }`}
-                  >
-                    {filter.label}
-                  </button>
-                </li>
-              );
-            })}
-          </ul>
-        </nav>
+                return (
+                  <li key={filter.id}>
+                    <button
+                      type="button"
+                      onClick={() => setActiveFilter(filter.id)}
+                      aria-pressed={isActive}
+                      className={`-mb-px cursor-pointer border-b-2 pb-2 font-sans text-sm tracking-wide transition-colors duration-200 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary ${
+                        isActive
+                          ? "border-primary font-semibold text-primary"
+                          : "border-transparent font-medium text-muted hover:text-foreground"
+                      }`}
+                    >
+                      {filter.label}
+                    </button>
+                  </li>
+                );
+              })}
+            </ul>
+          </nav>
+        ) : null}
       </div>
 
       {visibleItems.length === 0 ? (
@@ -87,33 +96,44 @@ export function EnvironmentsGallery({
                   : "";
 
             return (
-              <li key={item.slug} className={gridPlacement}>
-                <Link
-                  href={item.href}
-                  className={`relative flex h-full min-h-[16rem] overflow-hidden ${GALLERY_MEDIA_RADIUS} focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary sm:min-h-[18rem] lg:min-h-0`}
+              <li
+                key={item.slug}
+                className={`${gridPlacement} ${MEDIA_HOVER_CARD}`}
+              >
+                <Reveal
+                  className="h-full"
+                  durationMs={2200}
+                  threshold={0.2}
+                  delayMs={(index % 3) * 120}
                 >
-                  <Image
-                    src={item.coverImage}
-                    alt={item.imageAlt}
-                    fill
-                    className="object-cover"
-                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                  />
-                  <div className="absolute inset-0 bg-linear-to-t from-black/75 via-black/25 to-transparent" />
-                  <div className="relative z-10 flex flex-col justify-end p-6 md:p-8">
-                    <p className="mb-2 font-sans text-xs font-medium tracking-[0.18em] text-white/80 uppercase">
-                      {item.categoryLabel}
-                    </p>
-                    <h3 className="font-display text-2xl text-white md:text-3xl">
-                      {item.name}
-                    </h3>
-                    {item.excerpt ? (
-                      <p className="mt-2 max-w-md font-sans text-sm leading-relaxed text-white/85 md:text-base">
-                        {item.excerpt}
+                  <Link
+                    href={item.href}
+                    className={`relative flex h-full min-h-[16rem] overflow-hidden ${GALLERY_MEDIA_RADIUS} focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary sm:min-h-[18rem] lg:min-h-0`}
+                  >
+                    <Image
+                      src={item.coverImage}
+                      alt={item.imageAlt}
+                      fill
+                      className={`object-cover ${MEDIA_HOVER_MEDIA}`}
+                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                    />
+                    <div className="absolute inset-0 bg-linear-to-t from-black/75 via-black/25 to-transparent" />
+                    <div className="relative z-10 flex flex-col justify-end p-6 md:p-8">
+
+                      <p className="mb-2 font-sans text-xs font-medium tracking-[0.18em] text-white/80 uppercase">
+                        {item.categoryLabel}
                       </p>
-                    ) : null}
-                  </div>
-                </Link>
+                      <h3 className="font-display text-2xl text-white md:text-3xl">
+                        {item.name}
+                      </h3>
+                      {item.excerpt ? (
+                        <p className="mt-2 max-w-md font-sans text-sm leading-relaxed text-white/85 md:text-base">
+                          {item.excerpt}
+                        </p>
+                      ) : null}
+                    </div>
+                  </Link>
+                </Reveal>
               </li>
             );
           })}

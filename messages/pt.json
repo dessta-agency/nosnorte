@@ -9,8 +9,10 @@
     "main_navigation": "Navegação principal",
     "open_menu": "Abrir menu",
     "close_menu": "Fechar menu",
-    "home_aria_label": "Nós-Norte — Início"
+    "home_aria_label": "Nós-Norte — Início",
+    "back_to_top": "Voltar ao topo"
   },
+
   "navigation": {
     "home": "Início",
     "ambientes": "Ambientes",
@@ -55,46 +57,43 @@
   },
   "ambientes": {
     "hero": {
-      "title": "Ambientes",
-      "subtitle": "Inspire-se para criar o seu espaço."
+      "title": "Casas de Banho",
+      "subtitle": "Inspire-se para criar a sua casa de banho."
     },
     "categories": {
-      "eyebrow": "Espaços",
-      "title": "Formas de imaginar o seu projeto",
-      "description": "Explore os nossos ambientes e encontre inspiração para criar o seu espaço.",
-      "cta": "Ver todos os ambientes"
+      "eyebrow": "Casas de banho",
+      "title": "Formas de imaginar o seu banho",
+      "description": "Explore ambientes de casa de banho e encontre inspiração para o seu projeto.",
+      "cta": "Ver todas as casas de banho"
     },
     "intro_cards": {
-      "casa-de-banho": {
-        "title": "Casa de Banho",
-        "subtitle": "Materiais e detalhes para espaços de bem-estar e precisão"
+      "contemporanea": {
+        "title": "Contemporânea",
+        "subtitle": "Linhas limpas e materiais precisos para um banho atual"
       },
-      "interiores": {
-        "title": "Interiores",
-        "subtitle": "Pavimentos e revestimentos para salas, quartos e zonas de estar"
+      "spa": {
+        "title": "Spa",
+        "subtitle": "Texturas e luz suave para bem-estar no quotidiano"
       },
-      "exteriores": {
-        "title": "Exteriores",
-        "subtitle": "Soluções resistentes para terraços, jardins e áreas exteriores"
+      "suite": {
+        "title": "Suite",
+        "subtitle": "Presença escultural e acabamentos de excelência"
       }
     },
     "gallery": {
       "eyebrow": "Inspiração",
-      "title": "Galeria de ambientes",
+      "title": "Galeria",
       "explore": "Explorar",
-      "empty": "Nenhum ambiente encontrado nesta categoria.",
+      "empty": "Nenhuma casa de banho encontrada.",
       "filters": {
-        "all": "Todos",
-        "casa-de-banho": "Casa de Banho",
-        "interiores": "Interiores",
-        "exteriores": "Exteriores"
+        "all": "Todas",
+        "casa-de-banho": "Casa de Banho"
       }
     },
     "detail": {
-      "back": "Voltar aos ambientes",
+      "back": "Voltar a ambientes",
       "materials_title": "Materiais utilizados",
-      "gallery_title": "Mais imagens",
-      "view_product": "Ver produto"
+      "gallery_title": "Mais imagens"
     },
     "product_types": {
       "pavimento": "Pavimento",
@@ -105,92 +104,268 @@
       "mobiliario": "Mobiliário"
     },
     "items": {
+      "auto": {
+        "name": "Ambiente {n}",
+        "excerpt": "Inspiração em materiais e acabamentos para casa de banho.",
+        "description": "Um ambiente pensado para inspirar o seu projeto de casa de banho. Explore os materiais e detalhes deste espaço.",
+        "image_alt": "Ambiente de casa de banho {n}",
+        "materials": {
+          "pavimento": "Pavimento cerâmico",
+          "revestimento": "Revestimento cerâmico",
+          "lavatorio": "Lavatório",
+          "torneira": "Torneira / misturadora"
+        }
+      },
       "suite-mineral": {
         "name": "Suite Mineral",
-        "excerpt": "Tons de pedra e linhas limpas para um banho sereno.",
-        "description": "Uma suite de banho marcada pela quietude da pedra natural. Superfícies contínuas, hardware discreto e uma luz suave definem um espaço pensado para durar e inspirar.",
-        "image_alt": "Suite de banho com acabamentos minerais",
+        "excerpt": "Tons de pedra e linhas limpas para um espaço sereno.",
+        "description": "Uma suite marcada pela quietude da pedra natural. Superfícies contínuas, hardware discreto e luz suave definem um espaço pensado para durar.",
+        "image_alt": "Suite com acabamentos minerais",
         "materials": {
-          "pavimento": "Cerâmica Stone Grey 60×60",
-          "revestimento": "Microcimento Soft White",
-          "lavatorio": "Lavatório suspenso Linea",
-          "torneira": "Misturadora mono-comando Chrome"
+          "pavimento": "Pavimento cerâmico",
+          "revestimento": "Revestimento cerâmico",
+          "lavatorio": "Lavatório",
+          "torneira": "Torneira / misturadora"
         }
       },
-      "banho-zen": {
-        "name": "Banho Zen",
+      "linha-clara": {
+        "name": "Linha Clara",
+        "excerpt": "Geometria simples e superfícies luminosas.",
+        "description": "Um espaço de leitura clara, com volumes bem definidos e acabamentos claros que ampliam a luz e o conforto visual.",
+        "image_alt": "Espaço com linha clara",
+        "materials": {
+          "pavimento": "Pavimento cerâmico",
+          "revestimento": "Revestimento cerâmico",
+          "lavatorio": "Lavatório",
+          "torneira": "Torneira / misturadora"
+        }
+      },
+      "pedra-suave": {
+        "name": "Pedra Suave",
+        "excerpt": "Textura mineral com presença discreta.",
+        "description": "A pedra conduz a composição sem excessos. Um ambiente tátil, sereno e contemporâneo, pensado para o uso quotidiano.",
+        "image_alt": "Espaço com textura de pedra suave",
+        "materials": {
+          "pavimento": "Pavimento cerâmico",
+          "revestimento": "Revestimento cerâmico",
+          "lavatorio": "Lavatório",
+          "torneira": "Torneira / misturadora"
+        }
+      },
+      "atmosfera-zen": {
+        "name": "Atmosfera Zen",
         "excerpt": "Equilíbrio entre textura, luz e água.",
-        "description": "Um banho íntimo onde a madeira e a pedra se encontram. O foco está na experiência tátil e na simplicidade dos elementos essenciais.",
-        "image_alt": "Casa de banho com atmosfera zen",
+        "description": "Um espaço íntimo onde madeira e pedra se encontram. O foco está na experiência tátil e na simplicidade dos elementos essenciais.",
+        "image_alt": "Espaço com atmosfera zen",
         "materials": {
-          "revestimento": "Azulejo Matte Sand 10×30",
-          "lavatorio": "Cuba de sobrepor Oval Soft",
-          "torneira": "Torneira cascata Brushed Nickel"
+          "pavimento": "Pavimento cerâmico",
+          "revestimento": "Revestimento cerâmico",
+          "lavatorio": "Lavatório",
+          "torneira": "Torneira / misturadora"
         }
       },
-      "sala-luminosa": {
-        "name": "Sala Luminosa",
-        "excerpt": "Pavimento contínuo e luz natural em diálogo.",
-        "description": "Uma sala ampla, aberta à luz, com pavimento de grande formato e revestimentos neutros que alongam o olhar e acolhem o quotidiano.",
-        "image_alt": "Sala de estar luminosa",
+      "volume-branco": {
+        "name": "Volume Branco",
+        "excerpt": "Branco arquitetónico e proporções limpas.",
+        "description": "Volumes brancos e superfícies contínuas criam uma base atemporal. Ideal para quem procura pureza visual e precisão no detalhe.",
+        "image_alt": "Espaço de volumes brancos",
         "materials": {
-          "pavimento": "Porcelânico Large Format Ivory",
-          "revestimento": "Estuque Mineral Warm",
-          "iluminacao": "Calha LED embutida Linear"
+          "pavimento": "Pavimento cerâmico",
+          "revestimento": "Revestimento cerâmico",
+          "lavatorio": "Lavatório",
+          "torneira": "Torneira / misturadora"
         }
       },
-      "cozinha-aberta": {
-        "name": "Cozinha Aberta",
-        "excerpt": "Funcionalidade sem perder o carácter arquitetónico.",
-        "description": "Uma cozinha integrada no living, com superfícies resistentes e uma composição visual limpa. Materiais escolhidos para o uso diário sem comprometer a estética.",
-        "image_alt": "Cozinha aberta contemporânea",
+      "textura-quente": {
+        "name": "Textura Quente",
+        "excerpt": "Tons terrosos e acabamentos acolhedores.",
+        "description": "Uma composição quente e envolvente, com texturas suaves e uma paleta que convida ao conforto sem perder a contemporaneidade.",
+        "image_alt": "Espaço com texturas quentes",
         "materials": {
-          "pavimento": "Cerâmica Concrete Soft 80×80",
-          "revestimento": "Bancada e frente em quartzito claro",
-          "mobiliario": "Frontais lacados mate Oak Smoke"
+          "pavimento": "Pavimento cerâmico",
+          "revestimento": "Revestimento cerâmico",
+          "lavatorio": "Lavatório",
+          "torneira": "Torneira / misturadora"
         }
       },
-      "terraco-mediterraneo": {
-        "name": "Terraço Mediterrâneo",
-        "excerpt": "Texturas quentes para viver o exterior.",
-        "description": "Um terraço pensado para longas tardes: pavimento antiderrapante, tons terrosos e uma transição suave entre interior e exterior.",
-        "image_alt": "Terraço com ambiente mediterrâneo",
+      "luz-filtrada": {
+        "name": "Luz Filtrada",
+        "excerpt": "Luz natural e sombras suaves em diálogo.",
+        "description": "A luz define o ritmo do espaço. Acabamentos claros e superfícies mates absorvem e difundem a luminosidade com elegância.",
+        "image_alt": "Espaço com luz filtrada",
         "materials": {
-          "pavimento": "Pavimento outdoor Terracotta Grip",
-          "revestimento": "Revestimento pedra Natural Split"
+          "pavimento": "Pavimento cerâmico",
+          "revestimento": "Revestimento cerâmico",
+          "lavatorio": "Lavatório",
+          "torneira": "Torneira / misturadora"
         }
       },
-      "jardim-contemporaneo": {
-        "name": "Jardim Contemporâneo",
-        "excerpt": "Linhas arquitetónicas no espaço exterior.",
-        "description": "Percursos definidos, volumes simples e materiais técnicos que resistem ao clima, mantendo uma leitura contemporânea do jardim.",
-        "image_alt": "Jardim contemporâneo com percursos",
+      "areia-mate": {
+        "name": "Areia Mate",
+        "excerpt": "Acabamentos mate e paleta mineral suave.",
+        "description": "Tons de areia e superfícies mate criam uma base calma e sofisticada, fácil de viver e de combinar com metais e madeira.",
+        "image_alt": "Espaço com acabamentos areia mate",
         "materials": {
-          "pavimento": "Laje outdoor Graphite 60×120",
-          "iluminacao": "Balizadores de percurso Soft Beam"
+          "pavimento": "Pavimento cerâmico",
+          "revestimento": "Revestimento cerâmico",
+          "lavatorio": "Lavatório",
+          "torneira": "Torneira / misturadora"
         }
       },
-      "suite-marmore": {
-        "name": "Suite Mármore",
-        "excerpt": "Sofisticação mineral com presença escultural.",
-        "description": "O mármore e as suas veios conduzem a composição. Uma suite com presença, onde cada peça sanitária e metálica se integra com precisão.",
-        "image_alt": "Suite de banho em mármore",
+      "quietude": {
+        "name": "Quietude",
+        "excerpt": "Silêncio visual e detalhes contidos.",
+        "description": "Um ambiente de poucas linhas e muita precisão. Sem ruído visual, cada peça sanitária e metálica encontra o seu lugar.",
+        "image_alt": "Espaço de quietude visual",
         "materials": {
-          "pavimento": "Mármore Carrara Honed",
-          "revestimento": "Mármore Calacatta Vein Match",
-          "lavatorio": "Lavatório em banca integrada",
-          "torneira": "Misturadora de parede Black Matte"
+          "pavimento": "Pavimento cerâmico",
+          "revestimento": "Revestimento cerâmico",
+          "lavatorio": "Lavatório",
+          "torneira": "Torneira / misturadora"
         }
       },
-      "living-neutro": {
-        "name": "Living Neutro",
-        "excerpt": "Base calmada para um interior atemporal.",
-        "description": "Tons neutros, texturas suaves e um pavimento contínuo criam uma base elegante para mobiliário e arte. Um living pensado para acompanhar o tempo.",
-        "image_alt": "Living com paleta neutra",
+      "grafite-soft": {
+        "name": "Grafite Soft",
+        "excerpt": "Contraste suave em tons de grafite.",
+        "description": "O grafite define a presença sem agredir. Uma composição contemporânea, gráfica e equilibrada para espaços com carácter.",
+        "image_alt": "Espaço em tons de grafite",
         "materials": {
-          "pavimento": "Carvalho engrossado Natural Soft",
-          "mobiliario": "Sofá modular Linen Greige",
-          "iluminacao": "Candeeiro de pé Arch Brass"
+          "pavimento": "Pavimento cerâmico",
+          "revestimento": "Revestimento cerâmico",
+          "lavatorio": "Lavatório",
+          "torneira": "Torneira / misturadora"
+        }
+      },
+      "composicao-aberta": {
+        "name": "Composição Aberta",
+        "excerpt": "Espaço fluido e leitura arquitetónica.",
+        "description": "Uma composição aberta, com continuidade de materiais e uma organização clara dos elementos essenciais do espaço.",
+        "image_alt": "Espaço de composição aberta",
+        "materials": {
+          "pavimento": "Pavimento cerâmico",
+          "revestimento": "Revestimento cerâmico",
+          "lavatorio": "Lavatório",
+          "torneira": "Torneira / misturadora"
+        }
+      },
+      "horizonte-neutro": {
+        "name": "Horizonte Neutro",
+        "excerpt": "Paleta neutra para uma base atemporal.",
+        "description": "Neutros bem trabalhados criam um horizonte visual estável. Um espaço elegante, flexível e preparado para durar.",
+        "image_alt": "Espaço com horizonte neutro",
+        "materials": {
+          "pavimento": "Pavimento cerâmico",
+          "revestimento": "Revestimento cerâmico",
+          "lavatorio": "Lavatório",
+          "torneira": "Torneira / misturadora"
+        }
+      },
+      "veio-natural": {
+        "name": "Veio Natural",
+        "excerpt": "Desenho mineral com veios expressivos.",
+        "description": "Os veios naturais conduzem o olhar. Uma composição rica em detalhe mineral, com sofisticação e presença escultural.",
+        "image_alt": "Espaço com veio natural",
+        "materials": {
+          "pavimento": "Pavimento cerâmico",
+          "revestimento": "Revestimento cerâmico",
+          "lavatorio": "Lavatório",
+          "torneira": "Torneira / misturadora"
+        }
+      },
+      "escultura-clara": {
+        "name": "Escultura Clara",
+        "excerpt": "Formas limpas com presença escultural.",
+        "description": "Peças e superfícies tratadas como volumes. Um espaço luminoso, preciso e com forte identidade formal.",
+        "image_alt": "Espaço de escultura clara",
+        "materials": {
+          "pavimento": "Pavimento cerâmico",
+          "revestimento": "Revestimento cerâmico",
+          "lavatorio": "Lavatório",
+          "torneira": "Torneira / misturadora"
+        }
+      },
+      "geometria-soft": {
+        "name": "Geometria Soft",
+        "excerpt": "Módulo e ritmo em tom suave.",
+        "description": "A geometria organiza o espaço sem rigidez. Módulos suaves, alinhamentos claros e uma atmosfera contemporânea.",
+        "image_alt": "Espaço de geometria soft",
+        "materials": {
+          "pavimento": "Pavimento cerâmico",
+          "revestimento": "Revestimento cerâmico",
+          "lavatorio": "Lavatório",
+          "torneira": "Torneira / misturadora"
+        }
+      },
+      "calacatta": {
+        "name": "Calacatta",
+        "excerpt": "Presença mineral de grande impacto.",
+        "description": "O Calacatta lidera a composição com veios marcados e uma leitura luxuosa. Um ambiente de presença e precisão.",
+        "image_alt": "Espaço com acabamento Calacatta",
+        "materials": {
+          "pavimento": "Pavimento cerâmico",
+          "revestimento": "Revestimento cerâmico",
+          "lavatorio": "Lavatório",
+          "torneira": "Torneira / misturadora"
+        }
+      },
+      "terra-cozida": {
+        "name": "Terra Cozida",
+        "excerpt": "Calor mediterrânico em tons terrosos.",
+        "description": "Inspiração mediterrânica com texturas quentes e uma atmosfera acolhedora, sem perder a contemporaneidade do detalhe.",
+        "image_alt": "Espaço em tons de terra cozida",
+        "materials": {
+          "pavimento": "Pavimento cerâmico",
+          "revestimento": "Revestimento cerâmico",
+          "lavatorio": "Lavatório",
+          "torneira": "Torneira / misturadora"
+        }
+      },
+      "contorno-preto": {
+        "name": "Contorno Preto",
+        "excerpt": "Contraste gráfico e definição do espaço.",
+        "description": "O preto delimita e estrutura. Um ambiente contemporâneo, de forte contraste, onde o detalhe metálico ganha protagonismo.",
+        "image_alt": "Espaço com contornos pretos",
+        "materials": {
+          "pavimento": "Pavimento cerâmico",
+          "revestimento": "Revestimento cerâmico",
+          "lavatorio": "Lavatório",
+          "torneira": "Torneira / misturadora"
+        }
+      },
+      "espelho-longo": {
+        "name": "Espelho Longo",
+        "excerpt": "Proporção vertical e continuidade visual.",
+        "description": "A verticalidade alonga o olhar. Um espaço de proporções cuidadosas, com reflexos e superfícies que ampliam a profundidade.",
+        "image_alt": "Espaço com espelho longo",
+        "materials": {
+          "pavimento": "Pavimento cerâmico",
+          "revestimento": "Revestimento cerâmico",
+          "lavatorio": "Lavatório",
+          "torneira": "Torneira / misturadora"
+        }
+      },
+      "microcimento": {
+        "name": "Microcimento",
+        "excerpt": "Continuidade tátil sem juntas aparentes.",
+        "description": "O microcimento cria uma pele contínua e contemporânea. Um espaço limpo, técnico e de forte unidade material.",
+        "image_alt": "Espaço em microcimento",
+        "materials": {
+          "pavimento": "Pavimento cerâmico",
+          "revestimento": "Revestimento cerâmico",
+          "lavatorio": "Lavatório",
+          "torneira": "Torneira / misturadora"
+        }
+      },
+      "marmore-vivo": {
+        "name": "Mármore Vivo",
+        "excerpt": "Sofisticação mineral com veios expressivos.",
+        "description": "O mármore e as suas veios conduzem a composição. Uma suite com presença, onde cada peça se integra com precisão.",
+        "image_alt": "Espaço em mármore vivo",
+        "materials": {
+          "pavimento": "Pavimento cerâmico",
+          "revestimento": "Revestimento cerâmico",
+          "lavatorio": "Lavatório",
+          "torneira": "Torneira / misturadora"
         }
       }
     }
@@ -375,7 +550,7 @@
         "eyebrow": "AMBIENTES DE EXCELÊNCIA",
         "title": "Inspire-se com os nossos materiais",
         "description": "Qualidade e design que fazem a diferença em cada projeto",
-        "cta": "Ver ambientes"
+        "cta": "Ver casas de banho"
       },
       "3": {
         "eyebrow": "VISITE-NOS",
@@ -504,18 +679,9 @@
     },
     "gallery": {
       "image_modal_close": "Fechar imagem",
-      "images": {
-        "1": { "alt": "Ambiente de showroom 1" },
-        "2": { "alt": "Ambiente de showroom 2" },
-        "3": { "alt": "Ambiente de showroom 3" },
-        "4": { "alt": "Ambiente de showroom 4" },
-        "5": { "alt": "Ambiente de showroom 5" },
-        "6": { "alt": "Ambiente de showroom 6" },
-        "7": { "alt": "Ambiente de showroom 7" },
-        "8": { "alt": "Ambiente de showroom 8" },
-        "9": { "alt": "Ambiente de showroom 9" },
-        "10": { "alt": "Ambiente de showroom 10" }
-      }
+      "image_modal_previous": "Imagem anterior",
+      "image_modal_next": "Imagem seguinte",
+      "image_alt": "Ambiente de showroom {n}"
     }
   },
   "quality_policy": {

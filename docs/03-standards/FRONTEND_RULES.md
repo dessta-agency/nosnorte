@@ -33,9 +33,9 @@
 
 - Style UI with Tailwind CSS utility classes. Define design tokens (colors, typography) in `app/globals.css` via `@theme`; use semantic Tailwind classes (`bg-primary`, `text-error`, etc.), not hardcoded values.
 
-- Use `PageContainer` on every page except the homepage. Navbar, Footer, and `PageContainer` share `Container` for horizontal alignment. Full-bleed heroes share `FULL_BLEED_HERO_INSET` (`constants/layout.ts`) — see [Style Guide](STYLE_GUIDE.md). Surface cards (product cards, contact panels, etc.) share `SURFACE_CARD` from the same file. Ambientes and Showroom gallery tiles share `GALLERY_MEDIA_RADIUS` and `GALLERY_MEDIA_GAP`.
+- Use `PageContainer` on every page except the homepage. Navbar, Footer, and `PageContainer` share `Container` for horizontal alignment. Full-bleed heroes share `FULL_BLEED_HERO_INSET` (`constants/layout.ts`) — see [Style Guide](STYLE_GUIDE.md). Surface cards (product cards, contact panels, etc.) share `SURFACE_CARD` from the same file. Ambientes and Showroom gallery tiles share `GALLERY_MEDIA_RADIUS` and `GALLERY_MEDIA_GAP`. Media card hover (`MEDIA_HOVER_CARD` + optional `MEDIA_HOVER_MEDIA`) is shared by Ambientes, Showroom, and product cards.
 
-- Use `next/image` for content images; store static assets in `public/` and always provide `alt` text and dimensions.
+- Use `next/image` for content images; store static assets in `public/` and always provide `alt` text and dimensions. Above-the-fold heroes (`PageHero`, first `HeroCarousel` slide, Ambientes detail cover) must use `priority` so they are not lazy-loaded.
 
 - Customize metadata in `app/layout.tsx` per project; no favicon is included by default — add `app/favicon.ico` or `app/icon.png` when needed.
 

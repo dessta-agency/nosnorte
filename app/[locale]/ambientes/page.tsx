@@ -5,13 +5,22 @@ import { EnvironmentsIntro } from "@/components/features/Ambientes/EnvironmentsI
 import { Container } from "@/components/layout/Container/Container";
 import { PageHero } from "@/components/ui/PageHero/PageHero";
 import { Reveal } from "@/components/ui/Reveal/Reveal";
-import { AMBIENTE_INTRO_CARDS, AMBIENTES } from "@/constants/ambientes";
+import {
+  AMBIENTE_CATALOG,
+  getAmbienteCopyKey,
+} from "@/constants/ambiente-copy";
+import {
+  getAmbienteIntroCards,
+  getAmbientes,
+} from "@/constants/ambientes";
 import {
   AMBIENTE_CATEGORY_IDS,
   type AmbienteFilterId,
   type AmbienteListItem,
 } from "@/types/ambiente";
 import { resolveLocale, type LocalePageProps } from "@/types/i18n";
+
+export const dynamic = "force-dynamic";
 
 type AmbientesPageProps = LocalePageProps & {
   searchParams: Promise<{ categoria?: string }>;
@@ -46,33 +55,56 @@ export default async function AmbientesPage({
   const tCommon = await getTranslations({ locale, namespace: "common" });
   const query = await searchParams;
   const initialFilter = resolveFilter(query.categoria);
+  const ambientes = getAmbientes();
 
-  const galleryItems: AmbienteListItem[] = AMBIENTES.map((ambiente) => ({
-    slug: ambiente.slug,
-    category: ambiente.category,
-    categoryLabel: t(`gallery.filters.${ambiente.category}`),
-    name: t(`items.${ambiente.slug}.name`),
-    excerpt: t(`items.${ambiente.slug}.excerpt`),
-    coverImage: ambiente.coverImage,
-    imageAlt: t(`items.${ambiente.slug}.image_alt`),
-    span: ambiente.span ?? 1,
-    href: `/ambientes/${ambiente.slug}`,
-  }));
+  const galleryItems: AmbienteListItem[] = ambientes.map((ambiente, index) => {
+    const copyKey = getAmbienteCopyKey(ambiente.slug);
+    const n = index + 1;
 
-  const introCards = AMBIENTE_INTRO_CARDS.map((card) => ({
+    return {
+      slug: ambiente.slug,
+      category: ambiente.category,
+      categoryLabel: t(`gallery.filters.${ambiente.category}`),
+      name:
+        copyKey === "auto"
+          ? t("items.auto.name", { n })
+          : t(`items.${copyKey}.name`),
+      excerpt:
+        copyKey === "auto"
+          ? t("items.auto.excerpt")
+          : t(`items.${copyKey}.excerpt`),
+      coverImage: ambiente.coverImage,
+      imageAlt:
+        copyKey === "auto"
+          ? t("items.auto.image_alt", { n })
+          : t(`items.${copyKey}.image_alt`),
+      span: ambiente.span ?? 1,
+      href: `/ambientes/${ambiente.slug}`,
+    };
+  });
+
+  const introCards = getAmbienteIntroCards().map((card) => ({
     id: card.id,
-    title: t(`intro_cards.${card.categoryId}.title`),
-    subtitle: t(`intro_cards.${card.categoryId}.subtitle`),
+    title: t(`intro_cards.${card.messageKey}.title`),
+    subtitle: t(`intro_cards.${card.messageKey}.subtitle`),
     image: card.image,
   }));
 
-  const filters = [
-    { id: "all" as const, label: t("gallery.filters.all") },
-    ...AMBIENTE_CATEGORY_IDS.map((id) => ({
-      id,
-      label: t(`gallery.filters.${id}`),
-    })),
-  ];
+  const filters =
+    AMBIENTE_CATEGORY_IDS.length > 1
+      ? [
+          { id: "all" as const, label: t("gallery.filters.all") },
+          ...AMBIENTE_CATEGORY_IDS.map((id) => ({
+            id,
+            label: t(`gallery.filters.${id}`),
+          })),
+        ]
+      : [];
+
+  const heroEntry = AMBIENTE_CATALOG[2] ?? AMBIENTE_CATALOG[0];
+  const heroBackground = heroEntry
+    ? `/images/showroom/${heroEntry.fileName}`
+    : "/images/backgrounds/background.png";
 
   return (
     <>
@@ -80,7 +112,7 @@ export default async function AmbientesPage({
         eyebrow={tCommon("company_name")}
         title={t("hero.title")}
         subtitle={t("hero.subtitle")}
-        backgroundImage="/images/showroom/3.jpg"
+        backgroundImage={heroBackground}
       />
 
       <main>
@@ -95,19 +127,17 @@ export default async function AmbientesPage({
           />
         </Reveal>
 
-        <Reveal>
-          <Container className="mt-4 min-h-[50vh] pb-16">
-            <EnvironmentsGallery
-              key={initialFilter}
-              eyebrow={t("gallery.eyebrow")}
-              title={t("gallery.title")}
-              emptyLabel={t("gallery.empty")}
-              filters={filters}
-              items={galleryItems}
-              initialFilter={initialFilter}
-            />
-          </Container>
-        </Reveal>
+        <Container className="mt-4 min-h-[50vh] pb-16">
+          <EnvironmentsGallery
+            key={initialFilter}
+            eyebrow={t("gallery.eyebrow")}
+            title={t("gallery.title")}
+            emptyLabel={t("gallery.empty")}
+            filters={filters}
+            items={galleryItems}
+            initialFilter={initialFilter}
+          />
+        </Container>
       </main>
     </>
   );

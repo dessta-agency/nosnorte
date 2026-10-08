@@ -18,6 +18,7 @@ Do not wrap in `PageContainer` or `Container` — the hero must stay full-bleed.
 - Content is left-aligned over a left/bottom gradient overlay.
 - Horizontal text inset uses `FULL_BLEED_HERO_INSET` (`constants/layout.ts`) — the same inset as `PageHero`. Keep them in sync.
 - Images live under `public/images/home/`.
+- The first slide image uses `priority` (eager LCP load). Later slides stay lazy so they do not compete with the initial paint.
 
 ## Internationalization
 

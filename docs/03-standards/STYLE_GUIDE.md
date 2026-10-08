@@ -34,6 +34,7 @@ UI/UX guidelines for visual and behavioral consistency across the interface.
 - **Full-bleed hero text inset:** Homepage carousel and page heroes of the same kind must share the same horizontal content spacing (`FULL_BLEED_HERO_INSET` in `constants/layout.ts`). Do not invent a separate inset per hero.
 - **Surface cards:** Bordered surface panels (product cards, contact sections, etc.) must reuse `SURFACE_CARD` from `constants/layout.ts` for radius, border, and fill. Compose with local padding and interaction styles; do not redefine the card chrome per feature.
 - **Gallery media tiles:** Ambientes and Showroom gallery tiles must share `GALLERY_MEDIA_RADIUS` and `GALLERY_MEDIA_GAP` from `constants/layout.ts`, even when grid and behaviour differ.
+- **Media hover:** Interactive media tiles/cards (Ambientes, Showroom, product cards, and similar) reuse `MEDIA_HOVER_CARD` from `constants/layout.ts` on the outer tile/card wrapper. Optional image darkening uses `MEDIA_HOVER_MEDIA` on the covering image (no zoom). Do not invent a separate scale/lift per feature.
 - On pages with a full-bleed hero plus body content: render the hero outside `PageContainer`, then wrap the remaining sections in `PageContainer`.
 - Use `Container` whenever other chrome or sections must align to the shared grid.
 - Use `font-display` for large display titles (hero headlines); use `font-sans` for body and UI chrome.

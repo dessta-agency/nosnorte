@@ -6,46 +6,24 @@ import { ProductFiltersSkeleton } from "@/components/features/ProductFilters/Pro
 import { CheckboxFilter } from "@/components/ui/CheckboxFilter/CheckboxFilter";
 import { FilterSection } from "@/components/ui/FilterSection/FilterSection";
 import { PriceRangeFilter } from "@/components/ui/PriceRangeFilter/PriceRangeFilter";
+import {
+  PRODUCT_CERTIFICATION_IDS,
+  PRODUCT_COLOR_IDS,
+  PRODUCT_DIAMETER_IDS,
+  PRODUCT_FALLBACK_BRAND_IDS,
+  PRODUCT_FALLBACK_CATEGORY_IDS,
+  PRODUCT_FINISH_IDS,
+  PRODUCT_FORMAT_IDS,
+  PRODUCT_LENGTH_IDS,
+  PRODUCT_MATERIAL_IDS,
+  PRODUCT_PACKAGING_IDS,
+  PRODUCT_SIZE_IDS,
+  PRODUCT_THICKNESS_IDS,
+  PRODUCT_VOLUME_IDS,
+  PRODUCT_WARRANTY_IDS,
+  PRODUCT_WIDTH_IDS,
+} from "@/constants/product-filters";
 import type { FilterOption, ProductFiltersState } from "@/types/product";
-
-const WARRANTY_IDS = ["years_3", "years_30"] as const;
-const FINISH_IDS = ["matte", "gloss", "satin", "textured"] as const;
-const CERTIFICATION_IDS = ["ce", "iso9001", "fsc", "pefc"] as const;
-const THICKNESS_IDS = ["6mm", "8mm", "10mm", "12mm", "20mm"] as const;
-const DIAMETER_IDS = ["10mm", "15mm", "20mm", "32mm", "50mm"] as const;
-const COLOR_IDS = ["white", "beige", "gray", "black", "natural"] as const;
-const WIDTH_IDS = ["30cm", "45cm", "60cm", "90cm", "120cm"] as const;
-const LENGTH_IDS = ["60cm", "90cm", "120cm", "180cm", "240cm"] as const;
-const MATERIAL_IDS = [
-  "ceramic",
-  "porcelain",
-  "wood",
-  "stone",
-  "metal",
-  "glass",
-] as const;
-const VOLUME_IDS = ["1l", "5l", "10l", "15l", "20l"] as const;
-const PACKAGING_IDS = ["unit", "box", "pallet", "pack"] as const;
-const FORMAT_IDS = ["square", "rectangular", "hexagonal", "plank"] as const;
-const SIZE_IDS = ["30x30", "45x45", "60x60", "90x90", "120x60"] as const;
-
-const FALLBACK_CATEGORY_IDS = [
-  "ceramics",
-  "paints",
-  "woods",
-  "sanitary",
-  "flooring",
-  "insulation",
-  "hardware",
-] as const;
-
-const FALLBACK_BRAND_IDS = [
-  "keraben",
-  "cin",
-  "roca",
-  "cortarte",
-  "sika",
-] as const;
 
 type ProductFiltersProps = {
   value: ProductFiltersState;
@@ -148,81 +126,93 @@ function FiltersPanelContent({
       key: "warranties",
       title: t("warranty"),
       name: "warranties",
-      options: mapOptions(WARRANTY_IDS, (id) => t(`warranty_options.${id}`)),
+      options: mapOptions(PRODUCT_WARRANTY_IDS, (id) =>
+        t(`warranty_options.${id}`),
+      ),
     },
     {
       key: "finishes",
       title: t("finish"),
       name: "finishes",
-      options: mapOptions(FINISH_IDS, (id) => t(`finish_options.${id}`)),
+      options: mapOptions(PRODUCT_FINISH_IDS, (id) =>
+        t(`finish_options.${id}`),
+      ),
     },
     {
       key: "certifications",
       title: t("certifications"),
       name: "certifications",
-      options: mapOptions(CERTIFICATION_IDS, (id) =>
-        t(`certification_options.${id}`)
+      options: mapOptions(PRODUCT_CERTIFICATION_IDS, (id) =>
+        t(`certification_options.${id}`),
       ),
     },
     {
       key: "thicknesses",
       title: t("thickness"),
       name: "thicknesses",
-      options: mapOptions(THICKNESS_IDS, (id) => t(`thickness_options.${id}`)),
+      options: mapOptions(PRODUCT_THICKNESS_IDS, (id) =>
+        t(`thickness_options.${id}`),
+      ),
     },
     {
       key: "diameters",
       title: t("diameter"),
       name: "diameters",
-      options: mapOptions(DIAMETER_IDS, (id) => t(`diameter_options.${id}`)),
+      options: mapOptions(PRODUCT_DIAMETER_IDS, (id) =>
+        t(`diameter_options.${id}`),
+      ),
     },
     {
       key: "colors",
       title: t("color"),
       name: "colors",
-      options: mapOptions(COLOR_IDS, (id) => t(`color_options.${id}`)),
+      options: mapOptions(PRODUCT_COLOR_IDS, (id) => t(`color_options.${id}`)),
     },
     {
       key: "widths",
       title: t("width"),
       name: "widths",
-      options: mapOptions(WIDTH_IDS, (id) => t(`width_options.${id}`)),
+      options: mapOptions(PRODUCT_WIDTH_IDS, (id) => t(`width_options.${id}`)),
     },
     {
       key: "lengths",
       title: t("length"),
       name: "lengths",
-      options: mapOptions(LENGTH_IDS, (id) => t(`length_options.${id}`)),
+      options: mapOptions(PRODUCT_LENGTH_IDS, (id) => t(`length_options.${id}`)),
     },
     {
       key: "materials",
       title: t("material"),
       name: "materials",
-      options: mapOptions(MATERIAL_IDS, (id) => t(`material_options.${id}`)),
+      options: mapOptions(PRODUCT_MATERIAL_IDS, (id) =>
+        t(`material_options.${id}`),
+      ),
     },
     {
       key: "volumes",
       title: t("volume"),
       name: "volumes",
-      options: mapOptions(VOLUME_IDS, (id) => t(`volume_options.${id}`)),
+      options: mapOptions(PRODUCT_VOLUME_IDS, (id) => t(`volume_options.${id}`)),
     },
     {
       key: "packagings",
       title: t("packaging"),
       name: "packagings",
-      options: mapOptions(PACKAGING_IDS, (id) => t(`packaging_options.${id}`)),
+      options: mapOptions(PRODUCT_PACKAGING_IDS, (id) =>
+        t(`packaging_options.${id}`),
+      ),
     },
     {
       key: "formats",
       title: t("format"),
       name: "formats",
-      options: mapOptions(FORMAT_IDS, (id) => t(`format_options.${id}`)),
+      options: mapOptions(PRODUCT_FORMAT_IDS, (id) => t(`format_options.${id}`)),
     },
     {
       key: "sizes",
       title: t("size"),
       name: "sizes",
-      options: mapOptions(SIZE_IDS, (id) => t(`size_options.${id}`)),
+      options: mapOptions(PRODUCT_SIZE_IDS, (id) => t(`size_options.${id}`)),
     },
   ];
 
@@ -246,7 +236,11 @@ function FiltersPanelContent({
         )}
       </div>
 
-      <FilterSection title={t("categories")}>
+      <FilterSection
+        title={t("categories")}
+        defaultOpen
+        activeCount={state.categories.length}
+      >
         <CheckboxFilter
           name="categories"
           options={categoryOptions}
@@ -255,7 +249,15 @@ function FiltersPanelContent({
         />
       </FilterSection>
 
-      <FilterSection title={t("price_range")}>
+      <FilterSection
+        title={t("price_range")}
+        defaultOpen
+        activeCount={
+          state.priceMin !== priceMinBound || state.priceMax !== priceMaxBound
+            ? 1
+            : 0
+        }
+      >
         <PriceRangeFilter
           min={priceMinBound}
           max={priceMaxBound}
@@ -268,7 +270,11 @@ function FiltersPanelContent({
       </FilterSection>
 
       {checkboxSections.map((section) => (
-        <FilterSection key={section.key} title={section.title}>
+        <FilterSection
+          key={section.key}
+          title={section.title}
+          activeCount={state[section.key].length}
+        >
           <CheckboxFilter
             name={section.name}
             options={section.options}
@@ -325,7 +331,7 @@ export function ProductFilters({
   const resolvedCategoryOptions =
     categoryOptions && categoryOptions.length > 0
       ? categoryOptions
-      : FALLBACK_CATEGORY_IDS.map((id) => ({
+      : PRODUCT_FALLBACK_CATEGORY_IDS.map((id) => ({
           id,
           label: t(`category_options.${id}`),
         }));
@@ -333,7 +339,7 @@ export function ProductFilters({
   const resolvedBrandOptions =
     brandOptions && brandOptions.length > 0
       ? brandOptions
-      : FALLBACK_BRAND_IDS.map((id) => ({
+      : PRODUCT_FALLBACK_BRAND_IDS.map((id) => ({
           id,
           label: t(`brand_options.${id}`),
         }));

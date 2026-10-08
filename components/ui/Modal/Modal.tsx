@@ -18,6 +18,8 @@ type ModalProps = {
   closeLabel: string;
   className?: string;
   hideTitle?: boolean;
+  /** Transparent panel for media lightboxes (no surface fill, border, or shadow). */
+  variant?: "default" | "media";
 };
 
 const FOCUSABLE_SELECTOR =
@@ -31,7 +33,9 @@ export function Modal({
   closeLabel,
   className = "",
   hideTitle = false,
+  variant = "default",
 }: ModalProps) {
+  const isMedia = variant === "media";
   const titleId = useId();
   const dialogRef = useRef<HTMLDivElement>(null);
   const previouslyFocusedRef = useRef<HTMLElement | null>(null);
@@ -115,12 +119,16 @@ export function Modal({
         aria-labelledby={titleId}
         tabIndex={-1}
         onKeyDown={handleKeyDown}
-        className={`relative w-full max-w-2xl scale-100 rounded-xl border border-border bg-surface p-6 opacity-100 shadow-lg outline-none transition-[opacity,transform] duration-200 ${className}`}
+        className={
+          isMedia
+            ? `relative w-fit max-w-full scale-100 p-0 opacity-100 outline-none transition-[opacity,transform] duration-200 ${className}`
+            : `relative w-full max-w-2xl scale-100 rounded-xl border border-border bg-surface p-6 opacity-100 shadow-lg outline-none transition-[opacity,transform] duration-200 ${className}`
+        }
       >
         <div
           className={`mb-4 flex items-start justify-between gap-4 ${
             hideTitle ? "mb-0 justify-end" : ""
-          }`}
+          } ${isMedia ? "absolute top-2 right-2 z-10 mb-0 sm:top-3 sm:right-3" : ""}`}
         >
           <h2
             id={titleId}
@@ -136,7 +144,11 @@ export function Modal({
             type="button"
             onClick={onClose}
             aria-label={closeLabel}
-            className="shrink-0 cursor-pointer rounded-md p-1.5 font-sans text-muted transition-colors hover:bg-gray-light hover:text-foreground focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
+            className={
+              isMedia
+                ? "shrink-0 cursor-pointer rounded-md bg-black/40 p-1.5 font-sans text-white transition-colors hover:bg-black/60 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
+                : "shrink-0 cursor-pointer rounded-md p-1.5 font-sans text-muted transition-colors hover:bg-gray-light hover:text-foreground focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
+            }
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"

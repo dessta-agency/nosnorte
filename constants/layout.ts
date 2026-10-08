@@ -20,3 +20,18 @@ export const GALLERY_MEDIA_RADIUS = "rounded-lg";
  * Shared gap between media gallery tiles (Ambientes + Showroom).
  */
 export const GALLERY_MEDIA_GAP = "gap-2";
+
+/**
+ * Shared media hover for interactive tiles/cards.
+ * Put on the outer tile wrapper (e.g. gallery `<li>`), not on the image.
+ * Very slight scale-up on hover/focus (stays within typical gallery gaps).
+ */
+export const MEDIA_HOVER_CARD =
+  "group relative transition-transform duration-500 ease-out hover:scale-[1.015] has-[:focus-visible]:scale-[1.015] motion-reduce:transition-none motion-reduce:hover:scale-100 motion-reduce:has-[:focus-visible]:scale-100";
+
+/**
+ * Shared image hover for media cards using `MEDIA_HOVER_CARD` (`group`).
+ * Put on the covering image — slight darkening, no zoom.
+ */
+export const MEDIA_HOVER_MEDIA =
+  "transition-[filter] duration-500 ease-out group-hover:brightness-[0.85] group-focus-within:brightness-[0.85] motion-reduce:transition-none";

@@ -4,6 +4,7 @@ import { useCallback, useEffect, useMemo, useState } from "react";
 import { useTranslations } from "next-intl";
 import { ProductFilters } from "@/components/features/ProductFilters/ProductFilters";
 import { ProductsGrid } from "@/components/features/ProductsGrid/ProductsGrid";
+import { simulateProductFilterAttributes } from "@/constants/product-filters";
 import type {
   FilterOption,
   Product,
@@ -66,6 +67,7 @@ function enrichProduct(
           { id: "white", label: colorLabels.white },
         ]
       : undefined,
+    filterAttributes: simulateProductFilterAttributes(product.id),
   };
 }
 

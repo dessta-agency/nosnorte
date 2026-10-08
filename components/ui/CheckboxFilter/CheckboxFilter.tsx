@@ -1,5 +1,7 @@
 "use client";
 
+import { useId } from "react";
+
 export type CheckboxOption = {
   id: string;
   label: string;
@@ -18,6 +20,8 @@ export function CheckboxFilter({
   onChange,
   name,
 }: CheckboxFilterProps) {
+  const instanceId = useId();
+
   const toggleOption = (id: string) => {
     if (selectedIds.includes(id)) {
       onChange(selectedIds.filter((selectedId) => selectedId !== id));
@@ -30,7 +34,7 @@ export function CheckboxFilter({
     <ul className="flex flex-col gap-1" role="group" aria-label={name}>
       {options.map(({ id, label }) => {
         const isChecked = selectedIds.includes(id);
-        const inputId = `${name}-${id}`;
+        const inputId = `${instanceId}-${name}-${id}`;
 
         return (
           <li key={id}>

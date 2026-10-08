@@ -130,5 +130,62 @@ Use a repeating 4-column CSS Grid block of six tiles on large screens: position 
 ### Consequences
 
 - Gallery layout is index-based (`index % 6`), independent of the older `span` field on ambiente mock data for this view.
-- Card chrome stays simple (`rounded-xl`); content overlay is unchanged.
+- Card chrome stays simple (`rounded-lg` via `GALLERY_MEDIA_RADIUS`); content overlay is unchanged.
 - See [EnvironmentsGallery](../04-ui/components/EnvironmentsGallery.md).
+
+---
+
+## 2026-10-08 — Ambientes curated catalog vs Showroom filesystem discovery
+
+### Context
+
+Showroom and Ambientes share bathroom photography in `public/images/showroom/`, but Ambientes needs stable URLs and curated titles while Showroom should reflect every file in the folder.
+
+### Decision
+
+- Showroom lists images via `getShowroomImages()` (filesystem auto-discovery).
+- Ambientes lists entries from `AMBIENTE_CATALOG` (numeric `id`, `copyKey`, `fileName`). Detail routes use `/ambientes/{id}`.
+- Materials on Ambientes detail are display-only (no product links).
+
+### Consequences
+
+- Adding or removing showroom files updates Showroom only; Ambientes requires a catalog edit.
+- See [ShowroomGallery](../04-ui/components/ShowroomGallery.md), [EnvironmentsGallery](../04-ui/components/EnvironmentsGallery.md), and [Limitations](../00-overview/LIMITATIONS.md).
+
+---
+
+## 2026-10-08 — Per-tile Reveal on galleries (not whole-grid)
+
+### Context
+
+Wrapping an entire gallery grid in a scroll `Reveal` left a blank white block below the hero until the visitor scrolled. Ambientes and Showroom still need a slow enter as tiles come into view.
+
+### Decision
+
+- Animate each gallery tile with `Reveal` inside the grid.
+- Ambientes: every tile scroll-reveals (`durationMs={2200}`, `threshold={0.2}`).
+- Showroom: first three tiles use `immediate`; later tiles use the same slow scroll enter.
+- Do not wrap the whole above-the-fold gallery in a non-immediate `Reveal`.
+
+### Consequences
+
+- Hero-adjacent tiles stay visible on first paint where `immediate` is used.
+- See [Reveal](../04-ui/components/Reveal.md).
+
+---
+
+## 2026-10-08 — Shared media hover tokens
+
+### Context
+
+Ambientes, Showroom, and product cards needed the same light hover feedback. Per-feature hover styles would drift apart (different scales, image zooms, or lift shadows).
+
+### Decision
+
+- Reuse `MEDIA_HOVER_CARD` (slight card scale) and optional `MEDIA_HOVER_MEDIA` (image darkening, no zoom) from `constants/layout.ts`.
+- Apply card scale on the outer wrapper; darkening on the covering image.
+
+### Consequences
+
+- One place to tune hover intensity for all adopting surfaces.
+- See [Style Guide](../03-standards/STYLE_GUIDE.md), [EnvironmentsGallery](../04-ui/components/EnvironmentsGallery.md), [ShowroomGallery](../04-ui/components/ShowroomGallery.md), and [ProductCard](../04-ui/components/ProductCard.md).

@@ -4,7 +4,11 @@ import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 import { useTranslations } from "next-intl";
 import { ProductOptionsModal } from "@/components/features/ProductOptionsModal/ProductOptionsModal";
-import { SURFACE_CARD } from "@/constants/layout";
+import {
+  MEDIA_HOVER_CARD,
+  MEDIA_HOVER_MEDIA,
+  SURFACE_CARD,
+} from "@/constants/layout";
 import type { Product } from "@/types/product";
 
 type ProductCardProps = {
@@ -126,7 +130,9 @@ export function ProductCard({ product }: ProductCardProps) {
 
   return (
     <>
-      <article className={`group flex h-full flex-col ${SURFACE_CARD} p-4 shadow-sm transition-[transform,box-shadow,border-color] duration-300 ease-out hover:-translate-y-1 hover:border-primary/20 hover:shadow-[0_8px_24px_-4px_rgba(0,0,0,0.12)]`}>
+      <article
+        className={`flex h-full flex-col ${SURFACE_CARD} p-4 shadow-sm ${MEDIA_HOVER_CARD}`}
+      >
         <div className="relative mb-4 aspect-square overflow-hidden rounded-xl bg-gray-light/30">
           {imageSrc ? (
             <Image
@@ -134,7 +140,7 @@ export function ProductCard({ product }: ProductCardProps) {
               alt={product.title}
               fill
               sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, (max-width: 1280px) 25vw, 20vw"
-              className="object-cover"
+              className={`object-cover ${MEDIA_HOVER_MEDIA}`}
             />
           ) : (
             <div className="flex h-full items-center justify-center font-sans text-sm text-muted">

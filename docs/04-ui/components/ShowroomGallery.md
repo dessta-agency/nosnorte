@@ -17,10 +17,14 @@ Do not use for uniform product grids — prefer a regular CSS grid or `ImageGall
 - `images` — list of `{ src, alt, title?, span? }` where `span` controls masonry row height (`1`–`2`).
 - `title` (optional) — section heading above the grid; omit for a gallery-only layout.
 - `closeLabel` — accessible label for the image modal close control.
+- `previousLabel` / `nextLabel` — accessible labels for lightbox navigation controls.
 
 ## Behaviour
 
 - Client Component (`"use client"`).
-- Clicking a tile opens the shared `Modal` with a large contained image.
+- Each tile uses `Reveal`. The first three tiles use `immediate` (no scroll wait); later tiles use the same slow scroll enter as Ambientes (`durationMs={2200}`, `threshold={0.2}`).
+- Clicking a tile opens the shared `Modal` (`variant="media"`) with a large contained image and no gray panel fill.
+- Previous/next controls (and Left/Right arrow keys) cycle through gallery images when more than one image is present.
 - Tile corner radius and gap share `GALLERY_MEDIA_RADIUS` / `GALLERY_MEDIA_GAP` with `EnvironmentsGallery`.
-- Images live under `public/images/showroom/`.
+- Tiles use the shared media hover (`MEDIA_HOVER_CARD` + `MEDIA_HOVER_MEDIA`): slight card scale-up and image darkening on hover/focus.
+- Images are discovered automatically from `public/images/showroom/` via `utils/showroom-images.ts`. Ambientes uses the same media folder but a curated catalog (`AMBIENTE_CATALOG`), not filesystem auto-discovery.

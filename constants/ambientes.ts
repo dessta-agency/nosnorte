@@ -1,167 +1,80 @@
-import type {
-  Ambiente,
-  AmbienteIntroCard,
-  AmbienteSlug,
+import {
+  AMBIENTE_CATALOG,
+  type AmbienteId,
+} from "@/constants/ambiente-copy";
+import {
+  AMBIENTE_INTRO_CARD_KEYS,
+  type Ambiente,
+  type AmbienteIntroCard,
+  type AmbienteProduct,
+  type AmbienteSlug,
 } from "@/types/ambiente";
 
-/**
- * Structural mock data for Ambientes.
- * Copy lives in messages/{locale}.json under the ambientes namespace.
- * Replace this source with an API later.
- */
-export const AMBIENTE_INTRO_CARDS = [
-  {
-    id: "01",
-    categoryId: "casa-de-banho",
-    image: "/images/showroom/1.jpg",
-  },
-  {
-    id: "02",
-    categoryId: "interiores",
-    image: "/images/showroom/4.jpg",
-  },
-  {
-    id: "03",
-    categoryId: "exteriores",
-    image: "/images/showroom/7.jpg",
-  },
-] as const satisfies readonly AmbienteIntroCard[];
+const SHOWROOM_IMAGE_BASE = "/images/showroom";
 
-export const AMBIENTES = [
-  {
-    slug: "suite-mineral",
+const DEFAULT_PRODUCTS = [
+  { type: "pavimento", materialKey: "pavimento" },
+  { type: "revestimento", materialKey: "revestimento" },
+  { type: "lavatorio", materialKey: "lavatorio" },
+  { type: "torneira", materialKey: "torneira" },
+] as const satisfies readonly AmbienteProduct[];
+
+function imageSrc(fileName: string): string {
+  return `${SHOWROOM_IMAGE_BASE}/${fileName}`;
+}
+
+function buildAmbiente(
+  id: AmbienteId,
+  fileName: string,
+  index: number,
+): Ambiente {
+  const total = AMBIENTE_CATALOG.length;
+  const neighborA =
+    AMBIENTE_CATALOG[(index + 1) % total]?.fileName ?? fileName;
+  const neighborB =
+    AMBIENTE_CATALOG[(index + 2) % total]?.fileName ?? fileName;
+
+  return {
+    slug: id,
     category: "casa-de-banho",
-    coverImage: "/images/showroom/1.jpg",
-    images: [
-      "/images/showroom/1.jpg",
-      "/images/showroom/2.jpg",
-      "/images/showroom/3.jpg",
-    ],
-    span: 2,
-    products: [
-      { type: "pavimento", materialKey: "pavimento", href: "/produtos" },
-      { type: "revestimento", materialKey: "revestimento", href: "/produtos" },
-      { type: "lavatorio", materialKey: "lavatorio", href: "/produtos" },
-      { type: "torneira", materialKey: "torneira", href: "/produtos" },
-    ],
-  },
-  {
-    slug: "banho-zen",
-    category: "casa-de-banho",
-    coverImage: "/images/showroom/2.jpg",
-    images: [
-      "/images/showroom/2.jpg",
-      "/images/showroom/5.jpg",
-      "/images/showroom/8.jpg",
-    ],
-    span: 1,
-    products: [
-      { type: "revestimento", materialKey: "revestimento", href: "/produtos" },
-      { type: "lavatorio", materialKey: "lavatorio", href: "/produtos" },
-      { type: "torneira", materialKey: "torneira", href: "/produtos" },
-    ],
-  },
-  {
-    slug: "sala-luminosa",
-    category: "interiores",
-    coverImage: "/images/showroom/4.jpg",
-    images: [
-      "/images/showroom/4.jpg",
-      "/images/home/image1.jpg",
-      "/images/showroom/6.jpg",
-    ],
-    span: 1,
-    products: [
-      { type: "pavimento", materialKey: "pavimento", href: "/produtos" },
-      { type: "revestimento", materialKey: "revestimento", href: "/produtos" },
-      { type: "iluminacao", materialKey: "iluminacao", href: "/produtos" },
-    ],
-  },
-  {
-    slug: "cozinha-aberta",
-    category: "interiores",
-    coverImage: "/images/showroom/6.jpg",
-    images: [
-      "/images/showroom/6.jpg",
-      "/images/showroom/9.jpg",
-      "/images/home/image2.jpg",
-    ],
-    span: 2,
-    products: [
-      { type: "pavimento", materialKey: "pavimento", href: "/produtos" },
-      { type: "revestimento", materialKey: "revestimento", href: "/produtos" },
-      { type: "mobiliario", materialKey: "mobiliario", href: "/produtos" },
-    ],
-  },
-  {
-    slug: "terraco-mediterraneo",
-    category: "exteriores",
-    coverImage: "/images/showroom/7.jpg",
-    images: [
-      "/images/showroom/7.jpg",
-      "/images/showroom/10.jpg",
-      "/images/home/image3.jpg",
-    ],
-    span: 2,
-    products: [
-      { type: "pavimento", materialKey: "pavimento", href: "/produtos" },
-      { type: "revestimento", materialKey: "revestimento", href: "/produtos" },
-    ],
-  },
-  {
-    slug: "jardim-contemporaneo",
-    category: "exteriores",
-    coverImage: "/images/showroom/10.jpg",
-    images: [
-      "/images/showroom/10.jpg",
-      "/images/showroom/8.jpg",
-      "/images/showroom/3.jpg",
-    ],
-    span: 1,
-    products: [
-      { type: "pavimento", materialKey: "pavimento", href: "/produtos" },
-      { type: "iluminacao", materialKey: "iluminacao", href: "/produtos" },
-    ],
-  },
-  {
-    slug: "suite-marmore",
-    category: "casa-de-banho",
-    coverImage: "/images/showroom/5.jpg",
-    images: [
-      "/images/showroom/5.jpg",
-      "/images/showroom/1.jpg",
-      "/images/showroom/9.jpg",
-    ],
-    span: 1,
-    products: [
-      { type: "pavimento", materialKey: "pavimento", href: "/produtos" },
-      { type: "revestimento", materialKey: "revestimento", href: "/produtos" },
-      { type: "lavatorio", materialKey: "lavatorio", href: "/produtos" },
-      { type: "torneira", materialKey: "torneira", href: "/produtos" },
-    ],
-  },
-  {
-    slug: "living-neutro",
-    category: "interiores",
-    coverImage: "/images/showroom/9.jpg",
-    images: [
-      "/images/showroom/9.jpg",
-      "/images/showroom/4.jpg",
-      "/images/home/image1.jpg",
-    ],
-    span: 1,
-    products: [
-      { type: "pavimento", materialKey: "pavimento", href: "/produtos" },
-      { type: "mobiliario", materialKey: "mobiliario", href: "/produtos" },
-      { type: "iluminacao", materialKey: "iluminacao", href: "/produtos" },
-    ],
-  },
-] as const satisfies readonly Ambiente[];
+    coverImage: imageSrc(fileName),
+    images: [imageSrc(fileName), imageSrc(neighborA), imageSrc(neighborB)],
+    span: (index % 3 === 0 ? 2 : 1) as 1 | 2,
+    products: DEFAULT_PRODUCTS,
+  };
+}
+
+/**
+ * Ambientes entries use forced numeric IDs from `AMBIENTE_CATALOG` (stable URLs).
+ */
+export function getAmbientes(): Ambiente[] {
+  return AMBIENTE_CATALOG.map((entry, index) =>
+    buildAmbiente(entry.id, entry.fileName, index),
+  );
+}
+
+/**
+ * Intro cards use the first catalog images (bathroom style copy).
+ */
+export function getAmbienteIntroCards(): AmbienteIntroCard[] {
+  return AMBIENTE_INTRO_CARD_KEYS.flatMap((messageKey, index) => {
+    const entry = AMBIENTE_CATALOG[index];
+    if (!entry) return [];
+
+    return [
+      {
+        id: String(index + 1).padStart(2, "0"),
+        messageKey,
+        image: imageSrc(entry.fileName),
+      },
+    ];
+  });
+}
 
 export function getAmbienteBySlug(slug: string): Ambiente | undefined {
-  return AMBIENTES.find((ambiente) => ambiente.slug === slug);
+  return getAmbientes().find((ambiente) => ambiente.slug === slug);
 }
 
 export function getAllAmbienteSlugs(): AmbienteSlug[] {
-  return AMBIENTES.map((ambiente) => ambiente.slug);
+  return getAmbientes().map((ambiente) => ambiente.slug);
 }

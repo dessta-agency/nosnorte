@@ -2,11 +2,11 @@
 
 ## Responsibility
 
-Product grid card: image, brand, title, reference, optional more-options info, availability badge, price or on-request copy, and CTA.
+Product grid card: image, brand, title, reference, optional more-options info, availability badge, price or on-request copy, and optional “View options” CTA. Clicking the card opens a product information request dialog.
 
 ## When to use
 
-Use inside the products catalog grid to present a single product and its primary actions.
+Use inside the products catalog grid to present a single product.
 
 ## Content rules
 
@@ -14,12 +14,12 @@ Use inside the products catalog grid to present a single product and its primary
 - Uses the shared media hover (`MEDIA_HOVER_CARD` + `MEDIA_HOVER_MEDIA`): slight card scale-up and image darkening on hover/focus.
 - Availability is either **in stock** (green badge) or **on order** (amber badge, `#AD7225`).
 - “More options” is informational only (not clickable).
-- Without options: primary CTA “Add to order” with shop icon.
-- On add, the button transitions progressively to green with “Added”, then returns to the default CTA after a short delay.
-- With options: outline CTA “View options” opens `ProductOptionsModal`.
+- Clicking the card (keyboard: Enter/Space) opens `ProductInquiryModal`.
+- Without options: no action button (card click still opens inquiry).
+- With options: outline CTA “View options” opens `ProductOptionsModal` and does not open inquiry (`stopPropagation`).
 
 ## Notes
 
 - Client Component (`"use client"`).
 - Copy comes from the `products` message namespace.
-- Icons: `/icons/shop.png`, `/icons/arrowright_black.png`.
+- Icon: `/icons/arrowright_black.png` (view options CTA only).

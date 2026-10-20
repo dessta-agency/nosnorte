@@ -4,6 +4,7 @@ import {
   useEffect,
   useId,
   useRef,
+  useState,
   type KeyboardEvent,
   type MouseEvent,
   type ReactNode,
@@ -25,6 +26,8 @@ type ModalProps = {
 const FOCUSABLE_SELECTOR =
   'a[href], button:not([disabled]), textarea, input, select, [tabindex]:not([tabindex="-1"])';
 
+const MODAL_EXIT_MS = 220;
+
 export function Modal({
   isOpen,
   onClose,
@@ -39,9 +42,37 @@ export function Modal({
   const titleId = useId();
   const dialogRef = useRef<HTMLDivElement>(null);
   const previouslyFocusedRef = useRef<HTMLElement | null>(null);
+  const [isMounted, setIsMounted] = useState(isOpen);
+  const [isVisible, setIsVisible] = useState(false);
+  const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
 
   useEffect(() => {
-    if (!isOpen) return;
+    setPrefersReducedMotion(
+      window.matchMedia("(prefers-reduced-motion: reduce)").matches,
+    );
+  }, []);
+
+  useEffect(() => {
+    if (isOpen) {
+      setIsMounted(true);
+      const frame = requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
+          setIsVisible(true);
+        });
+      });
+      return () => cancelAnimationFrame(frame);
+    }
+
+    setIsVisible(false);
+    const exitMs = prefersReducedMotion ? 0 : MODAL_EXIT_MS;
+    const timeout = window.setTimeout(() => {
+      setIsMounted(false);
+    }, exitMs);
+    return () => window.clearTimeout(timeout);
+  }, [isOpen, prefersReducedMotion]);
+
+  useEffect(() => {
+    if (!isMounted) return;
 
     previouslyFocusedRef.current = document.activeElement as HTMLElement | null;
     const previousOverflow = document.body.style.overflow;
@@ -56,10 +87,10 @@ export function Modal({
       document.body.style.overflow = previousOverflow;
       previouslyFocusedRef.current?.focus();
     };
-  }, [isOpen]);
+  }, [isMounted]);
 
   useEffect(() => {
-    if (!isOpen) return;
+    if (!isMounted) return;
 
     function handleKeyDown(event: globalThis.KeyboardEvent) {
       if (event.key === "Escape") {
@@ -70,9 +101,9 @@ export function Modal({
 
     document.addEventListener("keydown", handleKeyDown);
     return () => document.removeEventListener("keydown", handleKeyDown);
-  }, [isOpen, onClose]);
+  }, [isMounted, onClose]);
 
-  if (!isOpen || typeof document === "undefined") {
+  if (!isMounted || typeof document === "undefined") {
     return null;
   }
 
@@ -106,9 +137,26 @@ export function Modal({
     }
   }
 
+  const overlayMotion = prefersReducedMotion
+    ? "transition-none"
+    : isVisible
+      ? "transition-opacity duration-300 ease-out"
+      : "transition-opacity duration-200 ease-in";
+
+  const panelMotion = prefersReducedMotion
+    ? "transition-none"
+    : isVisible
+      ? "transition-[opacity,transform] duration-[320ms] ease-[cubic-bezier(0.16,1,0.3,1)]"
+      : "transition-[opacity,transform] duration-[220ms] ease-[cubic-bezier(0.4,0,1,1)]";
+
+  const overlayState = isVisible ? "opacity-100" : "opacity-0";
+  const panelState = isVisible
+    ? "translate-y-0 scale-100 opacity-100"
+    : "translate-y-3 scale-[0.96] opacity-0";
+
   return createPortal(
     <div
-      className="fixed inset-0 z-50 flex items-center justify-center bg-foreground/40 p-4"
+      className={`fixed inset-0 z-50 flex items-center justify-center bg-foreground/40 p-4 ${overlayMotion} ${overlayState}`}
       onClick={handleOverlayClick}
       role="presentation"
     >
@@ -121,8 +169,8 @@ export function Modal({
         onKeyDown={handleKeyDown}
         className={
           isMedia
-            ? `relative w-fit max-w-full scale-100 p-0 opacity-100 outline-none transition-[opacity,transform] duration-200 ${className}`
-            : `relative w-full max-w-2xl scale-100 rounded-xl border border-border bg-surface p-6 opacity-100 shadow-lg outline-none transition-[opacity,transform] duration-200 ${className}`
+            ? `relative w-fit max-w-full p-0 outline-none ${panelMotion} ${panelState} ${className}`
+            : `relative w-full max-w-2xl rounded-xl border border-border bg-surface p-6 shadow-lg outline-none ${panelMotion} ${panelState} ${className}`
         }
       >
         <div
@@ -147,7 +195,7 @@ export function Modal({
             className={
               isMedia
                 ? "shrink-0 cursor-pointer rounded-md bg-black/40 p-1.5 font-sans text-white transition-colors hover:bg-black/60 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
-                : "shrink-0 cursor-pointer rounded-md p-1.5 font-sans text-muted transition-colors hover:bg-gray-light hover:text-foreground focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
+                : "shrink-0 cursor-pointer rounded-md p-1.5 font-sans text-primary transition-colors hover:bg-primary/10 hover:text-primary-hover focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
             }
           >
             <svg
@@ -156,7 +204,7 @@ export function Modal({
               fill="none"
               stroke="currentColor"
               strokeWidth={2}
-              className="h-5 w-5"
+              className="h-6 w-6"
               aria-hidden
             >
               <path

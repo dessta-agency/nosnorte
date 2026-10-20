@@ -14,9 +14,9 @@ High-level functional description of the project (no technical details).
 
 1. Visitor opens the products page.
 2. The page shows a search field, sort control, filters, and a grid of product cards.
-3. Each card shows brand, name, reference, optional “more options” info, availability (in stock or on order), price or “on request”, and an action button.
-4. Products without extra options use “Add to order”; the button briefly turns green and shows “Added”, then returns to the normal action.
-5. Products with extra options use “View options”, which opens a dialog with image, details, quantity, optional color choices, product information, and the same add action.
+3. Each card shows brand, name, reference, optional “more options” info, availability (in stock or on order), and price or “on request”.
+4. Clicking a product opens a dialog to request information (name, email, and optional message). Submitting is UI-only until email integration exists.
+5. Products with extra options also show “View options”, which opens a dialog with image, details, quantity, optional color choices, product information, and a link to request information. Products without extra options have no “View options” button.
 6. The visitor can filter, search, sort, and paginate the catalog (previous/next use arrow icons). Extra construction filters (finish, material, size, etc.) work against simulated product attributes until a real catalog API exists. Filter groups with active options keep a red title and show a count badge. When results change, only leaving cards fade out and only new cards fade in — cards that stay do not blink (reduced motion skips this).
 
 ### Ambientes inspiration

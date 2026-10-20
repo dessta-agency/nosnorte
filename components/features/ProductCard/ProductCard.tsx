@@ -1,8 +1,9 @@
 "use client";
 
 import Image from "next/image";
-import { useEffect, useRef, useState } from "react";
+import { useState, type KeyboardEvent, type MouseEvent } from "react";
 import { useTranslations } from "next-intl";
+import { ProductInquiryModal } from "@/components/features/ProductInquiryModal/ProductInquiryModal";
 import { ProductOptionsModal } from "@/components/features/ProductOptionsModal/ProductOptionsModal";
 import {
   MEDIA_HOVER_CARD,
@@ -15,8 +16,6 @@ type ProductCardProps = {
   product: Product;
 };
 
-const ADDED_FEEDBACK_MS = 2400;
-
 function formatPrice(price: number) {
   return new Intl.NumberFormat("pt-PT", {
     style: "currency",
@@ -24,108 +23,32 @@ function formatPrice(price: number) {
   }).format(price);
 }
 
-type AddToOrderButtonProps = {
-  isAdded: boolean;
-  onClick: () => void;
-  addLabel: string;
-  addedLabel: string;
-  size?: "card" | "modal";
-};
-
-function AddToOrderButton({
-  isAdded,
-  onClick,
-  addLabel,
-  addedLabel,
-  size = "card",
-}: AddToOrderButtonProps) {
-  const isCard = size === "card";
-
-  return (
-    <button
-      type="button"
-      onClick={onClick}
-      disabled={isAdded}
-      aria-live="polite"
-      className={`relative flex w-full cursor-pointer items-center justify-center overflow-hidden rounded-lg px-3 py-2.5 font-sans font-semibold tracking-wide text-white shadow-sm transition-[background-color,box-shadow,transform] duration-500 ease-out focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary disabled:cursor-default ${
-        isCard ? "text-[0.75rem]" : "text-sm"
-      } ${
-        isAdded
-          ? "bg-success shadow-md"
-          : "bg-primary hover:bg-primary-hover hover:shadow-md"
-      }`}
-    >
-      <span className="grid place-items-center">
-        <span
-          className={`col-start-1 row-start-1 flex items-center gap-2 transition-all duration-500 ease-out ${
-            isAdded
-              ? "pointer-events-none translate-y-1 opacity-0"
-              : "translate-y-0 opacity-100"
-          }`}
-        >
-          <Image
-            src="/icons/shop.png"
-            alt=""
-            width={isCard ? 18 : 16}
-            height={isCard ? 18 : 16}
-            className="shrink-0 brightness-0 invert"
-          />
-          <span>{addLabel}</span>
-        </span>
-        <span
-          className={`col-start-1 row-start-1 flex items-center gap-2 transition-all duration-500 ease-out ${
-            isAdded
-              ? "translate-y-0 opacity-100"
-              : "pointer-events-none -translate-y-1 opacity-0"
-          }`}
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 20 20"
-            fill="none"
-            className={`shrink-0 ${isCard ? "h-[18px] w-[18px]" : "h-4 w-4"}`}
-            aria-hidden
-          >
-            <path
-              d="M4.5 10.5L8 14l7.5-8"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            />
-          </svg>
-          <span>{addedLabel}</span>
-        </span>
-      </span>
-    </button>
-  );
-}
-
 export function ProductCard({ product }: ProductCardProps) {
   const t = useTranslations("products");
   const imageSrc = product.thumbnail || product.images[0] || "";
   const hasMoreOptions = Boolean(product.additionalOptions);
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const [isAdded, setIsAdded] = useState(false);
-  const addedTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const [isOptionsOpen, setIsOptionsOpen] = useState(false);
+  const [isInquiryOpen, setIsInquiryOpen] = useState(false);
 
-  useEffect(() => {
-    return () => {
-      if (addedTimeoutRef.current) {
-        clearTimeout(addedTimeoutRef.current);
-      }
-    };
-  }, []);
+  function openInquiry() {
+    setIsInquiryOpen(true);
+  }
 
-  function handleAddToOrder() {
-    setIsAdded(true);
-    if (addedTimeoutRef.current) {
-      clearTimeout(addedTimeoutRef.current);
+  function handleInquiryKeyDown(event: KeyboardEvent<HTMLElement>) {
+    if (event.key === "Enter" || event.key === " ") {
+      event.preventDefault();
+      openInquiry();
     }
-    addedTimeoutRef.current = setTimeout(() => {
-      setIsAdded(false);
-      addedTimeoutRef.current = null;
-    }, ADDED_FEEDBACK_MS);
+  }
+
+  function handleViewOptions(event: MouseEvent<HTMLButtonElement>) {
+    event.stopPropagation();
+    setIsOptionsOpen(true);
+  }
+
+  function handleRequestInfo() {
+    setIsOptionsOpen(false);
+    setIsInquiryOpen(true);
   }
 
   return (
@@ -133,23 +56,30 @@ export function ProductCard({ product }: ProductCardProps) {
       <article
         className={`flex h-full flex-col ${SURFACE_CARD} p-4 shadow-sm ${MEDIA_HOVER_CARD}`}
       >
-        <div className="relative mb-4 aspect-square overflow-hidden rounded-xl bg-gray-light/30">
-          {imageSrc ? (
-            <Image
-              src={imageSrc}
-              alt={product.title}
-              fill
-              sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, (max-width: 1280px) 25vw, 20vw"
-              className={`object-cover ${MEDIA_HOVER_MEDIA}`}
-            />
-          ) : (
-            <div className="flex h-full items-center justify-center font-sans text-sm text-muted">
-              —
-            </div>
-          )}
-        </div>
+        <div
+          role="button"
+          tabIndex={0}
+          onClick={openInquiry}
+          onKeyDown={handleInquiryKeyDown}
+          aria-label={t("inquiry_open_label", { product: product.title })}
+          className="flex min-h-0 flex-1 cursor-pointer flex-col gap-3 text-left"
+        >
+          <div className="relative aspect-square overflow-hidden rounded-xl bg-gray-light/30">
+            {imageSrc ? (
+              <Image
+                src={imageSrc}
+                alt=""
+                fill
+                sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, (max-width: 1280px) 25vw, 20vw"
+                className={`object-cover ${MEDIA_HOVER_MEDIA}`}
+              />
+            ) : (
+              <div className="flex h-full items-center justify-center font-sans text-sm text-muted">
+                —
+              </div>
+            )}
+          </div>
 
-        <div className="flex flex-1 flex-col gap-3">
           <div className="flex flex-1 flex-col gap-2">
             {product.brand ? (
               <p className="font-sans text-[0.7rem] font-semibold uppercase tracking-wide text-primary">
@@ -223,63 +153,60 @@ export function ProductCard({ product }: ProductCardProps) {
             ) : null}
           </div>
 
-          <div className="mt-auto flex flex-col gap-3 border-t border-border/40 pt-3">
-            <div className="flex flex-col gap-1">
-              <p
-                className={`font-sans font-bold text-foreground ${
-                  product.priceOnRequest ? "text-base" : "text-lg"
-                }`}
-              >
-                {product.priceOnRequest
-                  ? t("price_on_request")
-                  : formatPrice(product.price)}
+          <div className="mt-auto flex flex-col gap-1 border-t border-border/40 pt-3">
+            <p
+              className={`font-sans font-bold text-foreground ${
+                product.priceOnRequest ? "text-base" : "text-lg"
+              }`}
+            >
+              {product.priceOnRequest
+                ? t("price_on_request")
+                : formatPrice(product.price)}
+            </p>
+            {product.priceOnRequest ? (
+              <p className="font-sans text-[0.7rem] leading-snug text-muted">
+                {t("request_quote")}
               </p>
-              {product.priceOnRequest ? (
-                <p className="font-sans text-[0.7rem] leading-snug text-muted">
-                  {t("request_quote")}
-                </p>
-              ) : null}
-            </div>
-
-            <div className="flex flex-col gap-2">
-              {hasMoreOptions ? (
-                <button
-                  type="button"
-                  onClick={() => setIsModalOpen(true)}
-                  className="flex w-full cursor-pointer items-center justify-center gap-2 rounded-lg border border-border bg-background px-3 py-2.5 font-sans text-[0.75rem] font-semibold tracking-wide text-foreground transition-all hover:border-muted hover:bg-gray-light focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
-                >
-                  <span>{t("view_options")}</span>
-                  <Image
-                    src="/icons/arrowright_black.png"
-                    alt=""
-                    width={12}
-                    height={12}
-                    className="shrink-0"
-                  />
-                </button>
-              ) : (
-                <AddToOrderButton
-                  isAdded={isAdded}
-                  onClick={handleAddToOrder}
-                  addLabel={t("add_to_order")}
-                  addedLabel={t("added_to_order")}
-                />
-              )}
-            </div>
+            ) : null}
           </div>
         </div>
+
+        {hasMoreOptions ? (
+          <div className="mt-3">
+            <button
+              type="button"
+              onClick={handleViewOptions}
+              className="flex w-full cursor-pointer items-center justify-center gap-2 rounded-lg border border-border bg-background px-3 py-2.5 font-sans text-[0.75rem] font-semibold tracking-wide text-foreground transition-all hover:border-muted hover:bg-gray-light focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
+            >
+              <span>{t("view_options")}</span>
+              <Image
+                src="/icons/arrowright_black.png"
+                alt=""
+                width={12}
+                height={12}
+                className="shrink-0"
+              />
+            </button>
+          </div>
+        ) : null}
       </article>
 
-      {hasMoreOptions && isModalOpen ? (
+      {hasMoreOptions ? (
         <ProductOptionsModal
-          key={product.id}
+          key={`options-${product.id}`}
           product={product}
-          isOpen={isModalOpen}
-          onClose={() => setIsModalOpen(false)}
-          onAddToOrder={handleAddToOrder}
-          isAdded={isAdded}
+          isOpen={isOptionsOpen}
+          onClose={() => setIsOptionsOpen(false)}
+          onRequestInfo={handleRequestInfo}
         />
       ) : null}
+
+      <ProductInquiryModal
+        key={`inquiry-${product.id}`}
+        product={product}
+        isOpen={isInquiryOpen}
+        onClose={() => setIsInquiryOpen(false)}
+      />
     </>
   );
 }

@@ -31,8 +31,9 @@ Index of documented UI components.
 - [EnvironmentsGallery](EnvironmentsGallery.md) — Ambientes filtered editorial gallery grid
 - [EnvironmentDetailView](EnvironmentDetailView.md) — Ambientes detail body (back link, materials, gallery)
 - [Reveal](Reveal.md) — scroll/immediate enter animation for sections and gallery tiles
-- [ProductCard](ProductCard.md) — products grid card (availability, CTAs, options modal)
+- [ProductCard](ProductCard.md) — products grid card (click opens inquiry; optional view-options CTA)
 - [ProductCardSkeleton](ProductCardSkeleton.md) — loading placeholder for `ProductCard`
 - [ProductFilters](ProductFilters.md) — products catalog filter sidebar / mobile drawer
 - [ProductFiltersSkeleton](ProductFiltersSkeleton.md) — loading placeholder for products filters panel
+- [ProductInquiryModal](ProductInquiryModal.md) — product information request form dialog
 - [ProductOptionsModal](ProductOptionsModal.md) — product options dialog

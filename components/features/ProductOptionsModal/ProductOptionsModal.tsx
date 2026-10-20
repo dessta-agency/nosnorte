@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useId, useState } from "react";
+import { useEffect, useId, useState } from "react";
 import { useTranslations } from "next-intl";
 import { Modal } from "@/components/ui/Modal/Modal";
 import type { Product } from "@/types/product";
@@ -10,8 +10,7 @@ type ProductOptionsModalProps = {
   product: Product;
   isOpen: boolean;
   onClose: () => void;
-  onAddToOrder?: () => void;
-  isAdded?: boolean;
+  onRequestInfo?: () => void;
 };
 
 const QUANTITY_OPTIONS = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
@@ -27,8 +26,7 @@ export function ProductOptionsModal({
   product,
   isOpen,
   onClose,
-  onAddToOrder,
-  isAdded = false,
+  onRequestInfo,
 }: ProductOptionsModalProps) {
   const t = useTranslations("products");
   const imageSrc = product.thumbnail || product.images[0] || "";
@@ -39,7 +37,11 @@ export function ProductOptionsModal({
   );
   const quantityId = useId();
 
-  if (!isOpen) return null;
+  useEffect(() => {
+    if (!isOpen) return;
+    setQuantity(1);
+    setSelectedColorId(product.colorOptions?.[0]?.id ?? "");
+  }, [isOpen, product.colorOptions]);
 
   const selectedColor = colorOptions.find(
     (option) => option.id === selectedColorId
@@ -148,60 +150,13 @@ export function ProductOptionsModal({
             </select>
           </div>
 
-          {onAddToOrder ? (
+          {onRequestInfo ? (
             <button
               type="button"
-              onClick={onAddToOrder}
-              disabled={isAdded}
-              aria-live="polite"
-              className={`relative flex w-full max-w-xs cursor-pointer items-center justify-center overflow-hidden rounded-full px-6 py-3 font-sans text-sm font-semibold tracking-wide text-white transition-[background-color,box-shadow] duration-500 ease-out focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary disabled:cursor-default ${
-                isAdded
-                  ? "bg-success shadow-md"
-                  : "bg-primary hover:bg-primary-hover"
-              }`}
+              onClick={onRequestInfo}
+              className="inline-flex cursor-pointer items-center self-start font-sans text-sm font-semibold text-primary underline-offset-4 transition-colors duration-200 hover:underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
             >
-              <span className="grid place-items-center">
-                <span
-                  className={`col-start-1 row-start-1 flex items-center gap-2 transition-all duration-500 ease-out ${
-                    isAdded
-                      ? "pointer-events-none translate-y-1 opacity-0"
-                      : "translate-y-0 opacity-100"
-                  }`}
-                >
-                  <Image
-                    src="/icons/shop.png"
-                    alt=""
-                    width={16}
-                    height={16}
-                    className="shrink-0 brightness-0 invert"
-                  />
-                  <span>{t("add_to_order")}</span>
-                </span>
-                <span
-                  className={`col-start-1 row-start-1 flex items-center gap-2 transition-all duration-500 ease-out ${
-                    isAdded
-                      ? "translate-y-0 opacity-100"
-                      : "pointer-events-none -translate-y-1 opacity-0"
-                  }`}
-                >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 20 20"
-                    fill="none"
-                    className="h-4 w-4 shrink-0"
-                    aria-hidden
-                  >
-                    <path
-                      d="M4.5 10.5L8 14l7.5-8"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    />
-                  </svg>
-                  <span>{t("added_to_order")}</span>
-                </span>
-              </span>
+              {t("request_info")}
             </button>
           ) : null}
 

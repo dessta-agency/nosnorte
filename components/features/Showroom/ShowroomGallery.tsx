@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Modal } from "@/components/ui/Modal/Modal";
 import { Reveal } from "@/components/ui/Reveal/Reveal";
 import {
@@ -69,9 +69,20 @@ export function ShowroomGallery({
   nextLabel,
 }: ShowroomGalleryProps) {
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
-  const selectedImage =
-    selectedIndex !== null ? images[selectedIndex] : undefined;
+  const [lightboxMounted, setLightboxMounted] = useState(false);
+  const lastSelectedIndexRef = useRef(0);
+  if (selectedIndex !== null) {
+    lastSelectedIndexRef.current = selectedIndex;
+  }
+  const isLightboxOpen = selectedIndex !== null;
+  const selectedImage = images[lastSelectedIndexRef.current];
   const canNavigate = images.length > 1;
+
+  useEffect(() => {
+    if (isLightboxOpen) {
+      setLightboxMounted(true);
+    }
+  }, [isLightboxOpen]);
 
   function goToPrevious() {
     setSelectedIndex((current) => {
@@ -162,9 +173,9 @@ export function ShowroomGallery({
         })}
       </ul>
 
-      {selectedImage ? (
+      {lightboxMounted && selectedImage ? (
         <Modal
-          isOpen
+          isOpen={isLightboxOpen}
           onClose={() => setSelectedIndex(null)}
           title={selectedImage.title ?? selectedImage.alt}
           closeLabel={closeLabel}

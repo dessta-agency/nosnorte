@@ -8,9 +8,9 @@ Known limitations and consciously accepted trade-offs.
 - Card fields such as reference, availability, “more options”, price-on-request, SKU, unit, and color options are enriched locally for UI purposes; they are not authoritative business data.
 - Construction-oriented checkbox filters (warranty, finish, color, width, material, size, etc.) are simulated client-side via deterministic `filterAttributes` on each product (`constants/product-filters.ts`). Not every product has every attribute; each filter option is still assigned to enough products for non-empty results. Category, brand, and price still use DummyJSON fields. This is temporary until a real catalog API provides those attributes.
 
-## Add to order
+## Product information request
 
-- “Add to order” only shows temporary UI feedback on the button. There is no cart, order persistence, or backend submission yet.
+- The product inquiry form (name, email, optional message) only shows temporary UI success/error feedback. There is no email send or backend submission yet. The selected product is available in the client for a future “Information about product X” message.
 
 ## Status badge color for “on order”
 
